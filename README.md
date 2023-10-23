@@ -76,7 +76,42 @@
 - 解析結果（JSONデータ）からcolor情報を取得。  
 - 取得したcolor情報をChatGPT_APIに渡して診断結果を出してもらう。  
   - 各色に対してどのような性格かを設定しておく。  
-  - 色配分からChatGPTが性格を導き出す。　
+  - 色配分からChatGPTが性格を導き出す。
+- Google Cloud Vision で画像から色情報（割合）を出す様子（無料お試しページより）
+[![Image from Gyazo](https://i.gyazo.com/d3a85b2eeccf34e1a029babd9174daee.png)](https://gyazo.com/d3a85b2eeccf34e1a029babd9174daee)
+- 画像から返されるJSONデータの中のcolor情報部分（一部抜粋）
+```
+    "dominantColors": {
+      "colors": [
+        {
+          "color": {
+            "blue": 174,
+            "green": 154,
+            "red": 106
+          },
+          "hex": "6A9AAE",
+          "percent": 26.81794213817742,
+          "percentRounded": 27,
+          "pixelFraction": 0.014795731,
+          "rgb": "106, 154,\n 174",
+          "score": 0.22608566
+        },
+        {
+          "color": {
+            "blue": 200,
+            "green": 229,
+            "red": 246
+          },
+          "hex": "F6E5C8",
+          "percent": 14.174644005030618,
+          "percentRounded": 14,
+          "pixelFraction": 0.07994111,
+          "rgb": "246, 229,\n 200",
+          "score": 0.11949775
+        },
+```
+- 実際にChatGPTで実践したデモ結果（条件として各色毎の性格等の初期設定を設け、JSON形式の色情報を渡した）
+  [![Image from Gyazo](https://i.gyazo.com/b2a664f4e810b620ce5d6ca36f5fe425.png)](https://gyazo.com/b2a664f4e810b620ce5d6ca36f5fe425)
 
 【ログイン機能】  
 sorcery を使って実装したいと考えています。  
