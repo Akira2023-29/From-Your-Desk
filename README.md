@@ -74,7 +74,7 @@
 - Google Cloud Vision APIでアップロードした画像を解析。
   - プロパティ情報の中の「color」に関するデータだけ使う。
 - 解析結果（JSONデータ）からcolor情報を取得。  
-- 取得したcolor情報をChatDPT_APIに渡して診断結果を出してもらう。  
+- 取得したcolor情報をChatGPT_APIに渡して診断結果を出してもらう。  
   - 各色に対してどのような性格かを設定しておく。  
   - 色配分からChatGPTが性格を導き出す。　
 
