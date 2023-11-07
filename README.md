@@ -120,3 +120,6 @@ Rails応用で学んだAPIを使わない方法で実装を考えています。
 
 ### 画面遷移図
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
+
+### ER図
+[![Image from Gyazo](https://i.gyazo.com/69ebd3376e1b56dba473b1f338b78c96.png)](https://gyazo.com/69ebd3376e1b56dba473b1f338b78c96)
