@@ -1,0 +1,29 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    # コンテナが動作するアーキテクチャを指定
+    platform: linux/amd64
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    # ホストの5435ポート番号をコンテナの5435ポート番号にマッピング
+    ports:
+      - 5431:5431
+  web:
+    build: .
+    # コンテナ起動時に実行されるコマンドで、既存のserver.pidファイルを削除してからRailsサーバーを起動
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3003 -b '0.0.0.0'"
+    # ローカルのファイル変更がコンテナに反映
+    volumes:
+      - .:/app
+    ports:
+      - "3003:3003"
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+volumes:
+  # PostgreSQLのデータを永続化するためのボリューム
+  postgresql-data:
