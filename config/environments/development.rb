@@ -67,4 +67,10 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  
+  # dockerでbetter_errorsを使用する設定
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+
+  # 「from-your-desk.onrender.com」を許可するホストに追加（デプロイ時にエラーが出るため）
+  config.hosts << "from-your-desk.onrender.com"
 end
