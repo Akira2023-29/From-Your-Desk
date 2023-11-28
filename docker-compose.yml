@@ -8,6 +8,7 @@ services:
       - postgresql-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
     # ホストの5435ポート番号をコンテナの5435ポート番号にマッピング
     ports:
       - 5431:5431
