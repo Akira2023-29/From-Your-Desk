@@ -1,0 +1,55 @@
+<div class="container mx-auto  text-center" >
+  <div class="relative p-10">
+    <div class="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-25" style="background-image: url(<%= image_url('27870742_s.jpg') %>);"></div>
+    <!-- 背景画像だけ半透明に設定 -->
+      <h1 class="font-bold text-7xl text-amber-900 mb-4 ">From your Desk</h1>
+        <div class="font-bold text-2xl">
+          <p class="mb-4">デスク環境にはデスクワーカー自身が表れています。</p>
+          <p class="mb-4">デスク写真からあなたを診断します。</p>
+          <p class="mb-4">診断結果をデスクワーカー仲間でシェアできます。</p>
+        </div>
+      <div class="relative">
+        <p class="font-bold m-4 text-2xl">早速診断しましょう。</p>
+        <%= link_to '診断する', '#', class: "inline-block bg-amber-600 hover:bg-amber-800 shadow-lg shadow-cyan-500/50 text-white font-bold text-3xl py-2 px-4 rounded transition duration-150 ease-in-out" %>
+      </div>
+      <div class="text-2xl relative p-5">
+        <p class="mb-4">デスクで長時間を過ごすデスクワーカーは</p>
+        <p>自然と自分らしさがそこに表れているのです。</p>
+      </div>
+  </div>
+
+  <h2 class="font-bold text-1xl bg-yellow-700 py-2">このサービスについて</h2>
+  <div class="bg-gray-200 px-2 py-2 text-2xl">
+    <div class="flex justify-around items-center m-4">
+      <div>
+        <h1 class="font-bold text-4xl">STEP1</h1>
+        <%= image_tag '1512970557.png', class: "max-wide-80"%>
+        <p class="m-4">デスク環境の写真を撮影しておいて下さい。</p>
+      </div>
+      <div class="font-bold text-6xl">→</div>
+      <div>
+        <h1 class="font-bold text-4xl">STEP2</h1>
+        <%= image_tag '1524029628.png'%>
+        <p class="m-4">写真をアップするだけで診断します。</p>
+      </div>
+    </div>
+
+    <hr class="border-4 border-yellow-800 my-2">
+
+    <div class="flex justify-around items-center m-4">
+      <div>
+        <%= image_tag '1522397381.png', class: "shadow-lg shadow-cyan-500/50" %>
+        <p class="m-4">あなたの性格を診断します。</p>
+      </div>
+      <div>
+        <%= image_tag '1522383382.png', class: "shadow-lg shadow-cyan-500/50" %>
+        <p class="m-4">あなたのアバターも自動で生成します。</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-bold m-4 text-2xl">早速診断しましょう。</p>
+      <%= link_to '診断する', '#', class: "inline-block bg-amber-600 hover:bg-amber-800 shadow-lg shadow-cyan-500/50 text-white font-bold text-3xl py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    </div>
+  </div>
+</div>
