@@ -9,9 +9,9 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
-    # ホストの5435ポート番号をコンテナの5435ポート番号にマッピング
+    # ホストの5432ポート番号をコンテナの5432ポート番号にマッピング
     ports:
-      - 5431:5431
+      - 5432:5432
   web:
     build: .
     # コンテナ起動時に実行されるコマンドで、既存のserver.pidファイルを削除してからRailsサーバーを起動
