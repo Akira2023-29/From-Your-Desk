@@ -18,13 +18,13 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5  # データベースコネクションプールのサイズ。
+  host: db # データベースのホスト名（データベースのコンテナ名）
+  username: postgres # データベースに接続する際のユーザ名
+  password: password # データベースのパスワード
 
 development:
   <<: *default
   database: app_development
-  host: db # データベースのホスト名（データベースのコンテナ名）
-  username: postgres # データベースに接続する際のユーザ名
-  password: password # データベースのパスワード
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
