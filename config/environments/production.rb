@@ -92,5 +92,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # 「from-your-desk.onrender.com」を許可するホストに追加（デプロイ時にエラーが出るため）
-  config.hosts << "from-your-desk.onrender.com"
+  # config.hosts << "from-your-desk.onrender.com"
 end
