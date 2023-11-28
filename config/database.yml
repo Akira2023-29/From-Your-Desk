@@ -17,10 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  pool: 5
+  host: db # データベースのホスト名（データベースのコンテナ名）
+  username: postgres # データベースに接続する際のユーザ名
+  password: password # データベースのパスワード
+  pool: 5  # データベースコネクションプールのサイズ。
 
 development:
   <<: *default
@@ -80,8 +80,11 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+# 本番環境でのデータベース接続設定
 production:
   <<: *default
-  database: app_production
-  username: app
-  url: <%= ENV['DATABASE_URL'] %>
+  database: app_production # 使用するデータベースの名前
+  username: app   # データベースに接続するユーザー名
+  # この環境変数はRender設定画面で取得する。
+  url: <%= ENV['DATABASE_URL'] %> # データベースの接続情報全体を指定するURL。環境変数DATABASE_URLから値を取得している。これには通常、プロトコル、ユーザー名、パスワード、ホスト名、ポート番号、データベース名が含まれる。
