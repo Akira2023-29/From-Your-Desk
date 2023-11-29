@@ -1,62 +1,62 @@
-# version: "3"
-# services:
-#   db:
-#     image: postgres
-#     # コンテナが動作するアーキテクチャを指定
-#     platform: linux/amd64
-#     volumes:
-#       - postgresql-data:/var/lib/postgresql/data
-#     environment:
-#       POSTGRES_PASSWORD: password
-#       POSTGRES_USER: postgres
-#     # ホストの5432ポート番号をコンテナの5432ポート番号にマッピング
-#     ports:
-#       - 5432:5432
-#   web:
-#     build: .
-#     # コンテナ起動時に実行されるコマンドで、既存のserver.pidファイルを削除してからRailsサーバーを起動
-#     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3003 -b '0.0.0.0'"
-#     # ローカルのファイル変更がコンテナに反映
-#     volumes:
-#       - .:/app
-#     ports:
-#       - "3003:3003"
-#     depends_on:
-#       - db
-#     tty: true
-#     stdin_open: true
-# volumes:
-#   # PostgreSQLのデータを永続化するためのボリューム
-#   postgresql-data:
-
+version: "3"
 services:
   db:
-    image: postgres:latest
+    image: postgres
+    # コンテナが動作するアーキテクチャを指定
     platform: linux/amd64
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
     environment:
-      TZ: Asia/Tokyo
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    # ホストの5432ポート番号をコンテナの5432ポート番号にマッピング
     ports:
       - 5432:5432
   web:
     build: .
+    # コンテナ起動時に実行されるコマンドで、既存のserver.pidファイルを削除してからRailsサーバーを起動
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3003 -b '0.0.0.0'"
-    tty: true
-    stdin_open: true
+    # ローカルのファイル変更がコンテナに反映
     volumes:
       - .:/app
-      - bundle_data:/usr/local/bundle:cached
-      - node_modules:/app/node_modules
-    environment:
-      TZ: Asia/Tokyo
     ports:
       - "3003:3003"
     depends_on:
       - db
+    tty: true
+    stdin_open: true
 volumes:
-  postgres_data:
-  bundle_data:
-  node_modules:
+  # PostgreSQLのデータを永続化するためのボリューム
+  postgresql-data:
+
+# services:
+#   db:
+#     image: postgres:latest
+#     platform: linux/amd64
+#     environment:
+#       TZ: Asia/Tokyo
+#       POSTGRES_PASSWORD: password
+#       POSTGRES_USER: postgres
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     ports:
+#       - 5432:5432
+#   web:
+#     build: .
+#     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3003 -b '0.0.0.0'"
+#     tty: true
+#     stdin_open: true
+#     volumes:
+#       - .:/app
+#       - bundle_data:/usr/local/bundle:cached
+#       - node_modules:/app/node_modules
+#     environment:
+#       TZ: Asia/Tokyo
+#     ports:
+#       - "3003:3003"
+#     depends_on:
+#       - db
+# volumes:
+#   postgres_data:
+#   bundle_data:
+#   node_modules:
