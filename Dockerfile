@@ -9,7 +9,7 @@ COPY Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 # アセットのプリコンパイル実行
-RUN RAILS_ENV=production bundle exec rails assets:precompile
+# RUN RAILS_ENV=production bundle exec rails assets:precompile
 COPY . /app
 
 # コンテナー起動時に毎回実行されるスクリプト
