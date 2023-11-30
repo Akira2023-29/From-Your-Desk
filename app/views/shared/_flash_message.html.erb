@@ -1,0 +1,5 @@
+<% flash.each do |message_type, message|%>
+  <div class="mt-5 alert bg-<%= message_type %>">
+    <%= message %>
+  </div>
+<% end %>
