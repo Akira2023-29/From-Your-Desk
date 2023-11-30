@@ -10,9 +10,6 @@ COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
 
-# 本番環境でのアセットプリコンパイル
-RUN bundle exec rails assets:precompile RAILS_ENV=production
-
 # コンテナー起動時に毎回実行されるスクリプト
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
