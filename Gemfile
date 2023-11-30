@@ -89,3 +89,5 @@ end
 gem 'jsbundling-rails'
 
 gem 'sorcery'
+
+gem 'rails-i18n', '~> 7.0.0'

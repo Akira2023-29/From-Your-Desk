@@ -2,6 +2,7 @@
   <h1 class="font-bold text-4xl my-6">ユーザー新規登録</h1>
   
   <%= form_with model: @user do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
       <%= f.label :name, class: "block" %>
       <%= f.text_field :name, class: "mt-1" %>
