@@ -1,9 +1,7 @@
 FROM ruby:3.2.2
 
 # node.js, yarn、postgressqlクライアントツールをインストール
-RUN wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && apt-get update -qq && apt-get install -y nodejs yarn postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
 RUN mkdir /app
 WORKDIR /app
