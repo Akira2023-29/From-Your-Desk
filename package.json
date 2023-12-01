@@ -1,0 +1,7 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Akira2023-29/Diagnosis-at-Desk-.git",
+  "license": "MIT"
+}
