@@ -1,4 +1,18 @@
-<div>
-  <h1 class="font-bold text-4xl">Profiles#edit</h1>
-  <p>Find me in app/views/profiles/edit.html.erb</p>
+<div class="mx-auto  text-center">
+  <h1 class="font-bold text-4xl my-6">ユーザー情報編集</h1>
+  
+  <%= form_with model: @user, url: profile_path, method: :put do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="mb-3">
+      <%= f.label :name, class: "block" %>
+      <%= f.text_field :name, class: "mt-1" %>
+    </div>
+  
+    <div class='mb-3'>
+      <%= f.label :email, class: "block"  %>
+      <%= f.email_field :email, class: "mt-1" %>
+    </div>
+  
+    <%= f.submit "更新", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+  <% end %>
 </div>
