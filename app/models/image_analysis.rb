@@ -1,0 +1,2 @@
+class ImageAnalysis < ApplicationRecord
+end

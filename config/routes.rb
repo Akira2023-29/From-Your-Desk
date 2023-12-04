@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # 診断ページ
   resources :diagnoses, only: %i[new]
 
+  references :image_analyses, only: %i[new show create destroy]
+
   resources :boards, only: %i[index show destroy]
 
   get 'login', to: 'user_sessions#new'
