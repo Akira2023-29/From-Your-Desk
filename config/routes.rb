@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
 
-  # 診断ページ
-  resources :diagnoses, only: %i[new]
+  # 診断結果ページ
+  resources :diagnoses, only: %i[show create]
 
+  # 画像解析
   resources :image_analyses, only: %i[new show create destroy]
 
+  # 掲示板
   resources :boards, only: %i[index show destroy]
 
   get 'login', to: 'user_sessions#new'
