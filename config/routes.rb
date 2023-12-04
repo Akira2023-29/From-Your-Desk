@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :diagnoses, only: %i[index create]
 
   # 画像解析
-  resources :image_analyses, only: %i[new show create destroy]
+  resources :image_analyses, only: %i[new create]
 
   # 掲示板
   resources :boards, only: %i[index show destroy]
