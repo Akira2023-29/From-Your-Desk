@@ -1,0 +1,22 @@
+<div class="text-center">
+  <h1 class="font-bold text-4xl my-6">ユーザー詳細</h1>
+  
+  <table class="table-auto mx-auto border-separate border-spacing-2 border border-slate-500 bg-teal-400">
+    <thead class="bg-teal-100">
+      <tr>
+        <th class="border border-slate-600 px-10 py-2">ユーザー名</th>
+        <th class="border border-slate-600 px-10 py-2">メールアドレス</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr>
+        <td class="border border-slate-700 p-2"><%= current_user.name %></td>
+        <td class="border border-slate-700 p-2" ><%= current_user.email %></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div>
+    <%= link_to "ユーザー情報編集", "#" %>
+  </div>
+</div>
