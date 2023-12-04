@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
 
   # 診断結果ページ
-  resources :diagnoses, only: %i[show create]
+  resources :diagnoses, only: %i[index create]
 
   # 画像解析
   resources :image_analyses, only: %i[new show create destroy]

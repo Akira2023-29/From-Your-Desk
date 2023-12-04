@@ -12,7 +12,7 @@ class ImageAnalysesController < ApplicationController
   def create
     @iamge_analysis = ImageAnalysis.new(image_analysis_params)
     if @iamge_analysis.save
-      redirect_to "#", success: ('ユーザー登録が成功しました！')
+      redirect_to diagnoses_path, success: ('ユーザー登録が成功しました！')
     else
       flash.now[:danger] = ('ユーザー登録に失敗しました')
       render diagnoses_new_path, status: :unprocessable_entity

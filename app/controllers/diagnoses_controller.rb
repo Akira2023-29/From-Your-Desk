@@ -1,4 +1,7 @@
 class DiagnosesController < ApplicationController
-  def diagnosis
+  def index
+  end
+
+  def create
   end
 end
