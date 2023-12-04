@@ -1,4 +1,25 @@
 <div>
-  <h1 class="font-bold text-4xl">ImageAnalyses#new</h1>
-  <p>Find me in app/views/image_analyses/new.html.erb</p>
+  <%= form_with model: @image_analysis do |f| %>
+    <%# = render "shared/error_messages", object: f.object %>
+
+    <div class="mb-3">
+    <%= f.label :'あなたのデスク環境写真を添付してください' %>
+    <br>
+    <%= f.file_field :desk_image, id: 'desk_image' %>
+    <%= f.hidden_field :desk_image_cache %>
+  </div>
+
+  <div class="mb-3">
+    <%# ここでプレビューを表示 %>
+    <%#= image_tag image_analysis.desk_image.url,
+              id: 'preview',
+              width: 500,
+              height: 300
+              %>
+  </div>
+
+  <div>
+    <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+  </div>
+<% end %>
 </div>

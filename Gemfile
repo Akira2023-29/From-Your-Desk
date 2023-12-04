@@ -91,3 +91,6 @@ end
 gem 'sorcery'
 
 gem 'rails-i18n', '~> 7.0.0'
+
+gem 'carrierwave', '~> 3.0'
+gem 'mini_magick'
