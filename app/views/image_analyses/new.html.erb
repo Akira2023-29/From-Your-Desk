@@ -1,0 +1,24 @@
+<div class="mx-auto  text-center">
+  <h1 class="font-bold text-4xl my-6">診断</h1>
+
+  <%= form_with model: @image_analysis, url: image_analyses_path do |f| %>
+    <%# = render "shared/error_messages", object: f.object %>
+
+    <div class="mb-3">
+      <%= f.label :'デスク写真', class: "block" %>
+      <%= f.file_field :desk_image, id: 'desk_image', class: "mt-1" %>
+      <%= f.hidden_field :desk_image_cache %>
+    </div>
+
+    <div class="mb-3">
+      <!-- プレビューを表示 -->
+      <%#= image_tag @image_analysis.desk_image.url,
+              id: 'preview'
+              %>
+    </div>
+
+    <div>
+      <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    </div>
+  <% end %>
+</div>

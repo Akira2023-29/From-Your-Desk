@@ -63,6 +63,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'pry-rails'
 end
 
 group :development do
@@ -91,3 +92,6 @@ end
 gem 'sorcery'
 
 gem 'rails-i18n', '~> 7.0.0'
+
+gem 'carrierwave', '~> 3.0'
+gem 'mini_magick'
