@@ -6,8 +6,6 @@ class ImageAnalysesController < ApplicationController
   end
 
   def create
-    binding.pry
-    
     @iamge_analysis = ImageAnalysis.new(image_analysis_params)
     if @iamge_analysis.save
       redirect_to diagnoses_path, success: ('ユーザー登録が成功しました！')
