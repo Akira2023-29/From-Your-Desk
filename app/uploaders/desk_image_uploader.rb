@@ -14,7 +14,7 @@ class DeskImageUploader < CarrierWave::Uploader::Base
 
   #画像が存在しない時にデフォルトで表示する画像のURLを設定する
   def default_url
-    '/assets/images/sample.jpg'
+    '/sample.jpg'
   end
 
   # Process files as they are uploaded:
