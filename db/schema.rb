@@ -10,25 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_04_061414) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_05_065651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "boards", force: :cascade do |t|
-    t.string "title"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_boards_on_user_id"
-  end
 
   create_table "diagnoses", force: :cascade do |t|
     t.text "result_en"
     t.text "result_jp"
-    t.bigint "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["board_id"], name: "index_diagnoses_on_board_id"
+    t.bigint "user_id"
+    t.string "desk_image"
+    t.text "color_info"
+    t.index ["user_id"], name: "index_diagnoses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +35,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_04_061414) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "boards", "users"
-  add_foreign_key "diagnoses", "boards"
+  add_foreign_key "diagnoses", "users"
 end
