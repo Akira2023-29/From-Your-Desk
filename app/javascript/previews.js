@@ -1,3 +1,4 @@
+// 画像ファイルを選択した際にその画像をプレビュー表示。
 window.addEventListener('DOMContentLoaded', (event) => {
   document.querySelector('#desk_image').addEventListener('change', previewImage);
 });
