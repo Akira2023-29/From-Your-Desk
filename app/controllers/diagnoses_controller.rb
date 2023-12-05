@@ -1,4 +1,6 @@
 class DiagnosesController < ApplicationController
+  skip_before_action :require_login, only: %i[index show]
+
   def index
   end
 
@@ -16,5 +18,11 @@ class DiagnosesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def diagnosis_params
+    params.require(:diagnosis).permit(:desk_image)
   end
 end
