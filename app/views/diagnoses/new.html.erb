@@ -1,0 +1,12 @@
+<div>
+  <div>
+  <h1 class="font-bold text-4xl">診断する</h1>
+  <p>デスク写真を選択してください。</p>
+
+  <%= render "form", diagnosis: @diagnosis%>
+  </div>
+
+  <div>
+    <%= link_to "投稿されたデスク環境一覧はこちら", diagnoses_path %>
+  </div>
+</div>
