@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'diagnoses/index'
-  get 'diagnoses/new'
-  get 'diagnoses/show'
-  get 'diagnoses/edit'
-  get 'diagnoses/create'
-  get 'diagnoses/destroy'
-
   root 'top_pages#top'
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]

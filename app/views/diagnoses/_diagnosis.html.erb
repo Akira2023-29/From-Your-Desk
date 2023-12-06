@@ -1,0 +1,13 @@
+<div>
+  <div>
+  <% if diagnosis.desk_image? %>
+    <%= image_tag diagnosis.desk_image.url %>
+  <% end %>
+  </div>
+
+  <div>
+   <h5>【診断結果】</h5>
+   <%= diagnosis.color_info %>
+  </div>
+
+</div>
