@@ -34,8 +34,9 @@ class DiagnosesController < ApplicationController
         pixel_fraction = (item[:pixelFraction]).round(1)
         "#{color}: #{pixel_fraction}%"
       end
+    end
       # データベースに保存
-      @diagnosis.save
+    if @diagnosis.save
       redirect_to diagnosis_path(@diagnosis), success: ('画像を解析したぞ・・・！')
     else
       flash.now[:danger] = '画像を解析できませんでした。'
