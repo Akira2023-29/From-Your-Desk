@@ -3,7 +3,8 @@ class Diagnosis < ApplicationRecord
 
     belongs_to :user
 
-    #validates :result, presence: true, length: { maximum: 200 }
+    validates :desk_image, presence: true, length: { maximum: 200 }
+    validates :color_info, presence: true, length: { maximum: 200 }
 
     def analyze_image(uploaded_image_path)
         api_key = ENV['GOOGLE_API_KEY']
