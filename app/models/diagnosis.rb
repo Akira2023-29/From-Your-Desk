@@ -40,7 +40,7 @@ class Diagnosis < ApplicationRecord
             color_full_data.map do |color_info|
                 { 
                 color: color_info['color'].values.join(", "),
-                pixelFraction: (color_info['pixelFraction'] * 100).round(2)
+                score: (color_info['score'] * 100).round(2)
                 }
             end
         # else
