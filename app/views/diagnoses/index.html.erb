@@ -1,8 +1,9 @@
 <div class="mx-auto  text-center">
   <h1 class="font-bold text-4xl my-6">投稿一覧</h1>
   <div class="mb-3">
-    <% if @diagnosis.present? %>
-      <%= render @diagnosis %>
+    <% if @diagnoses.present? %>
+      <%# = render @diagnosis %>
+      <%= render partial: "diagnosis", collection: @diagnoses %>
     <% else %>
       <div>掲示板がありません</div>
     <% end %>

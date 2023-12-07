@@ -6,7 +6,7 @@
 
     <div class="flex items-center">
         <%= link_to '診断', new_diagnosis_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-        <%= link_to '投稿一覧', "#", class: "inline-block bg-amber-600 hover:bg-amber-800 shadow-lg text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+        <%= link_to '投稿一覧', diagnoses_path, class: "inline-block bg-amber-600 hover:bg-amber-800 shadow-lg text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
         <%= link_to 'ユーザー情報', profile_path, class: "inline-block bg-amber-600 hover:bg-amber-800 shadow-lg text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
         <%= link_to 'ログアウト', logout_path , class: "inline-block bg-amber-600 hover:bg-amber-800 shadow-lg text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out", data: { turbo_method: :delete } %>
     </div>
