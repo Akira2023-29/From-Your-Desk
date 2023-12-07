@@ -45,6 +45,9 @@ class DiagnosesController < ApplicationController
   end
 
   def destroy
+    diagnosis = current_user.diagnoses.find_by(id: params[:id])
+    diagnosis.destroy!
+    redirect_to diagnoses_path, success: ('削除しました')
   end
 
   private
