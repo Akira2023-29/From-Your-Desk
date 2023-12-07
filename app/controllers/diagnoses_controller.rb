@@ -2,7 +2,7 @@ class DiagnosesController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @diagnosis = Diagnosis.all
+    @diagnoses = Diagnosis.all.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -45,6 +45,9 @@ class DiagnosesController < ApplicationController
   end
 
   def destroy
+    diagnosis = current_user.diagnoses.find_by(id: params[:id])
+    diagnosis.destroy!
+    redirect_to diagnoses_path, success: ('削除しました')
   end
 
   private
