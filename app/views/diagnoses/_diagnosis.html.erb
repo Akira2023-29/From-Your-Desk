@@ -8,7 +8,7 @@
 
         <div class="mb-3 flex flex-col">
             <%= link_to "【診断結果】", diagnosis_path(diagnosis), class: "underline underline-offset-2 text-2xl mb-1" %>
-            <%= diagnosis.result_en %>
+            <%= diagnosis.result_jp %>
         </div>
 
         <% if current_user&.own?(diagnosis) %>
