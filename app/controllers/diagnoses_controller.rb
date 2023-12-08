@@ -20,14 +20,13 @@ class DiagnosesController < ApplicationController
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
 
     #.tempfile はアップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
-    # .path はそのTempfileオブジェクトのファイルシステム上のパスを取得している。
-    # これは、後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス。
+    # .path はそのTempfileオブジェクトのファイルシステム上のパスを取得している。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
 
     # 色情報をcolor_infoカラムにセット。
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
-      @diagnosis.color_info = analysis_result    # 解析結果をマップして指定の形式に変換。
+      @diagnosis.color_info = analysis_result
     end
 
     # 翻訳前の回答をresult_enカラムにセット。
