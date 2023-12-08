@@ -89,11 +89,21 @@ end
 
 # gem 'jsbundling-rails'
 
+# 認証機能
 gem 'sorcery'
 
+# 国際化
 gem 'rails-i18n', '~> 7.0.0'
 
+# 画像ファイルアップロード
 gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'
 
+# 環境変数管理。
 gem 'dotenv-rails'
+
+# Google Cloud Vision API
+gem 'google-cloud-vision'
+
+# OpenAI Chat-GPT
+gem "ruby-openai"
