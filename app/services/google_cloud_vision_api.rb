@@ -30,10 +30,13 @@ class GoogleCloudVisionApi
         # レスポンスのHTTPステータスコードが200の場合、レスポンスボディから色情報を抽出。
         if response.code == '200'
             color_full_data = JSON.parse(response.body)['responses'][0]['imagePropertiesAnnotation']['dominantColors']['colors']
-            color_full_data.map do |color_info|
+            # 色の画面支配率（pixelFraction）で降順にソート
+            sorted_by_pixel_fraction = color_full_data.sort_by { |color_info| -color_info['pixelFraction'] }
+            # 文字数削減のため、必要な数値部分のみ抽出。
+            sorted_by_pixel_fraction.map do |color_info|
                 color = color_info['color'].values.join(", ").split(', ').map(&:to_i).join(", ") # RGB値の値を抽出。
-                score = (color_info['score']*100).round(3)                 # 各色の支配率スコアを抽出。
-                pixelFraction = (color_info['pixelFraction']*100).round(3) # 各色の画像内のどれくらいの割合のピクセルを占めているかを抽出。
+                score = (color_info['score']*100).round(3)                                       # 各色の支配率スコアを抽出。
+                pixelFraction = (color_info['pixelFraction']*100).round(3)                       # 各色の画像内のどれくらいの割合のピクセルを占めているかを抽出。
                 "#{color}: #{score} :#{pixelFraction}"
             end
         end
