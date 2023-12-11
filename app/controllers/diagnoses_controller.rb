@@ -27,7 +27,7 @@ class DiagnosesController < ApplicationController
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result
-      @diagnosis.rakuten_color_name = analysis_result
+      @diagnosis.rakuten_color_name = RakutenApi.color_name(analysis_result)
     end
 
     # 翻訳前の回答をresult_enカラムにセット。
