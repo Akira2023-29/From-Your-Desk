@@ -1,5 +1,6 @@
 class RakutenApi
     def self.color_name(analysis_color_info)
+        return 'colorful' if analysis_color_info.empty? 
         first_color_info = analysis_color_info.first            # 配列の先頭の色彩情報を取得
         rgb_values = first_color_info.split(':').first   # RGB値を取得
         rgb_array = rgb_values.split(',').map(&:to_i)   # RGB値を配列に変換
@@ -28,7 +29,8 @@ class RakutenApi
         elsif red > 200 && green > 200 && blue > 200
             'White'
         else
-            'Unknown'
+            colors = ['Red', 'Blue', 'Green', 'Yellow', 'Pink', 'Purple', 'Orange', 'Brown', 'Black', 'White']
+            colors.sample
         end
     end
 end
