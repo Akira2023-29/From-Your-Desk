@@ -13,9 +13,16 @@
       <%= @diagnosis.result_jp %>
     </div>
 
-    <div class="mb-3 flex flex-col">
-      <h2 class= "text-2xl mb-1">【デスク色情報】</h2> 
-      <%= @diagnosis.color_info %>
+    <div class="mb-3">
+      <h2 class= "text-2xl mb-1">【こちらをデスクに置いてみませんか？】</h2> 
+      <% if @diagnosis.color_name.present? %>
+        <% items = RakutenWebService::Ichiba::Item.search(keyword: "オブジェ #{@diagnosis.color_name}", hits: 8) %>
+          <% items.each do |item| %>
+          <%= image_tag item['mediumImageUrls'].first %><br>
+          <%= link_to item['itemName'] %><br>
+          <%= "#{item['itemPrice']}円 " %><br>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="mb-3">

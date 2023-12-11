@@ -1,12 +1,11 @@
 class RakutenApi
     def self.color_name(analysis_color_info)
-        colors_array = JSON.parse(analysis_color_info)
-        first_color_info = colors_array.first            # 配列の先頭の色彩情報を取得
+        first_color_info = analysis_color_info.first            # 配列の先頭の色彩情報を取得
         rgb_values = first_color_info.split(':').first   # RGB値を取得
-        rgb_array = rgb_values.split(',').map(&:to_i).   # RGB値を配列に変換
+        rgb_array = rgb_values.split(',').map(&:to_i)   # RGB値を配列に変換
         
         red, green, blue = rgb_array  # RGB値をred, green, blue に格納
-        
+
         # 色名判定ロジック
         if red > 200 && green < 50 && blue < 50
             'Red'
