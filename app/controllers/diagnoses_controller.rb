@@ -23,10 +23,11 @@ class DiagnosesController < ApplicationController
     # .path はそのTempfileオブジェクトのファイルシステム上のパスを取得している。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
 
-    # 色情報をcolor_infoカラムにセット。
+    # 色情報をcolor_infoカラムにセット + 楽天APIに使う形に処理したものをcolor_nameカラムにセット
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result
+      @diagnosis.rakuten_color_name = analysis_result
     end
 
     # 翻訳前の回答をresult_enカラムにセット。
