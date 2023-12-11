@@ -107,3 +107,6 @@ gem 'google-cloud-vision'
 
 # OpenAI Chat-GPT
 gem "ruby-openai"
+
+# 楽天API
+gem 'rakuten_web_service'
