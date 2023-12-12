@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_05_064928) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_11_145912) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_05_064928) do
     t.bigint "user_id"
     t.string "desk_image"
     t.text "color_info"
+    t.string "color_name"
     t.index ["user_id"], name: "index_diagnoses_on_user_id"
   end
 
