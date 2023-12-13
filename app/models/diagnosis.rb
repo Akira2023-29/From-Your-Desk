@@ -5,4 +5,5 @@ class Diagnosis < ApplicationRecord
 
     # validates :desk_image, presence: true, length: { maximum: 200 }
     # validates :color_info, presence: true, length: { maximum: 200 }
+
 end
