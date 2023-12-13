@@ -110,3 +110,6 @@ gem "ruby-openai"
 
 # 楽天API
 gem 'rakuten_web_service'
+
+# グラフ
+gem "chartkick"
