@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   has_many :diagnoses, dependent: :destroy
+  has_many :anthentications, :dependent: :destroy
+  accepts_nested_attributes_for :authentications
 
   def own?(object)
     id == object&.user_id
