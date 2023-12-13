@@ -1,22 +1,42 @@
 <div class="mx-auto  text-center">
+  <!--  クライアントライブラリの読み込み -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <h1 class="font-bold text-4xl my-6">ログイン</h1>
 
-  <%= form_with url: login_path do |f| %>
-    <div class='mb-3'>
-      <%= f.label :email, class: "block" %>
-      <%= f.email_field :email, class: "mt-1" %>
-    </div>
-
-    <div class='mb-3'>
-      <%= f.label :password, class: "block" %>
-      <%= f.password_field :password, class: "mt-1" %>
-    </div>
-
-    <%= f.submit "ログイン", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-  <% end %>
-
   <div>
-    <%= link_to "新規登録はこちら", new_user_path %>
-    <%= link_to "パスワードを忘れた方はこちら", "#" %>
+    <%= form_with url: login_path do |f| %>
+      <div class='mb-3'>
+        <%= f.label :email, class: "block" %>
+        <%= f.email_field :email, class: "mt-1" %>
+      </div>
+
+      <div class='mb-3'>
+        <%= f.label :password, class: "block" %>
+        <%= f.password_field :password, class: "mt-1" %>
+      </div>
+
+      <%= f.submit "ログイン", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <% end %>
+
+
+    <div id="g_id_onload"
+      data-client_id="ENV['GOOGLE_CLIENT_ID']"
+      data-login_uri="http://localhost:3003/login"
+      data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin inline-block"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left">
+    </div>
+
+    <div>
+      <%= link_to "新規登録はこちら", new_user_path %>
+      <%= link_to "パスワードを忘れた方はこちら", "#" %>
+    </div>
   </div>
 </div>
