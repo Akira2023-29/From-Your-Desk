@@ -79,8 +79,9 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
-  #
-  # config.external_providers =
+  
+  # Googleを外部認証のプロバイダーとして設定。
+  config.external_providers = %i[google]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -158,11 +159,13 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  # config.google.key = ""
-  # config.google.secret = ""
-  # config.google.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=google"
-  # config.google.user_info_mapping = {:email => "email", :username => "name"}
-  # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+  config.google.key = ENV['GOOGLE_CLIENT_ID']
+  config.google.secret = ENV['GOOGLE_CLIENT_SECRET']
+  # API設定で承認済みのリダイレクトURIとして登録したurlを設定
+  config.google.callback_url = "http://localhost:3003/oauth/callback?provider=google"
+  # 外部サービスから取得したユーザー情報をUserモデルの指定した属性にマッピング
+  config.google.user_info_mapping = {email: "email", name: "name"}
+  config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
   # The callback URL "can't contain a query string or invalid special characters"
@@ -542,8 +545,8 @@ Rails.application.config.sorcery.configure do |config|
     # -- external --
     # Class which holds the various external provider data for this user.
     # Default: `nil`
-    #
-    # user.authentications_class =
+    #外部サービスとの認証情報を保存するモデルを指定
+    user.authentications_class = Authentication
 
     # User's identifier in the `authentications` class.
     # Default: `:user_id`
