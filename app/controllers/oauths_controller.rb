@@ -10,16 +10,14 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
     
-    # 既存のユーザーをプロバイダ情報(OAuth認証情報）を元に検索
-    if (@user = login_from(provider))
-      # ユーザーが存在する場合。
-      redirect_to root_path, success: 'Googleアカウントでログインに成功しました!'
+    # 既存のユーザーをOAuth認証情報を元に検索。
+    if (@user = login_from(provider))  # ユーザーがデータベースに存在する場合。
+      redirect_to diagnoses_path, success: 'Googleアカウントでログインに成功しました!'
     else
       begin
-        # 既存のユーザーが存在しない場合、プロバイダ情報を元に新規ユーザー作成・ログイン。
-        signup_and_login(provider)
+        signup_and_login(provider) # 既存のユーザーが存在しない場合。
         redirect_to root_path, success: 'Googleアカウントでログインに成功しました!'
-      rescue
+      rescue # 例外処理
         redirect_to login_path, danger: 'Googleアカウントでログインに失敗しました。'
       end
     end
