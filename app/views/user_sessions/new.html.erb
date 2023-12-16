@@ -1,22 +1,29 @@
 <div class="mx-auto  text-center">
   <h1 class="font-bold text-4xl my-6">ログイン</h1>
 
-  <%= form_with url: login_path do |f| %>
-    <div class='mb-3'>
-      <%= f.label :email, class: "block" %>
-      <%= f.email_field :email, class: "mt-1" %>
+  <div class="m-3">
+    <%= form_with url: login_path do |f| %>
+      <div class='mb-3'>
+        <%= f.label :email, class: "block" %>
+        <%= f.email_field :email, class: "mt-1" %>
+      </div>
+
+      <div class='mb-3'>
+        <%= f.label :password, class: "block" %>
+        <%= f.password_field :password, class: "mt-1" %>
+      </div>
+
+      <%= f.submit "ログイン", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <% end %>
+
+    <!-- Googleアカウントログイン　-->
+    <div>
+      <%= link_to 'Googleアカウントでログイン', auth_at_provider_path(provider: :google), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-full transition duration-150 ease-in-out" %>
     </div>
 
-    <div class='mb-3'>
-      <%= f.label :password, class: "block" %>
-      <%= f.password_field :password, class: "mt-1" %>
+    <div>
+      <%= link_to "新規登録はこちら", new_user_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+      <%= link_to "パスワードを忘れた方はこちら", "#", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
     </div>
-
-    <%= f.submit "ログイン", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-  <% end %>
-
-  <div>
-    <%= link_to "新規登録はこちら", new_user_path %>
-    <%= link_to "パスワードを忘れた方はこちら", "#" %>
   </div>
 </div>
