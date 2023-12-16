@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_13_073853) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_16_081324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_13_073853) do
     t.index ["user_id"], name: "index_diagnoses_on_user_id"
   end
 
+  create_table "diagnosis_tags", force: :cascade do |t|
+    t.bigint "diagnosis_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnosis_id"], name: "index_diagnosis_tags_on_diagnosis_id"
+    t.index ["tag_id"], name: "index_diagnosis_tags_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", null: false
@@ -46,4 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_13_073853) do
   end
 
   add_foreign_key "diagnoses", "users"
+  add_foreign_key "diagnosis_tags", "diagnoses"
+  add_foreign_key "diagnosis_tags", "tags"
 end
