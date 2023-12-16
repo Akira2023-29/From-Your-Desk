@@ -3,12 +3,12 @@
     <div>
       <h1 class="font-bold text-4xl my-6">投稿一覧</h1>
     </div>
-    <div class="flex flex-col sm:flex-row justify-around">
+    <div class="flex flex-row sm:flex-col justify-around">
       <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
-        <%= pie_chart Diagnosis.group(:color_name).count %>
+        <%= pie_chart Diagnosis.group(:color_name).count, title: "「最も支配率の多かった色」集計結果" %>
       </div>
       <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
-        <%= pie_chart Diagnosis.group(:color_name).count %>
+        <%= pie_chart Diagnosis.group(:color_name).count, title: "タグ別集計結果" %>
       </div>
     </div>
   </div>
