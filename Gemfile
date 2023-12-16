@@ -113,3 +113,6 @@ gem 'rakuten_web_service'
 
 # グラフ
 gem "chartkick"
+
+# 環境別の設定
+gem 'config'
