@@ -15,10 +15,6 @@
             <div><%= l diagnosis.created_at, format: :long %></div>
         </div>
 
-        <div>
-            <%= "※円グラフ表示予定" %>
-        </div>
-
         <% if current_user&.own?(diagnosis) %>
             <div class="mb-3 inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out">
                 <%= link_to "削除する", diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
