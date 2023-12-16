@@ -17,9 +17,15 @@ module App
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+
+    config.generators.system_tests = nil
+    config.generators do |g|
+      g.skip_routes true
+      g.helper false
+      g.test_framework nil
+    end
+
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
-    # config.eager_load_paths << Rails.root.join("extras")
   end
 end

@@ -8,6 +8,14 @@
 
         <div class="mb-3 flex flex-col">
             <%= link_to "【診断結果】", diagnosis_path(diagnosis), class: "underline underline-offset-2 text-2xl mb-1" %>
+        </div>
+
+        <div class="mb-3 flex flex-col">  
+            <div><%= diagnosis.user.name %></div>
+            <div><%= l diagnosis.created_at, format: :long %></div>
+        </div>
+
+        <div>
             <%= "※円グラフ表示予定" %>
         </div>
 
