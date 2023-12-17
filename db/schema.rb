@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_16_081324) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_17_104546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_16_081324) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["diagnosis_id", "tag_id"], name: "index_diagnosis_tags_on_diagnosis_id_and_tag_id", unique: true
     t.index ["diagnosis_id"], name: "index_diagnosis_tags_on_diagnosis_id"
     t.index ["tag_id"], name: "index_diagnosis_tags_on_tag_id"
   end
