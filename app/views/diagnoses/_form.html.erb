@@ -2,15 +2,22 @@
   <%= form_with model: diagnosis do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
-      <%= f.label :'あなたのデスク環境の写真を選んで下さい', class: "block" %>
+      <%= f.label :desk_image, 'あなたのデスク環境の写真を選んで下さい', class: "block" %>
       <%= f.file_field :desk_image, id: 'desk_image', class: "mt-1" %>
       <%= f.hidden_field :desk_image_cache %>
     </div>
   
-  <%# プレビューを表示 %>
+  <!-- プレビューを表示 -->
   <div class="mb-3 flex justify-center">
     <%= image_tag diagnosis.desk_image.url, id: 'preview', width: 500, height: 300 %>
   </div>
+
+  <!-- タグのセレクトボックスを追加 -->
+  <div class="mb-3">
+    <%= f.label :tag_ids, 'あなたのデスク環境のコンセプトを１つ選択して下さい', class: "block" %>
+    <%= f.collection_select :tag_ids, Tag.all, :id, :tag_name, {prompt: 'タグを選択して下さい'}, { multiple: true, class: "mt-1" } %>
+  </div>
+
   
     <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   <% end %>

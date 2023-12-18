@@ -16,6 +16,10 @@ class DiagnosesController < ApplicationController
   def edit
   end
 
+  def tagged
+    # タグ別の検索機能を実装。
+  end
+
   def create
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
 
