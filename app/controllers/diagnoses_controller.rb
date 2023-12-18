@@ -7,6 +7,7 @@ class DiagnosesController < ApplicationController
 
   def new
     @diagnosis = Diagnosis.new
+    @tag_list = Tag.all
   end
 
   def show
@@ -16,11 +17,15 @@ class DiagnosesController < ApplicationController
   def edit
   end
 
+  def tagged
+    # タグ別の検索機能を実装。
+  end
+
   def create
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
 
-    #.tempfile はアップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
-    # .path はそのTempfileオブジェクトのファイルシステム上のパスを取得している。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
+    #.tempfileメソッドはアップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
+    # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
 
     # 色情報をcolor_infoカラムにセット + 楽天APIに使う形に処理したものをcolor_nameカラムにセット
@@ -60,6 +65,6 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:desk_image, :desk_image_cache)
+    params.require(:diagnosis).permit(:desk_image, :desk_image_cache, tag_ids:[])
   end
 end
