@@ -65,6 +65,6 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:desk_image, :desk_image_cache)
+    params.require(:diagnosis).permit(:desk_image, :desk_image_cache, tag_ids:[])
   end
 end
