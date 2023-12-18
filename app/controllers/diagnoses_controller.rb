@@ -7,6 +7,7 @@ class DiagnosesController < ApplicationController
 
   def new
     @diagnosis = Diagnosis.new
+    @tag_list = Tag.all
   end
 
   def show

@@ -13,12 +13,18 @@
   </div>
 
   <!-- タグのセレクトボックスを追加 -->
-  <div class="mb-3">
-    <%= f.label :tag_ids, 'あなたのデスク環境のコンセプトを１つ選択して下さい', class: "block" %>
-    <%= f.collection_select :tag_ids, Tag.all, :id, :tag_name, {prompt: 'タグを選択して下さい'}, { multiple: true, class: "mt-1" } %>
-  </div>
+<div class="mb-3">
+  <%= f.label :tag_ids, 'デスク環境で意識した「コンセプト」を3つ選択して下さい', class: "block" %>
+    <div class="mb-3 p-4 bg-white rounded">
+    <%= f.collection_check_boxes(:tag_ids, @tag_list, :id, :tag_name) do |b| %>
+      <div class="mb-1">
+        <%= b.check_box(class: "form-checkbox") %>
+        <%= b.label(class: "ml-2") %>
+      </div>
+    <% end %>
+    </div>
+</div>
 
-  
     <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   <% end %>
 </div>

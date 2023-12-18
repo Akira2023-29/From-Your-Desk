@@ -1,11 +1,8 @@
 <div class="mx-auto  text-center">
   <div>
   <h1 class="font-bold text-4xl my-6">診断する</h1>
-
-  <%= render "form", diagnosis: @diagnosis%>
-  </div>
-
-  <div class="mb-3">
-    <%= link_to "投稿されたデスク環境一覧はこちら", diagnoses_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out"%>
+    <div class="p-4 m-2 bg-teal-500 rounded-md">
+      <%= render "form", diagnosis: @diagnosis%>
+    </div>
   </div>
 </div>
