@@ -10,10 +10,11 @@
             <%= link_to "【診断結果】", diagnosis_path(diagnosis), class: "underline underline-offset-2 text-2xl mb-1" %>
         </div>
 
+        <!-- タグ表示 -->
         <div class="mb-3 flex flex-wrap justify-center">
             <% diagnosis.tags.each do |tag| %>
                 <div class="px-2">
-                    <%= link_to tag.tag_name, "#",class: " bg-amber-600 hover:bg-amber-800 text-white rounded transition duration-150 ease-in-out" %>
+                    <%= link_to tag.tag_name, "#", class: "bg-amber-600 hover:bg-amber-800 rounded transition duration-150 ease-in-out" %>
                 </div>
             <% end %>
         </div>
