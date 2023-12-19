@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
-  has_maby :favorites, depentent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :favorite_diagnoses, through: :favorites, source: :diagnosis
 
   def own?(object)
