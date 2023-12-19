@@ -18,7 +18,8 @@ class DiagnosesController < ApplicationController
   end
 
   def tagged
-    # タグ別の検索機能を実装。
+    @diagnoses = Diagnosis.joins(:tags).where(tags: { tag_name: params[:tag_name] }).includes(:user)
+    render :index
   end
 
   def create

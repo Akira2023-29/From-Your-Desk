@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
 
   resources :diagnoses, only: %i[index show new edit create destroy] do
-    get 'tagget', on: :collection
+    get 'tagged', on: :collection
   end
 
   get 'login', to: 'user_sessions#new'
