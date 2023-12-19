@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
 
-  resources :diagnoses, only: %i[index show new edit create destroy] do
+  resources :diagnoses, only: %i[index show new create destroy] do
     get 'tagged', on: :collection
   end
 

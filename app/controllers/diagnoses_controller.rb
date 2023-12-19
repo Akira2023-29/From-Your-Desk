@@ -2,7 +2,7 @@ class DiagnosesController < ApplicationController
   skip_before_action :require_login, only: %i[index]
 
   def index
-    @diagnoses = Diagnosis.all.includes(:user).order(created_at: :desc)
+    @diagnoses = Diagnosis.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -18,7 +18,7 @@ class DiagnosesController < ApplicationController
   end
 
   def tagged
-    @diagnoses = Diagnosis.joins(:tags).where(tags: { tag_name: params[:tag_name] }).includes(:user)
+    @diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc)
     render :index
   end
 
@@ -48,7 +48,6 @@ class DiagnosesController < ApplicationController
       @diagnosis.result_jp = translated_response
     end
 
-    # データベースに保存
     if @diagnosis.save
       redirect_to diagnosis_path(@diagnosis), success: ('画像を解析したぞ・・・！')
     else
