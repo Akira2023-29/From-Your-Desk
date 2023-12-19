@@ -14,7 +14,7 @@
         <div class="mb-3 flex flex-wrap justify-center">
             <% diagnosis.tags.each do |tag| %>
                 <div class="px-2">
-                    <%= link_to tag.tag_name, "#", class: "bg-amber-600 hover:bg-amber-800 rounded transition duration-150 ease-in-out" %>
+                    <%= link_to tag.tag_name, "#", class: "rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
                 </div>
             <% end %>
         </div>

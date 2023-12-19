@@ -3,17 +3,29 @@
     <div>
       <h1 class="font-bold text-4xl my-6">投稿一覧</h1>
     </div>
+
+    <!-- グラフ -->
     <div class="flex flex-row sm:flex-col justify-around">
       <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
         <%= pie_chart Diagnosis.group(:color_name).count, title: "「私のデスク環境を最も占めていた色」集計結果" %>
       </div>
       <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
-        <%= pie_chart Diagnosis.joins(:tags).group('tags.tag_name').count, title: "「私のデスク環境コンセプト」集計結果" %>
+        <%= pie_chart Diagnosis.joins(:tags).group(:tag_name).count, title: "「私のデスク環境コンセプト」集計結果" %>
       </div>
     </div>
   </div>
 
-  <div class="p-4 m-2 bg-teal-500 rounded-md transition duration-300">
+  <!-- 検索フォーム -->
+  <div class="p-4 m-2 bg-teal-500 rounded-md">
+    <div class="flex justify-around">
+      <%= "【検索フォーム】"%>
+      <% Tag.all.each do |tag| %>
+        <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="p-4 m-2 bg-teal-500 rounded-md">
     <div class="mb-3 flex flex-wrap justify-center">
       <% if @diagnoses.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
