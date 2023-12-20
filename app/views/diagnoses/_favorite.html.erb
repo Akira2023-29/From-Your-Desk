@@ -1,0 +1,4 @@
+<!-- お気に入り登録済 -->
+<%= link_to favorites_path(diagnosis_id: diagnosis_id), id: "favorite_button_for_diagnosis_#{diagnosis.id}, data: { turbo_method: :post}" do %>
+    <%= "❤️"%>
+<% end %>

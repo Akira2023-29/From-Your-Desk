@@ -1,0 +1,4 @@
+<!-- お気に入り登録前 -->
+<%= link_to favorite_path(current_user.favorites.find_by(diagnogis_id: diagnosis_id)), id: "unbookmarks-botton-for-diagnosis-#{diagnosis.id}", data: { turbo_method: :delete } do %>
+    <%= "♡"%>
+<% end %>
