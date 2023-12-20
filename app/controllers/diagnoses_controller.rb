@@ -15,7 +15,7 @@ class DiagnosesController < ApplicationController
   end
 
   def tagged
-    @diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc)
+    @diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc).page(params[:page])
     render :index
   end
 

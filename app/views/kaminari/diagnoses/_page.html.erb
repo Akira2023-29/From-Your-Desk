@@ -1,0 +1,4 @@
+<!-- ページ番号 -->
+<span class="page<%= ' current' if page.current? %>">
+  <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel} %>
+</span>
