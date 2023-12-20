@@ -14,12 +14,13 @@ class DiagnosesController < ApplicationController
     @diagnosis = Diagnosis.find_by(id: params[:id])
   end
 
-  def edit
-  end
-
   def tagged
     @diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc)
     render :index
+  end
+
+  def favorites
+    @favorite_diagnoses = current_user.favorite_diagnoses.include(:user).order(created_at: :desc)
   end
 
   def create
@@ -29,7 +30,7 @@ class DiagnosesController < ApplicationController
     # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
 
-    # 色情報をcolor_infoカラムにセット + 楽天APIに使う形に処理したものをcolor_nameカラムにセット
+    # 色情報をcolor_infoカラムにセット + color_nameカラム（処理後）にセット。
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result

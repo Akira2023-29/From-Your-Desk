@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "unbookmarks-button-for-diagnosis-#{@diagnosis.id}" do %>
+  <%= render 'diagnoses/favorite', diagnosis: @diagnosis %>
+<% end %>
