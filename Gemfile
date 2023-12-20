@@ -116,3 +116,6 @@ gem "chartkick"
 
 # 環境別の設定
 gem 'config'
+
+# ページネーション
+gem 'kaminari'
