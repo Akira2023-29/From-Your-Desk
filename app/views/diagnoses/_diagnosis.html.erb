@@ -31,9 +31,10 @@
         <% else %>
             <div>
                 <% if current_user.favorite?(diagnosis) %>
-                    <%= render 'unfavorite', { diagnosis: diagnosis } %>
+                    <%= render 'unfavorite', diagnosis: diagnosis %>
                 <% else %>
-                    <%= render 'favorite', { diagnosis: diagnosis } %>
+                    <%= render 'favorite', diagnosis: diagnosis %>
+                <% end %>
             </div>
         <% end %>
     </div>

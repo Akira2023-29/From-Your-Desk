@@ -29,7 +29,7 @@
     <div class="mb-3 flex flex-wrap justify-center">
       <% if @diagnoses.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <%= render partial: "diagnosis", collection: @diagnoses %>
+          <%= render @diagnoses %>
         </div>
       <% else %>
         <div>掲示板がありません</div>
