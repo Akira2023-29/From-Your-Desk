@@ -19,6 +19,10 @@ class DiagnosesController < ApplicationController
     render :index
   end
 
+  def favorites
+    @favorite_diagnoses = current_user.favorite_diagnoses.include(:user).order(created_at: :desc)
+  end
+
   def create
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
 
