@@ -2,7 +2,7 @@ class DiagnosesController < ApplicationController
   skip_before_action :require_login, only: %i[index]
 
   def index
-    @diagnoses = Diagnosis.includes(:user).order(created_at: :desc)
+    @diagnoses = Diagnosis.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -15,12 +15,11 @@ class DiagnosesController < ApplicationController
   end
 
   def tagged
-    @diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc)
-    render :index
+    @tagged_diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc).page(params[:page])
   end
 
   def favorites
-    @favorite_diagnoses = current_user.favorite_diagnoses.includes(:user).order(created_at: :desc)
+    @favorite_diagnoses = current_user.favorite_diagnoses.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def create

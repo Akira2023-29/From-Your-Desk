@@ -1,0 +1,10 @@
+<!-- ページ番号 -->
+<% if page.current? %>
+  <li>
+    <%= link_to_if page.current?, page, url, {remote: remote, rel: page.rel, class: "block py-[9px] w-8 h-8 border text-xs text-red-500 font-bold text-center !leading-none" } %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "block py-[9px] w-8 h-8 bg-white border text-xs text-red-500 font-bold text-center !leading-none" } %>
+  </li>
+<% end %>
