@@ -11,7 +11,7 @@
     </div>
 
     <div class="mb-3">
-      <h1 class="font-bold text-4xl">お気に入り投稿一覧</h1>
+      <h1 class="font-bold text-4xl">デスク診断投稿一覧</h1>
     </div>
 
     <!-- グラフ -->
@@ -27,14 +27,14 @@
 
   <div class="p-4 m-2 bg-teal-500 rounded-md">
     <div class="mb-3 flex flex-wrap justify-center">
-      <% if @favorite_diagnoses.present? %>
+      <% if @tagged_diagnoses.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <%= render partial: "diagnosis", collection: @favorite_diagnoses %>
+          <%= render @tagged_diagnoses %>
         </div>
       <% else %>
         <div>掲示板がありません</div>
       <% end %>
     </div>
-    <%= paginate @favorite_diagnoses, theme: 'diagnoses' %>
+    <%= paginate @tagged_diagnoses, theme: 'diagnoses' %>
   </div>
 </div>

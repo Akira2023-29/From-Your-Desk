@@ -1,4 +1,4 @@
 <!-- 前ページ（左） -->
-<span class="prev">
-  <%= link_to_unless current_page.first?, t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote %>
-</span>
+<li class="prev">
+  <%= link_to_unless current_page.first?, t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote, class: "block py-[8px] w-8 h-8 bg-white border text-xs text-console font-bold text-center !leading-none rounded-l-[3px]" %>
+</li>
