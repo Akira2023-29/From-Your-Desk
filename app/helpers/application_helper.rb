@@ -18,7 +18,7 @@ module ApplicationHelper
                 description: :description,
                 type: 'website',
                 url: request.original_url,
-                image: image_url('/Users/akira/卒業試験/From-your-Desk/app/assets/images/27870742_s.jpg'), # 配置するパスやファイル名によって変更すること
+                image: image_url('27870742_s.jpg'), # 配置するパスやファイル名によって変更すること
                 local: 'ja-JP'
             },
             # X(twitter)用の設定
