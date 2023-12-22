@@ -15,10 +15,14 @@
         </div>
     </div>
 
-    <div class="mb-3">
-      <%= link_to "SNSにシェア", "#", class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <!-- Xにシェア -->
+    <div class="mb-3 inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out">
+      <%= link_to "https://twitter.com/share?url=#{diagnosis_url(@diagnosis)}&text=【デスク環境診断結果】%0a%0a#{truncate(@diagnosis.result_jp, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+        <%= "X" %>
+      <% end %>
     </div>
 
+    <!-- 楽天商品提案 -->
     <div class="mt-10 mb-3 text-center">
       <h2 class= "text-2xl mb-1">【こちらをデスクに置いてみませんか？】</h2> 
       <% if @diagnosis.color_name.present? %>
