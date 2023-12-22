@@ -120,5 +120,5 @@ gem 'config'
 # ページネーション
 gem 'kaminari'
 
-# twitterカード
+# twitterカード, SEO
 gem "meta-tags"
