@@ -15,7 +15,7 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
 
   #画像が存在しない時にデフォルトで表示する画像のURLを設定する
   def default_url
-    '/sample.jpg'
+    '/27870742_s.jpg'
   end
 
   # Process files as they are uploaded:

@@ -1,4 +1,4 @@
-<div class="flex flex-row sm:flex-col justify-around">
+<div class="container mx-auto m-2 flex flex-col sm:flex-row justify-around">
     <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
         <%= pie_chart Diagnosis.group(:color_name).count, title: "「私のデスク環境を最も占めていた色」集計結果" %>
     </div>
