@@ -30,8 +30,8 @@
     </div>
 
    <!-- アバタープレビュー　-->
-    <div class="mb-3 flex justify-center">
-      <%= image_tag @user.avatar_image.url, id: 'preview', width: 500, height: 300 %>
+    <div class="mb-3 flex justify-center ">
+      <%= image_tag @user.avatar_image.url, id: 'preview', width: 150, height: 150 ,class: "rounded-full"%>
     </div>
   
     <%= f.submit "新規登録", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
