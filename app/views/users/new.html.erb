@@ -22,6 +22,11 @@
       <%= f.label :password_confirmation, class: "block"  %>
       <%= f.password_field :password_confirmation, class: "mt-1" %>
     </div>
+      
+    <div class='mb-3'>
+      <%= f.label :avater_image, class: "block"  %>
+      <%= f.file_field :avater_image, class: "mt-1" %>
+    </div>
   
     <%= f.submit "新規登録", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   <% end %>
