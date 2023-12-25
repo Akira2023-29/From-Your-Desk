@@ -15,7 +15,7 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
 
   #画像が存在しない時にデフォルトで表示する画像のURLを設定する
   def default_url
-    '/27870742_s.jpg'
+    '/avatar/ruby.icon.jpeg'
   end
 
   # Process files as they are uploaded:
@@ -27,7 +27,7 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fit: [150, 150]
   # end
 
   #アップロード可能なファイルの拡張子を指定
