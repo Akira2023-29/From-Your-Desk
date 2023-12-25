@@ -3,7 +3,7 @@ class Diagnosis < ApplicationRecord
 
     belongs_to :user
 
-    has_many :diagnosis_tags
+    has_many :diagnosis_tags, dependent: :destroy
     has_many :tags, through: :diagnosis_tags
 
     has_many :favorites, dependent: :destroy

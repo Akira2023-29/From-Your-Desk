@@ -1,21 +1,17 @@
-<div class="text-center">
+<div class="container mx-auto text-center pb-10">
   <h1 class="font-bold text-4xl my-6">ユーザー詳細</h1>
-  
-  <table class="table-auto mx-auto border-separate border-spacing-2 border border-slate-500 bg-teal-400 mb-3">
-    <thead class="bg-teal-100">
-      <tr>
-        <th class="border border-slate-600 px-10 py-2">ユーザー名</th>
-        <th class="border border-slate-600 px-10 py-2">メールアドレス</th>
-      </tr>
-    </thead>
-    <tbody class="bg-white">
-      <tr>
-        <td class="border border-slate-700 p-2"><%= current_user.name %></td>
-        <td class="border border-slate-700 p-2" ><%= current_user.email %></td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <div class="p-2 mb-3 max-w-sm mx-auto bg-cyan-600 rounded-md">
+    <div class="md-3">
+      <%= current_user.name %>
+    </div>
+    <div class="md-3">
+      <%= current_user.email %>
+    </div>
+    <div class="m-3 flex justify-center ">
+      <%= image_tag current_user.avatar_image.url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+    </div>
+  </div>
+
   <div class="mb-3">
     <%= link_to "ユーザー情報編集", edit_profile_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   </div>
