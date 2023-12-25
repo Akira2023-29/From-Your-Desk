@@ -3,8 +3,16 @@
 // 第一引数：イベント名。第二引数；イベント発生時に実行する関数。
 document.addEventListener('DOMContentLoaded', (event) => {
   // id=desk_imageの要素が存在する場合、input変数に格納しchangeイベントリスナーを追加。
-  const input = document.querySelector('#desk_image');
-  if (input) {
+  const deskinput = document.querySelector('#desk_image');
+  // id=avatar_imageの要素が存在する場合、input変数に格納しchangeイベントリスナーを追加。
+  const avatarInput = document.querySelector('#avatar_image');
+
+  if (deskinput) {
+    // ユーザーが新しい画像を選択するたびにpreviewImage関数を呼す。(第一引数：イベント名。第二引数；イベント発生時に実行する関数。)
+    input.addEventListener('change', previewImage);
+  }
+
+  if (avatarinput) {
     // ユーザーが新しい画像を選択するたびにpreviewImage関数を呼す。(第一引数：イベント名。第二引数；イベント発生時に実行する関数。)
     input.addEventListener('change', previewImage);
   }
