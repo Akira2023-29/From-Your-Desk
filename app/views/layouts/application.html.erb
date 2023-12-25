@@ -18,14 +18,16 @@
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
 
-  <body class="bg-teal-800">
+  <body>
     <% if logged_in? %>
       <%= render "shared/header" %>
     <% else %>
       <%= render "shared/before_login_header" %>
     <% end %>
-    <%= render "shared/flash_message" %>
-    <%= yield %>
+    <div class="bg-teal-800 pt-16">
+      <%= render "shared/flash_message" %>
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
   </body>
 </html>
