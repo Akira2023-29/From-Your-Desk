@@ -1,19 +1,20 @@
 class OpenAiApi
-    def self.chat(color_info)
+    def self.chat(color_info, desk_work)
         @client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
         @client.chat(
             parameters: {
                 model: "gpt-3.5-turbo",
-                max_tokens: 180,
-                temperature: 0.5,
+                max_tokens: 250,
+                temperature: 0.7,
                 messages: [
                 {
                     role: "system", content: 
                     "# Requirements.
                     ・You are familiar with the impact of color on desk productivity.
-                    ∙ Information from GoogleCloudVisionAPI image analysis results: 「color:score:pixelFraction」.
+                    ・Information from GoogleCloudVisionAPI image analysis results: 「color:score:pixelFraction」.
                     ・You are an expert in providing improvement ideas from a color perspective that will bombard your desk with work productivity.
-                    
+                    ・Please also send me advice on how to improve this desk worker's main desk task (#{desk_work}).
+
                     # How each color affects productivity at your desk
                     Red: Symbol of energy and vitality. Overuse can cause aggression and stress.
                     Blue: enhances calmness and concentration. Good for intellectual work with a rapid psychological passage of time.
@@ -29,12 +30,13 @@ class OpenAiApi
                 {
                     role: "user", content: 
                     "# Color information of the desk environment to be diagnosed
-                    -#{color_info}
-                    # Format of answers
-                    [diagnostic results].
-                    Based on the color information, how would you rate the current desk environment in terms of work productivity (what would you say the current desk environment is like?) (Please answer within 220 characters).
-                    [Advice]
-                    Please give us your advice on how to improve work productivity at your desk from a color perspective (please answer within 220 characters)"
+                    - #{color_info}
+                    # Primary tasks at this desk.
+                    - #{desk_work}
+                    # What you want diagnosed 
+                    Please diagnose the good and bad points of the current desk environment based on the color information of the image analysis.
+                    First of all, please tell us the bad points and give us a very bad evaluation. Then, tell them specifically from a color perspective that there are good points in their current desk, and encourage them from a color perspective to give advice on how to improve their work productivity in their main desk task, #{desk_work}.
+                    Please explain in detail why doing so would improve the work efficiency of #{desk_work} in a way that makes sense for each task. (Please answer within 220 characters)."
                 }
                 ]
             }

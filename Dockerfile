@@ -15,10 +15,14 @@ RUN bundle install
 RUN yarn install
 COPY . /app
 
-# コンテナー起動時に毎回実行されるスクリプト
+# entrypoint.shスクリプトファイルを、ローカルからDockerコンテナ内の/usr/bin/ディレクトリにコピー。
+# このファイルはコンテナ起動時に特定のコマンドを実行するために使われる=>初期設定や起動時のタスクを指定。
 COPY entrypoint.sh /usr/bin/
+# コピーしたentrypoint.shスクリプトに実行権限を付与（これをしないとスクリプトが実行できない）。
 RUN chmod +x /usr/bin/entrypoint.sh
+# コンテナが起動するときにデフォルトで実行されるコマンドをentrypoint.shに設定する。
 ENTRYPOINT ["entrypoint.sh"]
+# コンテナがリッスンするポート3000番を指定し、Dockerホストに公開。
 EXPOSE 3000
 
 # コンテナ起動時にrailsサーバー起動
