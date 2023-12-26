@@ -34,7 +34,9 @@ class OpenAiApi
                     # Primary tasks at this desk.
                     - #{desk_work}
                     # What you want diagnosed 
-                    Please diagnose the good and bad points of the current desk environment based on the color information of the image analysis. First, please tell us the bad points and critique them very badly. Then, tell them specifically from a color perspective that there are good points in their current desk, and encourage them from a color perspective to give advice on how to improve their work productivity in their main desk task, #{desk_work}. Please also explain in detail why doing so would specifically increase work efficiency. (Please answer within 250 characters)."
+                    Please diagnose the good and bad points of the current desk environment based on the color information of the image analysis.
+                    First of all, please tell us the bad points and give us a very bad evaluation. Then, tell them specifically from a color perspective that there are good points in their current desk, and encourage them from a color perspective to give advice on how to improve their work productivity in their main desk task, #{desk_work}.
+                    Please explain in detail why doing so would improve the work efficiency of #{desk_work} in a way that makes sense for each task. (Please answer within 220 characters)."
                 }
                 ]
             }
