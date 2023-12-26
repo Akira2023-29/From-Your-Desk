@@ -1,4 +1,4 @@
-<div class="container mx-auto  text-center">
+<div class="container mx-auto  text-center w-3/4">
   <%= form_with model: diagnosis do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
@@ -9,13 +9,13 @@
   
     <!-- プレビューを表示 -->
     <div class="mb-3 flex justify-center">
-      <%= image_tag diagnosis.desk_image.url, id: 'preview', width: 500, height: 300 %>
+      <%= image_tag diagnosis.desk_image.url, id: 'preview', width: 500, height: 300, class:"rounded-md" %>
     </div>
 
     <!-- タグのセレクトボックスを追加 -->
     <div class="mb-3">
       <%= f.label :tag_ids, 'デスク環境で意識した「コンセプト」を3つ選択して下さい' %>
-        <div class="mb-3 p-4 bg-white rounded flex flex-wrap justify-center">
+        <div class="mb-3 p-4 bg-white rounded flex flex-wrap justify-around">
           <%= f.collection_check_boxes(:tag_ids, @tag_list, :id, :tag_name) do |b| %>
             <div class="mb-1">
               <%= b.check_box(class: "form-checkbox") %>
@@ -25,6 +25,12 @@
         </div>
     </div>
 
-    <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <!-- デスクワーク内容 -->
+    <div class='mb-3'>
+      <%= f.label :desk_work, 'デスクでの主な作業内容を教えて下さい。/（例：プログラミング学習。見積作成。等)' ,class: "block" %>
+      <%= f.text_field :desk_work, class: "mt-1 w-3/4" %>
+    </div>
+
+    <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out" %>
   <% end %>
 </div>
