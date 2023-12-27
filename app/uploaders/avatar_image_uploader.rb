@@ -35,6 +35,14 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  # googleアカウントのプロフィール画像をダウンロード・保存
+  def download_and_store_image
+    if model.avatar_image_url.presebt? && model.avatar_image.blank?
+      model.remote_avatar_image_url = model.avatar_image_url
+      model.save!
+    end
+  end
+
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
