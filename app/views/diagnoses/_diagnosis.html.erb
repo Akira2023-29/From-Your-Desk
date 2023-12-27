@@ -26,7 +26,11 @@
 
         <div class="flex justify-center">
             <div class="px-4">
-                <%= image_tag diagnosis.user.avatar_image.url ,class: "h-10 w-10 object-cove rounded-full" %>
+                <% if diagnosis.user.google_avatar_image.blank? %>
+                    <%= image_tag diagnosis.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
+                <% else %>
+                    <%= image_tag diagnosis.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
+                <% end %>
             </div>
             <div class="mb-3 flex flex-col">
                 <%= diagnosis.user.name %><br>
