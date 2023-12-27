@@ -33,9 +33,4 @@ class User < ApplicationRecord
   def favorite?(diagnosis)
     favorite_diagnoses.include?(diagnosis)
   end
-
-  # dbからavatar_image_urlの値を取得（googleアカウントのプロフィール画像URL)
-  def google_avatar_image_url
-    read_attribute(:avatar_image_url)
-  end
 end

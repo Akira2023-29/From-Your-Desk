@@ -9,10 +9,10 @@
     </div>
     <!-- アバター画像 -->
     <div class="m-3 flex justify-center ">
-      <% if @user.avatar_image.present? && @user.google_avatar_image_url.blank? %>
+      <% if @user.avatar_image.present? %>
         <%= image_tag @user.avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
       <% else %>
-        <%= image_tag @user.google_avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+        <%= image_tag @user.google_avatar_image, class: "h-32 w-32 object-cove rounded-full object-cover" %>
       <% end %>
     </div>
   </div>

@@ -7,24 +7,24 @@
         <%= f.label :name, class: "block" %>
         <%= f.text_field :name, class: "mt-1" %>
       </div>
-    
+
       <div class='mb-3'>
         <%= f.label :email, class: "block"  %>
         <%= f.email_field :email, class: "mt-1" %>
       </div>
 
       <div class='mb-3'>
-        <%= f.label :avatar_image, class: "block"  %>
-        <%= f.file_field :avatar_image, id: 'avatar_image', class: "mt-1" %>
-        <%= f.hidden_field :avatar_image_cache %>
+          <%= f.label :avatar_image, class: "block"  %>
+          <%= f.file_field :avatar_image, id: 'avatar_image', class: "mt-1" %>
+          <%= f.hidden_field :avatar_image_cache %>
       </div>
 
       <!-- アバタープレビュー　-->
       <div class="mb-3 flex justify-center ">
-        <% if @user.avatar_image.present? && @user.google_avatar_image_url.blank? %>
-          <%= image_tag @user.avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+        <% if @user.avatar_image.present? %>
+          <%= image_tag @user.avatar_image_url, id: 'preview', class: "h-32 w-32 object-cove rounded-full object-cover" %>
         <% else %>
-          <%= image_tag @user.google_avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+          <%= image_tag @user.google_avatar_image, id: 'preview', class: "h-32 w-32 object-cove rounded-full object-cover" %>
         <% end %>
       </div>
     </div>
