@@ -21,7 +21,11 @@
 
       <!-- アバタープレビュー　-->
       <div class="mb-3 flex justify-center ">
-        <%= image_tag @user.avatar_image.url, id: 'preview', class: "rounded-full h-32 w-32 object-cover"%>
+        <% if @user.avatar_image.present? && @user.google_avatar_image_url.blank? %>
+          <%= image_tag @user.avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+        <% else %>
+          <%= image_tag @user.google_avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+        <% end %>
       </div>
     </div>
   

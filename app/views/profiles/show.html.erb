@@ -2,13 +2,18 @@
   <h1 class="font-bold text-4xl my-6">ユーザー詳細</h1>
   <div class="p-2 mb-3 max-w-sm mx-auto bg-cyan-600 rounded-md">
     <div class="md-3">
-      <%= current_user.name %>
+      <%= @user.name %>
     </div>
     <div class="md-3">
-      <%= current_user.email %>
+      <%= @user.email %>
     </div>
+    <!-- アバター画像 -->
     <div class="m-3 flex justify-center ">
-      <%= image_tag current_user.avatar_image.url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+      <% if @user.avatar_image.present? && @user.google_avatar_image_url.blank? %>
+        <%= image_tag @user.avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+      <% else %>
+        <%= image_tag @user.google_avatar_image_url, class: "h-32 w-32 object-cove rounded-full object-cover" %>
+      <% end %>
     </div>
   </div>
 

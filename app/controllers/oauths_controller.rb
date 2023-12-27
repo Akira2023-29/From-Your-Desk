@@ -9,7 +9,6 @@ class OauthsController < ApplicationController
   # Google認証承諾後にcallbackアクションへリダイレクト。
   def callback
     provider = auth_params[:provider]
-    # p provider.get_user_hash
     # 既存のユーザーをOAuth認証情報を元に検索。
     if (@user = login_from(provider))  # ユーザーがデータベースに存在する場合。
       redirect_to diagnoses_path, success: 'Googleアカウントでログインに成功しました!!'

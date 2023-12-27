@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   mount_uploader :avatar_image, AvatarImageUploader
-  after_save :download_and_store_image
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
@@ -35,7 +34,8 @@ class User < ApplicationRecord
     favorite_diagnoses.include?(diagnosis)
   end
 
-  def download_and_store_image
-    avatar_image.download_and_store_image
+  # dbからavatar_image_urlの値を取得（googleアカウントのプロフィール画像URL)
+  def google_avatar_image_url
+    read_attribute(:avatar_image_url)
   end
 end
