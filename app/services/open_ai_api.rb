@@ -14,6 +14,7 @@ class OpenAiApi
                     ・Information from GoogleCloudVisionAPI image analysis results: 「color:score:pixelFraction」.
                     ・You are an expert in providing improvement ideas from a color perspective that will bombard your desk with work productivity.
                     ・Please also send me advice on how to improve this desk worker's main desk task (#{desk_work}).
+                    ・Please take into account when giving advice that there are different ways to improve the desk (#{tags}) depending on where the desk is located (#{tags}).
 
                     # How each color affects productivity at your desk
                     Red: Symbol of energy and vitality. Overuse can cause aggression and stress.
