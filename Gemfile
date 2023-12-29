@@ -64,6 +64,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
   gem 'pry-rails'
+  gem 'letter_opener_web'
 end
 
 group :development do
