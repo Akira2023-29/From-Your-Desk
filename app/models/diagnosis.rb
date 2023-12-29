@@ -9,4 +9,5 @@ class Diagnosis < ApplicationRecord
     has_many :tags, through: :diagnosis_tags
 
     has_many :favorites, dependent: :destroy
+
 end

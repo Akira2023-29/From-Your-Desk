@@ -1,8 +1,7 @@
-<div class="container mx-auto m-2 flex flex-col sm:flex-row justify-around">
-    <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
-        <%= pie_chart Diagnosis.group(:color_name).count, title: "「私のデスク環境を最も占めていた色」集計結果" %>
-    </div>
-    <div class="container p-4 m-4 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
-        <%= pie_chart Diagnosis.joins(:tags).group(:tag_name).count, title: "「私のデスク環境コンセプト」集計結果" %>
+<div class="container mx-auto mb-3 flex justify-around shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
+    <div class="container font-bold m-4 shadow-lg bg-white rounded-md">
+        <%= pie_chart Diagnosis.joins(:tags).group(:tag_name).count, 
+            title: "「作業環境」集計結果", 
+            colors: ["#2a83a2", "#339999", "#33cccc", "#3cb37a", "#288c66"] %>
     </div>
 </div>
