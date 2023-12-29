@@ -15,7 +15,7 @@ class OpenAiApi
                     ・You are an expert in providing color perspective improvement ideas that will explode productivity at your desk.
                     ・Please also provide advice on how to improve this desk worker's main desk work (#{desk_work}).
                     ・Please give us advice on how to improve the work environment of the desk considering the location of the desk (#{desk_place}) from a color perspective (e.g., offices are company property, so large scale improvements are difficult; cafes are stores, so major changes are difficult; your own home, such as a study, is easy to improve, etc., please be sure to consider this).
-                    ・Please limit your diagnosis to 250 characters.
+                    ・Please limit your response to 250 characters.
 
                     # How each color affects productivity at your desk
                     Red: Red symbolizes vitality and energy and attracts attention. Excessive use, however, can cause aggression and stress.

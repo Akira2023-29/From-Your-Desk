@@ -1,7 +1,11 @@
 <div class="container mx-auto text-center justify-center">
   <div class="flex flex-col">
+    <div class="mb-1">
+      <h1 class="font-bold text-4xl">お気に入り投稿一覧</h1>
+    </div>
+
     <!-- タグ別検索フォーム -->
-    <div class="p-2 my-4 bg-teal-500 rounded-md">
+    <div class="p-2 my-2 bg-teal-500 rounded-md">
       <div class="flex justify-around">
         <%= "【検索フォーム】"%>
         <% Tag.all.each do |tag| %>
@@ -10,15 +14,11 @@
       </div>
     </div>
 
-    <div class="mb-3">
-      <h1 class="font-bold text-4xl">お気に入り投稿一覧</h1>
-    </div>
-
     <!-- グラフ -->
     <%= render "shared/graph" %>
   </div>
 
-  <div class="p-4 m-2 bg-teal-500 rounded-md">
+  <div class="p-4 mb-2 bg-teal-500 rounded-md">
     <div class="mb-3 flex flex-wrap justify-center">
       <% if @favorite_diagnoses.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
