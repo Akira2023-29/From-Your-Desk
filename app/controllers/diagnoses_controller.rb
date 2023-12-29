@@ -38,7 +38,10 @@ class DiagnosesController < ApplicationController
 
     # 翻訳前の回答をresult_enカラムにセット。
     if @diagnosis.color_info.present?
-      response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work) 
+      response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work, 
+        @diagnosis.tags.each do |tag|
+          tag.tag_name
+        end) 
       @diagnosis.result_en = response.dig("choices", 0, "message", "content") 
     end
 
@@ -65,6 +68,6 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:desk_image, :desk_work, :desk_image_cache, tag_ids:[])
+    params.require(:diagnosis).permit(:desk_image, :desk_work, :desk_image_cache, :tag_ids)
   end
 end
