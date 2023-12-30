@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root 'top_pages#top'
 
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
+  resources :password_resets, only: %i[new create edit update]
 
   resources :diagnoses, only: %i[index show new create destroy] do
     get 'tagged', on: :collection
