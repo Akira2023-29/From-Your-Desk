@@ -90,36 +90,15 @@ end
 
 # gem 'jsbundling-rails'
 
-# 認証機能
 gem 'sorcery'
-
-# 国際化
 gem 'rails-i18n', '~> 7.0.0'
-
-# 画像ファイルアップロード
 gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'
-
-# 環境変数管理。
 gem 'dotenv-rails'
-
-# Google Cloud Vision API
 gem 'google-cloud-vision'
-
-# OpenAI Chat-GPT
 gem "ruby-openai"
-
-# 楽天API
 gem 'rakuten_web_service'
-
-# グラフ
 gem "chartkick"
-
-# 環境別の設定
 gem 'config'
-
-# ページネーション
 gem 'kaminari'
-
-# twitterカード, SEO
 gem "meta-tags"

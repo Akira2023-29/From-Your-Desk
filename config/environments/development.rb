@@ -77,6 +77,6 @@ Rails.application.configure do
   config.hosts << 'from-your-desk.onrender.com'
 
   # 開発環境でのメール送信にLetter Opener Webを使用。
-  config.action_mailer.deliver_method = :letter_opener_web
+  config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.default_url_options = Settings.default_url_options.to_h
 end
