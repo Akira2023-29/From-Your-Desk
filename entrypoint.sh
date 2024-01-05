@@ -5,8 +5,8 @@ set -e
 rm -f /app/tmp/pids/server.pid
 
 # デプロイ時にプリコンパイル、データベースのマイグレーション実行。
-bundle exec rails assets:precompile
-bundle exec rails db:migrate
+bundle exec rails assets:precompile RAILS_ENV=production
+bundle exec rails db:migrate RAILS_ENV=production
 
 # コンテナーのプロセスを実行する。（Dockerfile 内の CMD に設定されているもの。）
 exec "$@"
