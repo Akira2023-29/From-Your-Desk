@@ -100,5 +100,5 @@ Twitter_APIを使わない方法で実装を考えています。
 ### 画面遷移図
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
 
-### ER図 
+### ER図
 [![Image from Gyazo](https://i.gyazo.com/a9eec3199a7c029adc2776f07151a870.png)](https://gyazo.com/a9eec3199a7c029adc2776f07151a870)
