@@ -101,4 +101,4 @@ Twitter_APIを使わない方法で実装を考えています。
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
 
 ### ER図
-[![Image from Gyazo](https://i.gyazo.com/718a27c1bba1a63b20bcb946fa2cf28c.png)](https://gyazo.com/718a27c1bba1a63b20bcb946fa2cf28c)
+[![Image from Gyazo](https://i.gyazo.com/a9eec3199a7c029adc2776f07151a870.png)](https://gyazo.com/a9eec3199a7c029adc2776f07151a870)
