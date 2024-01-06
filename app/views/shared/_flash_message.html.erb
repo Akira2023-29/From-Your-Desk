@@ -1,6 +1,6 @@
-<div class="inline-block rounded m-2 px-2 bg-teal-300">
-  <% flash.each do |message_type, message|%>
-    <div class="m-3 alert bg-<%= message_type %>">
+<div class="inline-block rounded m-2 px-2 bg-slate-200">
+  <% flash.each do |message_type, message| %>
+    <div class="m-3 font-bold alert <%= flash_class(message_type) %>">
       <%= message %>
     </div>
   <% end %>

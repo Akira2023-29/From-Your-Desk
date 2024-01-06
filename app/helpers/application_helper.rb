@@ -29,4 +29,15 @@ module ApplicationHelper
             }
         }
     end
+
+    def flash_class(message_type)
+        case message_type.to_sym
+        when :success
+        'text-sky-600'
+        when :danger
+        'text-red-500'
+        else
+        'text-gray-500'
+        end
+    end
 end
