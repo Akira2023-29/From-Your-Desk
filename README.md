@@ -70,15 +70,16 @@ Desk Color Check
 - お気に入り一覧
 
 【本リリースまでに実装したい機能】
+- 診断時の項目追加（仮）
 - 検索機能拡充（色別デスク環境等）
-- いいね数ランキング機能
 - 診断結果の色グラフ表示機能
+- タイトルを動的に変更
 - 管理者画面
 
 ## 使用したAPI
 - Google Cloud Vision API
 - DeepLe API
-- OpenAI
+- OpenAI(ChatGPT API)
 - 楽天API
 
 ## 機能の実装方針予定

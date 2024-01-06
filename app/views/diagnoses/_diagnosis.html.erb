@@ -1,9 +1,7 @@
 <div class="container max-w-sm p-2 m-2 shadow-lg shadow-cyan-900/80 bg-cyan-600 hover:bg-cyan-500 rounded-md transition duration-300">
     <div class="my-2">
         <div class="mb-3 flex justify-center">
-            <% if diagnosis.desk_image? %>
-                <%= image_tag diagnosis.desk_image.url%>
-            <% end %>
+            <%= image_tag diagnosis.desk_image.url%>
         </div>
 
         <div class="mb-1">

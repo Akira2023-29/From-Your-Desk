@@ -7,6 +7,7 @@
     <div class="md-3">
       <%= @user.email %>
     </div>
+
     <!-- アバター画像 -->
     <div class="m-3 flex justify-center ">
       <% if @user.google_avatar_image.blank? %>
@@ -19,5 +20,21 @@
 
   <div class="mb-3">
     <%= link_to "ユーザー情報編集", edit_profile_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+  </div>
+
+  <!-- 自分の診断履歴 -->
+  <div class="mb-1">
+    <h1 class="font-bold text-4xl">診断履歴</h1>
+  </div>
+  <div class="p-4 mb-2 bg-teal-500 rounded-md">
+    <div class="mb-3 flex flex-wrap justify-center">
+      <% if @diagnoses.present? %>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <%= render @diagnoses %>
+        </div>
+      <% else %>
+        <div>掲示板がありません</div>
+      <% end %>
+    </div>
   </div>
 </div>
