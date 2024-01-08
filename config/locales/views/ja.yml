@@ -1,10 +1,4 @@
 ja:
-  helpers:
-    submit:
-      create: 登録
-      submit: 保存
-      update: 更新
-      diagnosis: 診断
   defaults:
   
   header:
@@ -21,6 +15,7 @@ ja:
   
   user_sessions:
     new:
+      title: ログイン
       email: メールアドレス
       password: パスワード
       login: ログイン
@@ -29,3 +24,20 @@ ja:
       password_forget: パスワードを忘れた方はこちら
   
   users:
+    new:
+      title: ユーザー新規登録
+      user_create: 新規登録
+      to_login: ログインはこちら
+
+  diagnoses:
+    new:
+      title: 診断する
+      desk_image: あなたのデスク環境の写真を選んで下さい。
+      desk_work: デスクでの主な作業内容を教えて下さい。/（例：プログラミング学習。見積作成。等)
+      tag_ids: デスクの作業場を選択して下さい。
+    show:
+      title: 診断詳細
+      result: 【デスク診断結果】
+      recommend: 【こちらをデスクに置いてみませんか？】
+      index: 診断結果一覧
+      delete: 削除する

@@ -2,7 +2,7 @@
   <%= form_with model: diagnosis do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
-      <%= f.label :desk_image, 'あなたのデスク環境の写真を選んで下さい', class: "block" %>
+      <%= f.label :desk_image, t('diagnoses.new.desk_image'), class: "block" %>
       <%= f.file_field :desk_image, id: 'desk_image', class: "mt-1" %>
       <%= f.hidden_field :desk_image_cache %>
     </div>
@@ -14,7 +14,7 @@
 
     <!-- タグのセレクトボックスを追加 -->
     <div class="mb-3">
-      <%= f.label :tag_ids, 'デスクの作業場を選択して下さい。' %>
+      <%= f.label :tag_ids, t('diagnoses.new.tag_ids') %>
         <div class="mb-3 p-4 bg-white rounded flex flex-wrap justify-around">
           <% [['オフィス（固定席）', 11], ['オフィス（フリーアドレス）', 12], ['書斎', 13], ['自分の部屋', 14], ['リビング', 15], ['カフェ', 16], ['その他', 17]].each do |name, id| %>
             <div class="mb-1">
@@ -27,7 +27,7 @@
 
     <!-- デスクワーク内容 -->
     <div class='mb-3'>
-      <%= f.label :desk_work, 'デスクでの主な作業内容を教えて下さい。/（例：プログラミング学習。見積作成。等)' ,class: "block" %>
+      <%= f.label :desk_work, t('diagnoses.new.desk_work') ,class: "block" %>
       <%= f.text_field :desk_work, class: "mt-1 w-3/4" %>
     </div>
 

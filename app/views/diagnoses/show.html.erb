@@ -1,6 +1,6 @@
 <div class="container mx-auto text-center justify-center">
   <div>
-    <h1 class="font-bold text-4xl my-6">投稿詳細</h1>
+    <h1 class="font-bold text-4xl my-6"><%= t('.title') %></h1>
   </div>
 
   <div class="p-4 m-2 bg-teal-500 rounded-md">
@@ -9,7 +9,7 @@
     </div>
 
     <div class="mb-3 flex flex-col">
-      <h2 class= "text-2xl mb-1">【診断結果】</h2>
+      <h2 class= "text-2xl mb-1"><%= t('.result') %></h2>
         <div class="font-bold container p-4 m-2 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
           <%= @diagnosis.result_jp %>
         </div>
@@ -24,7 +24,7 @@
 
     <!-- 楽天商品提案 -->
     <div class="mt-10 mb-3 text-center">
-      <h2 class= "text-2xl mb-1">【こちらをデスクに置いてみませんか？】</h2> 
+      <h2 class= "text-2xl mb-1"><%= t('.recommend') %></h2> 
       <% if @diagnosis.color_name.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <% items = RakutenWebService::Ichiba::Item.search(keyword: "オブジェ #{@diagnosis.color_name}", hits: 9) %>
@@ -42,12 +42,12 @@
     </div>
 
     <div class="mb-3">
-      <%= link_to "他の人の診断結果一覧", diagnoses_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out"%>
+      <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out"%>
     </div>
 
     <% if current_user.own?(@diagnosis) %>
       <div class="mb-3 inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out">
-        <%= link_to "削除する", diagnosis_path(@diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
+        <%= link_to t('.delete'), diagnosis_path(@diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
       </div>
     <% end %>
   </div>
