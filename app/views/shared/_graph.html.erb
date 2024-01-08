@@ -1,4 +1,4 @@
-<div class="container mx-auto mb-3 flex justify-around shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md">
+<div class="container mx-auto mb-3 flex justify-around shadow-lg shadow-cyan-900/80 bg-slate-500 rounded-md">
     <div class="container font-bold m-4 shadow-lg bg-white rounded-md">
         <%= pie_chart Diagnosis.joins(:tags).group(:tag_name).count, 
             title: "「作業環境」集計結果", 
