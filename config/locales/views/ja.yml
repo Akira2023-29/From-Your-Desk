@@ -6,14 +6,16 @@ ja:
       update: 更新
       diagnosis: 診断
   defaults:
-    
+  
   header:
     login: ログイン
     logout: ログアウト
-    diagnoses: 診断一覧
+    diagnosis_index: 診断一覧
     create_diagnosis: 診断
     favorite_diagnoses: お気に入り
     profile: プロフィール
+
+  
   
   user_sessions:
     new:
