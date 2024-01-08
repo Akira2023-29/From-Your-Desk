@@ -1,11 +1,9 @@
 ja:
-  defaults:
-  
   header:
     login: ログイン
     logout: ログアウト
     diagnosis_index: 診断一覧
-    diagnosis_create: 診断
+    diagnosis: 診断
     favorite_diagnoses: お気に入り診断
     profile: プロフィール
   
@@ -41,3 +39,22 @@ ja:
       recommend: 【こちらをデスクに置いてみませんか？】
       index: 診断結果一覧
       delete: 削除する
+    index:
+      title: デスク診断結果一覧
+      tag_search: 【作業環境別検索】
+      not_result: 診断結果はありません
+    diagnosis:
+      title: 【診断結果を見る・・・】
+      desk_work: デスク作業内容
+      desk_place: 作業環境
+      delete: 削除する
+  
+  profiles:
+    show:
+      title: プロフィール詳細
+      edit: プロフィール編集
+      result: 【診断履歴】
+      not_result: 診断履歴はありません
+    edit:
+      title: プロフィール編集
+      update: 更新
