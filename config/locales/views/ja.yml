@@ -14,8 +14,10 @@ ja:
     diagnosis_create: 診断
     favorite_diagnoses: お気に入り診断
     profile: プロフィール
-
   
+  footer:
+    terms_of_use: 利用規約
+    privacy_policy: プライバシーポリシー
   
   user_sessions:
     new:
