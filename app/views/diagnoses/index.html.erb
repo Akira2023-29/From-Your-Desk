@@ -1,21 +1,20 @@
 <div class="container mx-auto text-center justify-center">
-  <div class="flex flex-col">
+  <div class="mb-2 flex flex-col">
     <div class="mb-1">
       <h1 class="font-bold text-4xl">デスク診断投稿一覧</h1>
     </div>
 
     <!-- タグ別検索フォーム -->
-    <div class="p-2 my-2 bg-teal-600 rounded-md">
+    <div class="p-2 my-2 bg-teal-500 rounded-md">
       <div class="flex justify-around">
-        <%= "【検索フォーム】"%>
+        <%= "【作業環境別検索】"%>
         <% Tag.all.each do |tag| %>
-          <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
+          <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "mb-2 rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
         <% end %>
       </div>
+      <!-- グラフ -->
+      <%= render "shared/graph" %>
     </div>
-
-    <!-- グラフ -->
-    <%= render "shared/graph" %>
   </div>
 
   <div class="p-4 mb-2 bg-teal-500 rounded-md">

@@ -7,7 +7,8 @@ class DiagnosesController < ApplicationController
 
   def new
     @diagnosis = Diagnosis.new
-    @tag_list = Tag.all
+    # Tagsテーブルから取得するように修正する。
+    @tag_list = [['オフィス（固定席）', 11], ['オフィス（フリーアドレス）', 12], ['書斎', 13], ['自分の部屋', 14], ['リビング', 15], ['カフェ', 16], ['その他', 17]]
   end
 
   def show
