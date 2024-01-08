@@ -11,12 +11,12 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
     # 既存のユーザーをOAuth認証情報を元に検索。
     if (@user = login_from(provider))  # ユーザーがデータベースに存在する場合。
-      redirect_to diagnoses_path, success: 'Googleアカウントでログインに成功しました!!'
+      redirect_to diagnoses_path, success: t('.google_login')
     elsif
       signup_and_login(provider) # 既存のユーザーが存在しない場合。
-      redirect_to diagnoses_path, success: 'Googleアカウントでログインに成功しました!'
+      redirect_to diagnoses_path, success: t('.google_login')
     else # 例外処理
-      redirect_to login_path, danger: 'Googleアカウントでログインに失敗しました。'
+      redirect_to login_path, danger: t('.not_google_login')
     end
   end
 

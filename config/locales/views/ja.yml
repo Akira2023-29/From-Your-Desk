@@ -1,0 +1,96 @@
+ja:
+  flash_message:
+    diagnosed: "診断しました!!"
+    not_diagnosed: "診断出来ませんでした"
+    created: "%{item}を作成しました"
+    not_created: "%{item}を作成出来ませんでした"
+    update: "%{item}を更新しました"
+    not_update: "%{item}を更新出来ませんでした"
+    delete: "%{item}を削除しました"
+  
+  header:
+    login: ログイン
+    logout: ログアウト
+    diagnosis_index: 診断一覧
+    diagnosis: 診断
+    favorite_diagnoses: お気に入り診断
+    profile: プロフィール
+  
+  footer:
+    terms_of_use: 利用規約
+    privacy_policy: プライバシーポリシー
+  
+  user_sessions:
+    new:
+      title: ログイン
+      email: メールアドレス
+      password: パスワード
+      login: ログイン
+      google_login: Googleアカウントでログイン
+      to_user_new: 新規登録はこちら
+      password_forget: パスワードを忘れた方はこちら
+    create:
+      success: ログインに成功しました
+      fail: ログインに失敗しました
+  
+  oauths:
+    callback:
+      google_login: "Googleアカウントでログインしました"
+      not_google_login: "Googleアカウントでログインに失敗しました"
+  
+  users:
+    new:
+      title: ユーザー新規登録
+      user_create: 新規登録
+      to_login: ログインはこちら
+
+  diagnoses:
+    new:
+      title: 診断する
+      desk_image: あなたのデスク環境の写真を選んで下さい。
+      desk_work: デスクでの主な作業内容を教えて下さい。/（例：プログラミング学習。見積作成。等)
+      tag_ids: デスクの作業場を選択して下さい。
+    show:
+      title: 診断詳細
+      result: 【デスク診断結果】
+      sns_share: Xにシェアする
+      recommend: 【こちらをデスクに置いてみませんか？】
+      index: 診断結果一覧
+      delete: 削除する
+    index:
+      title: デスク診断結果一覧
+      tag_search: 【作業環境別検索】
+      not_result: 診断結果はありません
+    diagnosis:
+      title: 【診断結果を見る・・・】
+      desk_work: デスク作業内容
+      desk_place: 作業環境
+      delete: 削除する
+    favorites:
+      title: お気に入り診断一覧
+      tag_search: 【作業環境別検索】
+      not_result: お気に入りの診断結果はありません
+  
+  profiles:
+    show:
+      title: プロフィール詳細
+      edit: プロフィール編集
+      result: 【診断履歴】
+      not_result: 診断履歴はありません
+    edit:
+      title: プロフィール編集
+      update: 更新
+  
+  password_resets:
+    new:
+      email: メールアドレス
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+      submit: パスワード変更
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
+      fail: パスワードの変更に失敗しました

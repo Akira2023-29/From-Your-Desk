@@ -1,5 +1,5 @@
 <div class="container mx-auto text-center pb-10">
-  <h1 class="font-bold text-4xl my-6">ユーザー詳細</h1>
+  <h1 class="font-bold text-4xl my-6"><%= t('.title') %></h1>
   <div class="p-2 mb-3 max-w-sm mx-auto bg-cyan-600 rounded-md">
     <div class="md-3">
       <%= @user.name %>
@@ -19,12 +19,12 @@
   </div>
 
   <div class="mb-3">
-    <%= link_to "ユーザー情報編集", edit_profile_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <%= link_to t('.edit'), edit_profile_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   </div>
 
   <!-- 自分の診断履歴 -->
   <div class="mb-1">
-    <h1 class="font-bold text-4xl">診断履歴</h1>
+    <h1 class="font-bold text-3xl"><%= t('.result') %></h1>
   </div>
   <div class="p-4 mb-2 bg-teal-500 rounded-md">
     <div class="mb-3 flex flex-wrap justify-center">
@@ -33,7 +33,7 @@
           <%= render @diagnoses %>
         </div>
       <% else %>
-        <div>掲示板がありません</div>
+        <div><%= t('.not_result') %></div>
       <% end %>
     </div>
   </div>

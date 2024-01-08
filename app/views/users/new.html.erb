@@ -34,10 +34,10 @@
       <%= image_tag @user.avatar_image_url, id: 'preview', class: "rounded-full h-32 w-32 object-cover"%>
     </div>
   
-    <%= f.submit "新規登録", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <%= f.submit t('.user_create'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   <% end %>
   
   <div>
-    <%= link_to "ログインはこちら", login_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <%= link_to t('.to_login'), login_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   </div>
 </div>

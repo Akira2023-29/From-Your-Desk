@@ -5,11 +5,11 @@
     </div>
 
     <div class="flex items-center">
-        <%= link_to '診断', new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-400 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-        <%= link_to '診断結果一覧', diagnoses_path, class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-        <%= link_to 'お気に入り一覧', favorites_diagnoses_path, class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-        <%= link_to 'ユーザー情報', profile_path, class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-        <%= link_to 'ログアウト', logout_path , class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out", data: { turbo_method: :delete } %>
+        <%= link_to t('header.diagnosis'), new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-400 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+        <%= link_to t('header.diagnosis_index'), diagnoses_path, class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+        <%= link_to t('header.favorite_diagnoses'), favorites_diagnoses_path, class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+        <%= link_to t('header.profile'), profile_path, class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+        <%= link_to t('header.logout'), logout_path , class: "inline-block bg-amber-100 hover:bg-amber-400 shadow-lg font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out", data: { turbo_method: :delete } %>
     </div>
   </nav>
 </header>

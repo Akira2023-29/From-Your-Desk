@@ -25,11 +25,13 @@ class DiagnosesController < ApplicationController
 
   def create
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
-
+  
     #.tempfileメソッドはアップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
     # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
-    uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
-
+    if params[:diagnosis][:desk_image].present?
+      uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
+    end
+  
     # 色情報をcolor_infoカラムにセット + color_nameカラム（処理後）にセット。
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
@@ -53,9 +55,9 @@ class DiagnosesController < ApplicationController
     end
 
     if @diagnosis.save
-      redirect_to diagnosis_path(@diagnosis), success: ('画像を解析したぞ・・・！')
+      redirect_to diagnosis_path(@diagnosis), success: t('flash_message.diagnosed')
     else
-      flash.now[:danger] = '画像を解析できませんでした。'
+      flash.now[:danger] = t('flash_message.not_diagnosed')
       render :new, status: :unprocessable_entity
     end
   end
@@ -63,7 +65,7 @@ class DiagnosesController < ApplicationController
   def destroy
     diagnosis = current_user.diagnoses.find_by(id: params[:id])
     diagnosis.destroy!
-    redirect_to diagnoses_path, success: ('削除しました')
+    redirect_to diagnoses_path, success: t('flash_message.delete', item: Diagnosis.model_name.human)
   end
 
   private

@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      diagnosis: 診断
+      profile: プロフィール
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        avatar_image: アバター
+        role: 権限
+        enums:
+          role:
+            general: 一般
+            admin: 管理者
+      diagnosis:
+        desk_image: デスク写真
+        desk_work: デスクでの主な作業内容
+        tag_ids: デスク作業場

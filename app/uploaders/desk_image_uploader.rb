@@ -17,6 +17,11 @@ class DeskImageUploader < CarrierWave::Uploader::Base
     '/sample.jpg'
   end
 
+  # デフォルト画像のままか判定
+  def default_image?
+    self.url === self.default_url
+  end
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
