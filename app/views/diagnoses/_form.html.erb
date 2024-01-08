@@ -1,5 +1,5 @@
 <div class="container mx-auto  text-center w-3/4">
-  <%= form_with model: diagnosis, local: true do |f| %>
+  <%= form_with model: diagnosis do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
       <%= f.label :desk_image, 'あなたのデスク環境の写真を選んで下さい', class: "block" %>

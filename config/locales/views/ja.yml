@@ -1,0 +1,27 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+      diagnosis: 診断
+  defaults:
+    
+  header:
+    login: ログイン
+    logout: ログアウト
+    diagnoses: 診断一覧
+    create_diagnosis: 診断
+    favorite_diagnoses: お気に入り
+    profile: プロフィール
+  
+  user_sessions:
+    new:
+      email: メールアドレス
+      password: パスワード
+      login: ログイン
+      google_login: Googleアカウントでログイン
+      to_user_new: 新規登録はこちら
+      password_forget: パスワードを忘れた方はこちら
+  
+  users:
