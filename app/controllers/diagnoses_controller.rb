@@ -55,9 +55,9 @@ class DiagnosesController < ApplicationController
     end
 
     if @diagnosis.save
-      redirect_to diagnosis_path(@diagnosis), success: ('画像を解析したぞ・・・！')
+      redirect_to diagnosis_path(@diagnosis), success: t('flash_message.diagnosed')
     else
-      flash.now[:danger] = '画像を解析できませんでした。'
+      flash.now[:danger] = t('flash_message.not_diagnosed')
       render :new, status: :unprocessable_entity
     end
   end
@@ -65,7 +65,7 @@ class DiagnosesController < ApplicationController
   def destroy
     diagnosis = current_user.diagnoses.find_by(id: params[:id])
     diagnosis.destroy!
-    redirect_to diagnoses_path, success: ('削除しました')
+    redirect_to diagnoses_path, success: t('flash_message.delete', item: Diagnosis.model_name.human)
   end
 
   private

@@ -1,4 +1,13 @@
 ja:
+  flash_message:
+    diagnosed: "診断しました!!"
+    not_diagnosed: "診断出来ませんでした"
+    created: "%{item}を作成しました"
+    not_created: "%{item}を作成出来ませんでした"
+    update: "%{item}を更新しました"
+    not_update: "%{item}を更新出来ませんでした"
+    delete: "%{item}を削除しました"
+  
   header:
     login: ログイン
     logout: ログアウト
@@ -20,6 +29,14 @@ ja:
       google_login: Googleアカウントでログイン
       to_user_new: 新規登録はこちら
       password_forget: パスワードを忘れた方はこちら
+    create:
+      success: ログインに成功しました
+      fail: ログインに失敗しました
+  
+  oauths:
+    callback:
+      google_login: "Googleアカウントでログインしました"
+      not_google_login: "Googleアカウントでログインに失敗しました"
   
   users:
     new:
@@ -63,3 +80,17 @@ ja:
     edit:
       title: プロフィール編集
       update: 更新
+  
+  password_resets:
+    new:
+      email: メールアドレス
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+      submit: パスワード変更
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
+      fail: パスワードの変更に失敗しました
