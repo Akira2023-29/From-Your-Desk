@@ -16,3 +16,6 @@ ja:
             general: 一般
             admin: 管理者
       diagnosis:
+        desk_image: デスク写真
+        desk_work: デスクでの主な作業内容
+        tag_ids: デスク作業場
