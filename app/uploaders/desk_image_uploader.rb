@@ -4,8 +4,13 @@ class DeskImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # ストレージの種類を選択。
-  storage :file
-  # storage :fog
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
 
   #アップロードファイルを保存するディレクトリを指定
   def store_dir
