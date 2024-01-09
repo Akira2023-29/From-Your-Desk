@@ -102,3 +102,4 @@ gem "chartkick"
 gem 'config'
 gem 'kaminari'
 gem "meta-tags"
+gem 'fog-aws'

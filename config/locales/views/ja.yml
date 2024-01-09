@@ -70,6 +70,10 @@ ja:
       title: お気に入り診断一覧
       tag_search: 【作業環境別検索】
       not_result: お気に入りの診断結果はありません
+    tagged:
+      title: デスク診断結果一覧
+      tag_search: 【作業環境別検索】
+      not_result: お気に入りの診断結果はありません
   
   profiles:
     show:
