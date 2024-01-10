@@ -1,5 +1,5 @@
 <div class="container mx-auto  text-center w-3/4">
-  <%= form_with model: diagnosis, data: { turbo: false } do |f| %>
+  <%= form_with model: diagnosis, method: :post do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
       <%= f.label :desk_image, t('diagnoses.new.desk_image'), class: "block" %>

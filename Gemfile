@@ -88,8 +88,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'jsbundling-rails'
-
+# gem 'jsbundling-rails'
 gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'carrierwave', '~> 3.0'
