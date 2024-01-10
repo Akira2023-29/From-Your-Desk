@@ -1,3 +1,7 @@
+require 'carrierwave/storage/abstract' # 全てのストレージエンジンが継承する抽象ストレージクラスのロード
+require 'carrierwave/storage/file'     # ローカルファイルシステムへのアップロードを可能にするストレージエンジンをロード
+require 'carrierwave/storage/fog'      # fogを介したS3へのアップロードを可能にするストレージエンジンをロード
+
 CarrierWave.configure do |config|
     # Amazon S3に接続するための認証情報
     case Rails.env
