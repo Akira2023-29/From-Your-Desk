@@ -14,8 +14,8 @@
 
     <!-- Material Icons読み取り -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <%# = javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%# = javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
 
   <body>
@@ -24,7 +24,7 @@
     <% else %>
       <%= render "shared/before_login_header" %>
     <% end %>
-    <div class="bg-cyan-800 pt-16">
+    <div class="bg-gray-300 pt-16">
       <%= render "shared/flash_message" %>
       <%= yield %>
     </div>

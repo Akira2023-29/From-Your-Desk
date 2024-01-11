@@ -89,7 +89,6 @@ group :test do
 end
 
 # gem 'jsbundling-rails'
-
 gem 'sorcery'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'carrierwave', '~> 3.0'
@@ -102,3 +101,4 @@ gem "chartkick"
 gem 'config'
 gem 'kaminari'
 gem "meta-tags"
+gem 'fog-aws'
