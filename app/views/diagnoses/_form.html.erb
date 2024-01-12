@@ -15,19 +15,19 @@
     <!-- カテゴリー -->
     <div class="mb-3">
       <%= f.label :category_id, t('diagnoses.new.category') %>
-      <%= f.select :category_id, [['オフィス', 11], ['在宅', 12]], {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1", id: "category_select"} %>
+      <%= f.collection_select :category_id, Category.all, :id, :name,  {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1", id: "category_select"} %>
     </div>
 
     <!-- デスク位置（オフィス） -->
     <div class="mb-3" id="office" style="display: none;">
       <%= f.label :place_id, t('diagnoses.new.desk_place') %>
-      <%= f.select :place_id, [['固定席', 11], ['フリーアドレス', 12]], {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
+      <%= f.collection_select :place_id, @place_list_office, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
     </div>
 
     <!-- デスク位置（在宅） -->
     <div class="mb-3" id="home" style="display: none;">
       <%= f.label :place_id, t('diagnoses.new.desk_place') %>
-      <%= f.select :place_id, [['リビング', 12], ['ダイニング', 13], ['自室', 17], ['書斎', 11], ['その他', 14]], {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
+      <%= f.collection_select :place_id, @place_list_home, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
     </div>
 
     <!-- デスクワーク内容 -->

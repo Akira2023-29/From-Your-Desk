@@ -2,7 +2,8 @@ class Diagnosis < ApplicationRecord
     mount_uploader :desk_image, DeskImageUploader 
 
     validate :desk_image_must_not_be_default
-    validates :tag_ids, presence: true
+    validates :category_id, presence: true
+    validates :place_id, presence: true
     validates :desk_work, presence: true, length: { maximum: 255 }
 
     belongs_to :user

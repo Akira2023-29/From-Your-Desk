@@ -7,9 +7,9 @@ class DiagnosesController < ApplicationController
 
   def new
     @diagnosis = Diagnosis.new
-    # Placeテーブルから取得するように修正する。
-    @place_list_office = [['固定席', 1], ['フリーアドレス', 2]]
-    @place_list_home = [['自室', 11], ['書斎', 17], ['リビング', 17], ['ダイニング', 17], ['その他', 17]]
+    @category_list = Category.all
+    @place_list_office = Place.where(id: 23..24)
+    @place_list_home = Place.where(id: 18..22)
   end
 
   def show
@@ -40,16 +40,11 @@ class DiagnosesController < ApplicationController
       @diagnosis.color_name = RakutenApi.color_name(analysis_result)
     end
 
-    # 翻訳前の回答をresult_enカラムにセット。
     if @diagnosis.color_info.present?
-      response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work, 
-        @diagnosis.tags.each do |tag|
-          tag.tag_name
-        end) 
+      response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work, @diagnosis.place) 
       @diagnosis.result_en = response.dig("choices", 0, "message", "content") 
     end
 
-    # 翻訳後の回答をresult_jpカラムにセット。
     if @diagnosis.result_en.present?
       translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA')
       @diagnosis.result_jp = translated_response
