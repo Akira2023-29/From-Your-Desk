@@ -33,7 +33,7 @@
           <%= link_to t('header.profile'), profile_path, class: "text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" %>
         </div>
         <div class="py-1" role="none">
-          <%= link_to t('header.logout'), logout_path, class: "text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" %>
+          <%= link_to t('header.logout'), logout_path, class: "text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0", data: { turbo_method: :delete } %>
         </div>
       </div>
     </div>

@@ -37,18 +37,18 @@
             </div>
         </div>
 
-        <% if current_user&.own?(diagnosis) %>
-            <div class="inline-block bg-stone-400 hover:bg-red-500 font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
-                <%= link_to t('diagnoses.diagnosis.delete') , diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
-            </div>
-        <% else %>
-            <div>
-                <% if current_user.favorite?(diagnosis) %>
-                    <%= render 'unfavorite', diagnosis: diagnosis %>
-                <% else %>
-                    <%= render 'favorite', diagnosis: diagnosis %>
-                <% end %>
-            </div>
-        <% end %>
+    <% if current_user&.own?(diagnosis) %>
+        <div class="inline-block bg-stone-400 hover:bg-red-500 font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+            <%= link_to t('diagnoses.diagnosis.delete') , diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
+        </div>
+    <% elsif current_user %>
+        <div>
+            <% if current_user.favorite?(diagnosis) %>
+                <%= render 'unfavorite', diagnosis: diagnosis %>
+            <% else %>
+                <%= render 'favorite', diagnosis: diagnosis %>
+            <% end %>
+        </div>
+    <% end %>
     </div>
 </div>
