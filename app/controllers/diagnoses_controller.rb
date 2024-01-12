@@ -7,8 +7,9 @@ class DiagnosesController < ApplicationController
 
   def new
     @diagnosis = Diagnosis.new
-    # Tagsテーブルから取得するように修正する。
-    @tag_list = [['オフィス（固定席）', 11], ['オフィス（フリーアドレス）', 12], ['書斎', 13], ['自分の部屋', 14], ['リビング', 15], ['カフェ', 16], ['その他', 17]]
+    # Placeテーブルから取得するように修正する。
+    @place_list_office = [['固定席', 1], ['フリーアドレス', 2]]
+    @place_list_home = [['自室', 11], ['書斎', 17], ['リビング', 17], ['ダイニング', 17], ['その他', 17]]
   end
 
   def show
@@ -71,6 +72,6 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:desk_image, :desk_work, :desk_image_cache, :tag_ids)
+    params.require(:diagnosis).permit(:desk_image, :desk_work, :desk_image_cache, :category_id, :place_id)
   end
 end
