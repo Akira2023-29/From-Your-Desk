@@ -1,5 +1,5 @@
 class DiagnosesController < ApplicationController
-  skip_before_action :require_login, only: %i[]
+  skip_before_action :require_login, only: %i[index show]
 
   def index
     @diagnoses = Diagnosis.includes(:user).order(created_at: :desc).page(params[:page])

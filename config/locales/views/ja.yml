@@ -13,6 +13,7 @@ ja:
     logout: ログアウト
     diagnosis_index: 診断一覧
     diagnosis: 診断
+    diagnosis_before_login: 診断 (ログイン必要）
     favorite_diagnoses: お気に入り診断
     profile: プロフィール
   
