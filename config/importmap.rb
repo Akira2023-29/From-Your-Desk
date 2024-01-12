@@ -14,3 +14,5 @@ pin "previews", to: "previews.js"
 # グラフ
 pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
+
+pin "menu", to: "menu.js"

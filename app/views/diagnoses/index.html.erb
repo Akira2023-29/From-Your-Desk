@@ -5,11 +5,13 @@
     </div>
 
     <!-- タグ別検索フォーム -->
-    <div class="p-2 my-2 bg-teal-500 rounded-md">
+    <div class="p-2 my-2 bg-green-800 rounded-md">
       <div class="flex justify-around">
-        <%= t('.tag_search') %>
+        <div class="font-bold text-white">
+          <%= t('.tag_search') %>
+        </div>
         <% Tag.all.each do |tag| %>
-          <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "mb-2 rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
+          <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "font-bold mb-2 rounded px-2 bg-stone-200 hover:bg-teal-500 transition duration-150 ease-in-out" %>
         <% end %>
       </div>
       <!-- グラフ -->
@@ -17,7 +19,7 @@
     </div>
   </div>
 
-  <div class="p-4 mb-2 bg-teal-500 rounded-md">
+  <div class="p-4 mb-2 bg-green-800 rounded-md">
     <div class="mb-3 flex flex-wrap justify-center">
       <% if @diagnoses.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">

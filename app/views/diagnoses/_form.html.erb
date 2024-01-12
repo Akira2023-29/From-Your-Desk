@@ -12,7 +12,18 @@
       <%= image_tag diagnosis.desk_image.url, id: 'preview', width: 500, height: 300, class:"rounded-md" %>
     </div>
 
-
+    <!-- タグのセレクトボックスを追加 -->
+    <div class="mb-3">
+      <%= f.label :tag_ids, t('diagnoses.new.tag_ids') %>
+        <div class="mb-3 p-4 bg-white rounded flex flex-wrap justify-around">
+          <% [['オフィス（固定席）', 11], ['オフィス（フリーアドレス）', 12], ['書斎', 13], ['自分の部屋', 14], ['リビング', 15], ['カフェ', 16], ['その他', 17]].each do |name, id| %>
+            <div class="mb-1">
+              <%= f.radio_button :tag_ids, id, class: "form-radio" %>
+              <%= f.label :tag_ids, name, value: id, class: "ml-2" %>
+            </div>
+          <% end %>
+        </div>
+    </div>
 
     <!-- デスクワーク内容 -->
     <div class='mb-3'>
