@@ -10,12 +10,12 @@
         <div class="font-bold text-white">
           <%= t('.tag_search') %>
         </div>
-        <% Tag.all.each do |tag| %>
-          <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "font-bold mb-2 rounded px-2 bg-stone-200 hover:bg-teal-500 transition duration-150 ease-in-out" %>
-        <% end %>
+        <%# Tag.all.each do |tag| %>
+          <%#= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "font-bold mb-2 rounded px-2 bg-stone-200 hover:bg-teal-500 transition duration-150 ease-in-out" %>
+        <%# end %>
       </div>
       <!-- グラフ -->
-      <%= render "shared/graph" %>
+      <%# = render "shared/graph" %>
     </div>
   </div>
 
