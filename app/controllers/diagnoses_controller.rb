@@ -7,9 +7,6 @@ class DiagnosesController < ApplicationController
 
   def new
     @diagnosis = Diagnosis.new
-    @category_list = Category.all
-    @place_list_office = Place.where(id: 23..24)
-    @place_list_home = Place.where(id: 18..22)
   end
 
   def show
@@ -33,7 +30,6 @@ class DiagnosesController < ApplicationController
       uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
     end
   
-    # 色情報をcolor_infoカラムにセット + color_nameカラム（処理後）にセット。
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result

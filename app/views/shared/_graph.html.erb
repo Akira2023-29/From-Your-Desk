@@ -1,6 +1,12 @@
 <div class="container mx-auto mb-3 flex justify-around shadow-lg shadow-cyan-900/80 bg-slate-500 rounded-md">
     <div class="container font-bold m-4 shadow-lg bg-white rounded-md">
-        <%= pie_chart Diagnosis.joins(:tags).group(:tag_name).count, 
+        <%= pie_chart Diagnosis.joins(:category).group(:name).count, 
+            title: "「作業環境」集計結果", 
+            colors: ["#2a83a2", "#339999", "#33cccc", "#3cb37a", "#288c66"] %>
+    </div>
+
+        <div class="container font-bold m-4 shadow-lg bg-white rounded-md">
+        <%= pie_chart Diagnosis.joins(:place).group(:name).count, 
             title: "「作業環境」集計結果", 
             colors: ["#2a83a2", "#339999", "#33cccc", "#3cb37a", "#288c66"] %>
     </div>

@@ -24,6 +24,7 @@
       <%= f.collection_select :place_id, @place_list_office, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
     </div>
 
+
     <!-- デスク位置（在宅） -->
     <div class="mb-3" id="home" style="display: none;">
       <%= f.label :place_id, t('diagnoses.new.desk_place') %>
