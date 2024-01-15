@@ -1,6 +1,6 @@
-<div class="container max-w-sm p-2 m-2 shadow-lg shadow-cyan-900/80 bg-cyan-600 hover:bg-cyan-500 rounded-md transition duration-300">
+<div class="container max-w-sm p-2 m-2 shadow-lg shadow-cyan-900/80 bg-cyan-600 hover:bg-cyan-500 rounded-md transition duration-300 border-4 border-black">
     <div class="my-2">
-        <div class="mb-3 flex justify-center">
+        <div class="mb-3 flex justify-center border-2 border-black">
             <%= image_tag diagnosis.desk_image.url%>
         </div>
 
@@ -11,15 +11,21 @@
             </div>
         </div>
 
-        <!-- タグ表示 -->
-        <div class="mb-1 flex flex-wrap justify-center">
-            <%= t('diagnoses.diagnosis.desk_place')+" :" %>
-            <%#  diagnosis.tags.each do |tag| %>
-                <div class="px-2">
-                    <%#= link_to tag.tag_name, "#", class: "font-bold rounded px-2 bg-stone-300 hover:bg-teal-600 transition duration-150 ease-in-out" %>
-                </div>
-            <%#  end %>
-        </div>
+        <!-- 作業環境・デスク位置表示 -->
+        <% if diagnosis.place_id.present? %>
+            <div class="mb-1 flex flex-wrap justify-center">
+                <%= t('diagnoses.diagnosis.desk_place')+" :" %>
+                    <div class="px-2">
+                        <%= link_to Category.find_by(id: diagnosis.place.category_id).name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                    </div>
+            </div>
+            <div class="mb-1 flex flex-wrap justify-center">
+                <%= t('diagnoses.diagnosis.desk_place')+" :" %>
+                    <div class="px-2">
+                        <%= link_to diagnosis.place.name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                    </div>
+            </div>
+        <% end %>
 
         <hr class="border-1 bg-cyan-400 my-4">
 
@@ -38,7 +44,7 @@
         </div>
 
     <% if current_user&.own?(diagnosis) %>
-        <div class="inline-block bg-stone-400 hover:bg-red-500 font-bold py-2 px-4 rounded transition duration-150 ease-in-out">
+        <div class="inline-block bg-stone-400 hover:bg-red-500 font-bold py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
             <%= link_to t('diagnoses.diagnosis.delete') , diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
         </div>
     <% elsif current_user %>

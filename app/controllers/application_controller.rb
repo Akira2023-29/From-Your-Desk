@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def set_select_menu
     @categories = Category.all
-    @place_list_office = Place.where(id: [23, 24])
-    @place_list_home = Place.where(id: [18..22])
+    @office_places = Place.where(category_id: 1)
+    @home_places = Place.where(category_id: 2)
   end
 end

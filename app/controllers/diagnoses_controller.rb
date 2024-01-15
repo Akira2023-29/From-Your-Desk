@@ -2,7 +2,7 @@ class DiagnosesController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @diagnoses = Diagnosis.includes(:user).order(created_at: :desc).page(params[:page])
+    @diagnoses = Diagnosis.includes(:user, :place).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -36,8 +36,8 @@ class DiagnosesController < ApplicationController
       @diagnosis.color_name = RakutenApi.color_name(analysis_result)
     end
 
-    if @diagnosis.color_info.present?
-      response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work, @diagnosis.place) 
+    if @diagnosis.color_info.present? && @diagnosis.place_id.present?
+      response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work, Place.find_by(id: @diagnosis.place_id).name)
       @diagnosis.result_en = response.dig("choices", 0, "message", "content") 
     end
 
@@ -63,6 +63,6 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:desk_image, :desk_work, :desk_image_cache, :category_id, :place_id)
+    params.require(:diagnosis).permit(:desk_image, :desk_work, :desk_image_cache, :place_id)
   end
 end

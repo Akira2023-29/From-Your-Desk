@@ -2,33 +2,32 @@
   <%= form_with model: diagnosis do |f| %>
     <%= render "shared/error_messages", object: f.object %>
     <div class="mb-3">
-      <%= f.label :desk_image, t('diagnoses.new.desk_image'), class: "block" %>
+      <%= f.label :desk_image, t('diagnoses.new.desk_image'), class: "block " %>
       <%= f.file_field :desk_image, id: 'desk_image', class: "mt-1" %>
       <%= f.hidden_field :desk_image_cache %>
     </div>
   
     <!-- プレビュー -->
     <div class="mb-3 flex justify-center">
-      <%= image_tag diagnosis.desk_image.url, id: 'preview', width: 500, height: 300, class:"rounded-md" %>
+      <%= image_tag diagnosis.desk_image.url, id: 'preview', width: 500, height: 300, class:"rounded-md border border-black" %>
     </div>
 
     <!-- カテゴリー -->
     <div class="mb-3">
-      <%= f.label :category_id, t('diagnoses.new.category') %>
-      <%= f.collection_select :category_id, Category.all, :id, :name,  {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1", id: "category_select"} %>
+      <%= label_tag :category_id, t('diagnoses.new.category') %>
+      <%= select_tag :category_id, options_from_collection_for_select(@categories, :id, :name), prompt: '※ 選択してください', class: "form-select block w-full mt-1", id: "category_select" %>
     </div>
 
     <!-- デスク位置（オフィス） -->
     <div class="mb-3" id="office" style="display: none;">
       <%= f.label :place_id, t('diagnoses.new.desk_place') %>
-      <%= f.collection_select :place_id, @place_list_office, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
+      <%= f.collection_select :place_id, @office_places, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
     </div>
-
 
     <!-- デスク位置（在宅） -->
     <div class="mb-3" id="home" style="display: none;">
       <%= f.label :place_id, t('diagnoses.new.desk_place') %>
-      <%= f.collection_select :place_id, @place_list_home, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
+      <%= f.collection_select :place_id, @home_places, :id, :name, {prompt: '※ 選択してください'}, {class: "form-select block w-full mt-1"} %>
     </div>
 
     <!-- デスクワーク内容 -->
@@ -37,6 +36,6 @@
       <%= f.text_field :desk_work, class: "mt-1 w-3/4", placeholder: t('diagnoses.new.desk_work_sample') %>
     </div>
 
-    <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out" %>
+    <%= f.submit "診断する", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
   <% end %>
 </div>

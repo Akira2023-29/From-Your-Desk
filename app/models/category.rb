@@ -1,4 +1,3 @@
 class Category < ApplicationRecord
-    has_many :diagnoses, dependent: :destroy
-    has_many :places, through: :category_places
+    has_many :place, dependent: :destroy
 end
