@@ -16,3 +16,4 @@ pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
 
 pin "menu", to: "menu.js"
+pin "select_place", to: "select_place.js"
