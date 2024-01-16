@@ -15,4 +15,8 @@ class Diagnosis < ApplicationRecord
             errors.add(:desk_image, "を選択してください。")
         end
     end
+
+    def self.ransackable_attributes(auth_object = nil)
+        ["desk_work", "id", "place_id", "place_category_id"]
+    end
 end

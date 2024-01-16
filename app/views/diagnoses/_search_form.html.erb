@@ -1,0 +1,12 @@
+<%= search_form_for q, url: url do |f| %>
+    <%= f.label :desk_work_cont, "作業内容", class: "font-bold" %>
+    <%= f.search_field :desk_work_cont, placeholder: "例：プログラミング学習", class: "w-full my-1" %>
+
+    <%= f.label :place_category_id_eq, "作業区分", class: "font-bold ml-1"%>
+    <%= f.collection_select :place_category_id_eq, Category.all, :id, :name, include_blank: "未指定", class: "mx-1 my-1" %>
+
+    <%= f.label :place_id_eq, "作業場所", class: "font-bold ml-1" %>
+    <%= f.collection_select :place_id_eq, Place.all, :id, :name, include_blank: "未指定", class: "mx-1 my-1" %>
+
+    <%= f.submit "検索", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl ml-2 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
+<% end %>

@@ -6,8 +6,8 @@
 
         <div class="mb-1">
             <%= link_to t('diagnoses.diagnosis.title'), diagnosis_path(diagnosis), class: "font-bold underline underline-offset-2 text-2xl mb-1" %>
-            <div class="mt-2 ">
-                <%= t('diagnoses.diagnosis.desk_work') %><%=" :『#{diagnosis.desk_work}』" %>
+            <div class="mt-2 font-bold">
+                <%= t('diagnoses.diagnosis.desk_work') %><%=" :『#{diagnosis.desk_work}』"%>
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                     <%= image_tag diagnosis.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
                 <% end %>
             </div>
-            <div class="mb-3 flex flex-col">
+            <div class="mb-1 flex flex-col">
                 <%= diagnosis.user.name %><br>
                 <%= l diagnosis.created_at, format: :long %>
             </div>

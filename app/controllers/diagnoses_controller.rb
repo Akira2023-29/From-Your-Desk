@@ -2,9 +2,9 @@ class DiagnosesController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @diagnoses = Diagnosis.includes(:user, :place).order(created_at: :desc).page(params[:page])
-    @q = Board.ransack(params[:q])
-    @diagnoses = @q.result(distinct: true).includes(:user, :place, :category).order(created_at: :desc).page(params[:page])
+    # @diagnoses = Diagnosis.includes(:user, :place).order(created_at: :desc).page(params[:page])
+    @q = Diagnosis.ransack(params[:q])
+    @diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -21,7 +21,7 @@ class DiagnosesController < ApplicationController
 
   def favorites
     @favorite_diagnoses = current_user.favorite_diagnoses.includes(:user).order(created_at: :desc).page(params[:page])
-    @q = Board.ransack(params[:q])
+    @q = current_user.favorite_diagnoses.ransack(params[:q])
     @diagnoses = @q.result(distinct: true).includes(:user, :place, :category).order(created_at: :desc).page(params[:page])
   end
 

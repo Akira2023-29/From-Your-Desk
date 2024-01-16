@@ -1,4 +1,4 @@
 <!-- お気に入り登録前 ⇨ お気に入り追加 -->
 <%= link_to favorites_path(diagnosis_id: diagnosis.id), id: "favorite_button_for_diagnosis_#{diagnosis.id}", data: { turbo_method: :post} do %>
-    <%= "♡" %>
+    <span class="material-icons ">thumb_up_off_alt</span>
 <% end %>

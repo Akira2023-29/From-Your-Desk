@@ -13,11 +13,8 @@
   </div>
 
   <!-- 検索フォーム -->
-  <div class="mb-3 py-1 px-2 flex justify-around bg-white rounded-md">
-    <%= t('.tag_search') %>
-    <% Place.all.each do |place| %>
-      <%= link_to place.name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "mb-1 mx-1 rounded px-2 bg-white hover:bg-amber-500 transition duration-150 ease-in-out" %>
-    <% end %>
+  <div class="container font-boldmb-3 mb-3 py-1 px-2 flex flex-col sm:flex-row justify-around bg-white rounded-md">
+    <%= render "search_form", q: @q, url: diagnoses_path %>
   </div>
 
   <!-- 診断一覧 -->
