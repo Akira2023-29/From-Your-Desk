@@ -57,7 +57,7 @@ class DiagnosesController < ApplicationController
   end
 
   def destroy
-    diagnosis = Diagnosis.find_by(id: params[:id])
+    diagnosis = current_user.diagnoses.find_by(id: params[:id])
     diagnosis.destroy!
     redirect_to diagnoses_path, success: t('flash_message.delete', item: Diagnosis.model_name.human)
   end

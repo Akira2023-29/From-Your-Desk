@@ -21,7 +21,7 @@
     <!-- Googleアカウントログイン　-->
     <div class="flex justify-center">
       <%= link_to auth_at_provider_path(provider: :google), class: "flex items-center inline-block bg-red-600 hover:bg-red-400 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-full transition duration-150 ease-in-out" do %>
-        <%= image_tag 'google_icon.png', class: "h-7 w-7 object-cove rounded-full object-cover mr-2"%>
+        <%= image_tag 'google_icon.png', class: "h-7 w-7 object-cove rounded-full mr-2"%>
         <%= t('.google_login') %>
       <% end %>
     </div>

@@ -58,7 +58,7 @@ ja:
       result: 【デスク診断結果】
       sns_share: Xにシェアする
       recommend: 【こちらをデスクに置いてみませんか？】
-      index: 診断結果一覧
+      index: 診断一覧に戻る
       delete: 削除する
     index:
       title: デスク診断結果一覧
@@ -82,6 +82,8 @@ ja:
   profiles:
     show:
       title: プロフィール詳細
+      name: ユーザー名
+      email: メールアドレス
       edit: プロフィール編集
       result: 【診断履歴】
       not_result: 診断履歴はありません
