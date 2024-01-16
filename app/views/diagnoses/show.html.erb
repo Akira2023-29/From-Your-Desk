@@ -16,7 +16,7 @@
     </div>
 
     <!-- Xにシェア -->
-    <div class="font-bold mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-1 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+    <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-1 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
       <%= link_to "https://twitter.com/share?url=#{diagnosis_url(@diagnosis)}&text=【デスク環境診断結果】%0a%0a#{truncate(@diagnosis.result_jp, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
         <%= t('.sns_share') %>
       <% end %>

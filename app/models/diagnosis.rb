@@ -17,6 +17,10 @@ class Diagnosis < ApplicationRecord
     end
 
     def self.ransackable_attributes(auth_object = nil)
-        ["desk_work", "id", "place_id", "place_category_id"]
+        %w[desk_work id place_id] # place_category_idはここでは不要
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        %w[place] # placeを検索できるようにする
     end
 end
