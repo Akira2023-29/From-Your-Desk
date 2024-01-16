@@ -1,7 +1,7 @@
-<div class="mx-auto  text-center">
-  <h1 class="font-bold text-4xl my-6"><%= t('.title') %></h1>
+<div class="container mx-auto  text-center">
+  <h1 class="font-bold text-4xl text-white"><%= t('.title') %></h1>
 
-  <div class="m-3">
+  <div class="p-4 m-2 max-w-sm mx-auto bg-green-800 rounded-md text-white">
     <%= form_with url: login_path do |f| %>
       <div class='mb-3'>
         <%= f.label :email, t('.email'), class: "block" %>
@@ -16,9 +16,14 @@
       <%= f.submit t('.login'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
     <% end %>
 
+    <hr class="border-1 bg-cyan-400 my-4">
+
     <!-- Googleアカウントログイン　-->
-    <div>
-      <%= link_to t('.google_login'), auth_at_provider_path(provider: :google), class: "inline-block bg-red-400 hover:bg-red-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-full transition duration-150 ease-in-out" %>
+    <div class="flex justify-center">
+      <%= link_to auth_at_provider_path(provider: :google), class: "flex items-center inline-block bg-red-600 hover:bg-red-400 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-full transition duration-150 ease-in-out" do %>
+        <%= image_tag 'google_icon.png', class: "h-7 w-7 object-cove rounded-full mr-2"%>
+        <%= t('.google_login') %>
+      <% end %>
     </div>
 
     <div>

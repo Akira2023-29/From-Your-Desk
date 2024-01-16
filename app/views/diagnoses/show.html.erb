@@ -1,35 +1,42 @@
 <div class="container mx-auto text-center justify-center">
   <div>
-    <h1 class="font-bold text-4xl my-6"><%= t('.title') %></h1>
+    <h1 class="font-bold text-4xl"><%= t('.title') %></h1>
   </div>
 
-  <div class="p-4 m-2 bg-teal-600 rounded-md">
+  <div class="p-4 m-2 bg-stone-400 rounded-md border-2 border-black">
     <div class="mb-3 flex justify-center ">
-      <%= image_tag @diagnosis.desk_image.url , class: "rounded-md border-4 border-black shadow-lg shadow-cyan-900/80" %>
+      <%= image_tag @diagnosis.desk_image.url , class: "rounded-md border-4 border-black" %>
     </div>
 
     <div class="mb-3 flex flex-col">
-      <h2 class= "text-2xl mb-1"><%= t('.result') %></h2>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-cyan-900/80 bg-cyan-600 rounded-md border-4 border-lime-800">
+      <h2 class= "font-bold text-2xl mb-1"><%= t('.result') %></h2>
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-cyan-100/90 bg-cyan-600 rounded-md border-4 border-lime-800">
           <%= @diagnosis.result_jp %>
         </div>
     </div>
 
     <!-- Xにシェア -->
-    <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
-      <%= link_to "https://twitter.com/share?url=#{diagnosis_url(@diagnosis)}&text=【デスク環境診断結果】%0a%0a#{truncate(@diagnosis.result_jp, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-        <%= t('.sns_share') %>
-      <% end %>
+    <div class="flex items-center justify-center">
+      <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+        <%= link_to "https://twitter.com/share?url=#{diagnosis_url(@diagnosis)}&text=【デスク環境診断結果】%0a%0a#{truncate(@diagnosis.result_jp, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+          <%= t('.sns_share') %>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
+      </div>
     </div>
 
+    <hr class="border-2 bg-black my-4">
+
     <!-- 楽天商品提案 -->
-    <div class="mt-10 mb-3 text-center">
-      <h2 class= "text-2xl mb-1"><%= t('.recommend') %></h2> 
+    <div class="mt-5 mb-3 text-center">
+      <h2 class= "font-bold text-2xl mb-1"><%= t('.recommend') %></h2> 
       <% if @diagnosis.color_name.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <% items = RakutenWebService::Ichiba::Item.search(keyword: "オブジェ #{@diagnosis.color_name}", hits: 9) %>
             <% items.each do |item| %>
-              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-cyan-900/80 bg-cyan-600 hover:bg-cyan-500 rounded-md transition duration-300 border-2 border-black">
+              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-cyan-500/80 bg-cyan-600 hover:bg-cyan-500 rounded-md transition duration-300 border-2 border-black">
                 <div class="flex justify-center mb-4">
                   <%= image_tag item['mediumImageUrls'].first %><br>
                 </div>
@@ -41,9 +48,7 @@
       <% end %>
     </div>
 
-    <div class="mb-3">
-      <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
-    </div>
+
 
     <% if current_user&.own?(@diagnosis) %>
       <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">

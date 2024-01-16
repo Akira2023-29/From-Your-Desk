@@ -1,12 +1,17 @@
 <div class="container mx-auto text-center pb-10">
-  <h1 class="font-bold text-4xl my-6"><%= t('.title') %></h1>
-  <div class="p-2 mb-3 max-w-sm mx-auto bg-cyan-600 rounded-md">
-    <div class="md-3">
+  <h1 class="mb-1 font-bold text-4xl "><%= t('.title') %></h1>
+  <div class="p-2 mb-3 max-w-sm mx-auto bg-stone-300 rounded-md border-2 border-black">
+    <%= t('.name') %>
+    <div class="md-1">
       <%= @user.name %>
     </div>
-    <div class="md-3">
+    <hr class="border-2 bg-black my-2">
+    <%= t('.email') %>
+    <div class="md-1">
       <%= @user.email %>
     </div>
+
+    <hr class="border-2 bg-black my-2">
 
     <!-- アバター画像 -->
     <div class="m-3 flex justify-center ">
@@ -16,17 +21,17 @@
         <%= image_tag @user.google_avatar_image, class: "h-32 w-32 object-cove rounded-full object-cover" %>
       <% end %>
     </div>
-  </div>
 
-  <div class="mb-3">
-    <%= link_to t('.edit'), edit_profile_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <div class="mb-3">
+      <%= link_to t('.edit'), edit_profile_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
+    </div>
   </div>
 
   <!-- 自分の診断履歴 -->
   <div class="mb-1">
     <h1 class="font-bold text-3xl"><%= t('.result') %></h1>
   </div>
-  <div class="p-4 mb-2 bg-teal-500 rounded-md">
+  <div class="p-4 mb-2 bg-stone-300 rounded-md border-2 border-black">
     <div class="mb-3 flex flex-wrap justify-center">
       <% if @diagnoses.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">

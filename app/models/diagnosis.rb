@@ -15,4 +15,12 @@ class Diagnosis < ApplicationRecord
             errors.add(:desk_image, "を選択してください。")
         end
     end
+
+    def self.ransackable_attributes(auth_object = nil)
+        %w[desk_work id place_id] # place_category_idはここでは不要
+    end
+
+    def self.ransackable_associations(auth_object = nil)
+        %w[place] # placeを検索できるようにする
+    end
 end

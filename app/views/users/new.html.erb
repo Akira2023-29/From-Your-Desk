@@ -1,43 +1,45 @@
-<div class="mx-auto  text-center">
-  <h1 class="font-bold text-4xl my-6">ユーザー新規登録</h1>
+<div class="container mx-auto  text-center  text-white">
+  <h1 class="font-bold text-4xl">ユーザー新規登録</h1>
   
-  <%= form_with model: @user do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
-    <div class="mb-3">
-      <%= f.label :name, class: "block" %>
-      <%= f.text_field :name, class: "mt-1" %>
-    </div>
-  
-    <div class='mb-3'>
-      <%= f.label :email, class: "block"  %>
-      <%= f.email_field :email, class: "mt-1" %>
-    </div>
-  
-    <div class='mb-3'>
-      <%= f.label :password, class: "block"  %>
-      <%= f.password_field :password, class: "mt-1" %>
-    </div>
-  
-    <div class='mb-3'>
-      <%= f.label :password_confirmation, class: "block"  %>
-      <%= f.password_field :password_confirmation, class: "mt-1" %>
-    </div>
-      
-    <div class='mb-3'>
-      <%= f.label :avatar_image, class: "block"  %>
-      <%= f.file_field :avatar_image, id: 'avatar_image', class: "mt-1" %>
-      <%= f.hidden_field :avatar_image_cache %>
-    </div>
+  <div class="p-4 m-2 max-w-sm mx-auto bg-green-800 rounded-md">
+    <%= form_with model: @user do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="mb-3">
+        <%= f.label :name, class: "block" %>
+        <%= f.text_field :name, class: "mt-1" %>
+      </div>
+    
+      <div class='mb-3'>
+        <%= f.label :email, class: "block"  %>
+        <%= f.email_field :email, class: "mt-1" %>
+      </div>
+    
+      <div class='mb-3'>
+        <%= f.label :password, class: "block"  %>
+        <%= f.password_field :password, class: "mt-1" %>
+      </div>
+    
+      <div class='mb-3'>
+        <%= f.label :password_confirmation, class: "block"  %>
+        <%= f.password_field :password_confirmation, class: "mt-1" %>
+      </div>
+        
+      <div class='mb-3'>
+        <%= f.label :avatar_image, class: "block"  %>
+        <%= f.file_field :avatar_image, id: 'avatar_image', class: "mt-1" %>
+        <%= f.hidden_field :avatar_image_cache %>
+      </div>
 
-   <!-- アバタープレビュー　-->
-    <div class="mb-3 flex justify-center ">
-      <%= image_tag @user.avatar_image_url, id: 'preview', class: "rounded-full h-32 w-32 object-cover"%>
+      <!-- アバタープレビュー　-->
+      <div class="mb-3 flex justify-center ">
+        <%= image_tag @user.avatar_image_url, id: 'preview', class: "rounded-full h-32 w-32 object-cover"%>
+      </div>
+    
+      <%= f.submit t('.user_create'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
+    <% end %>
+    
+    <div>
+      <%= link_to t('.to_login'), login_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
     </div>
-  
-    <%= f.submit t('.user_create'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
-  <% end %>
-  
-  <div>
-    <%= link_to t('.to_login'), login_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
   </div>
 </div>

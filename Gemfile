@@ -102,3 +102,4 @@ gem 'config'
 gem 'kaminari'
 gem "meta-tags"
 gem 'fog-aws'
+gem 'ransack'
