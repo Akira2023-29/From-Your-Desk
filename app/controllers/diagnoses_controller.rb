@@ -1,5 +1,5 @@
 class DiagnosesController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show destroy]
 
   def index
     @q = Diagnosis.ransack(params[:q])
@@ -57,7 +57,7 @@ class DiagnosesController < ApplicationController
   end
 
   def destroy
-    diagnosis = current_user.diagnoses.find_by(id: params[:id])
+    diagnosis = Diagnosis.find_by(id: params[:id])
     diagnosis.destroy!
     redirect_to diagnoses_path, success: t('flash_message.delete', item: Diagnosis.model_name.human)
   end
