@@ -8,8 +8,8 @@
     <div class="p-2 my-2 bg-teal-500 rounded-md">
       <div class="flex justify-around">
         <%= t('.tag_search') %>
-        <% Tag.all.each do |tag| %>
-          <%= link_to tag.tag_name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "mb-2 rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
+        <% Place.all.each do |place| %>
+          <%= link_to place.name, tagged_diagnoses_path(tag_name: tag.tag_name), class: "mb-2 rounded px-2 bg-amber-100 hover:bg-amber-500 transition duration-150 ease-in-out" %>
         <% end %>
       </div>
       <!-- グラフ -->

@@ -1,17 +1,17 @@
-<div class="w-full mb-2 mx-2 shadow-lg shadow-cyan-900/80 bg-slate-500 rounded-md border-4 border-black">
+<div class="w-full mb-3 mx-2 shadow-lg shadow-cyan-400/80 bg-slate-500 rounded-md border-4 border-black">
     <div class="font-bold m-4 shadow-lg bg-white rounded-md border-2 border-black">
         <%= pie_chart Diagnosis.joins(place: :category).group('categories.name').count, 
-            title: "「作業環境」集計結果", 
+            title: "「作業区分」集計結果", 
             donut: true,
             empty: "データが無いよ",
             colors: ["#2a83a2", "#339999", "#33cccc", "#3cb37a", "#288c66"] %>
     </div>
 </div>
 
-<div class="w-full mb-2 mx-2 shadow-lg shadow-cyan-900/80 bg-slate-500 rounded-md border-4 border-black">
+<div class="w-full mb-3 mx-2 shadow-lg shadow-cyan-400/80 bg-slate-500 rounded-md border-4 border-black">
     <div class="font-bold m-4 shadow-lg bg-white rounded-md border-2 border-black">
         <%= bar_chart Diagnosis.joins(:place).group(:name).count.sort_by { |_, v| -v }, 
-            title: "「デスクの位置」集計結果", 
+            title: "「作業環境」集計結果", 
             xtitle: "診断数", 
             empty: "データが無いよ",
             colors: ["#2a83a2", "#339999", "#33cccc", "#3cb37a", "#288c66"] %>
