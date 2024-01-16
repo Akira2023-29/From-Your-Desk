@@ -1,4 +1,4 @@
-<div class="w-full mb-3 mx-2 shadow-lg shadow-cyan-400/80 bg-slate-500 rounded-md border-4 border-black">
+<div class="w-full mb-3 mx-2  bg-slate-500 rounded-md border-2 border-white">
     <div class="font-bold m-4 shadow-lg bg-white rounded-md border-2 border-black">
         <%= pie_chart Diagnosis.joins(place: :category).group('categories.name').count, 
             title: "「作業区分」集計結果", 
@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="w-full mb-3 mx-2 shadow-lg shadow-cyan-400/80 bg-slate-500 rounded-md border-4 border-black">
+<div class="w-full mb-3 mx-2  bg-slate-500 rounded-md border-2 border-white">
     <div class="font-bold m-4 shadow-lg bg-white rounded-md border-2 border-black">
         <%= bar_chart Diagnosis.joins(:place).group(:name).count.sort_by { |_, v| -v }, 
             title: "「作業環境」集計結果", 

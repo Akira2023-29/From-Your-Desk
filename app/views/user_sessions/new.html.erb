@@ -16,9 +16,14 @@
       <%= f.submit t('.login'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out" %>
     <% end %>
 
+    <hr class="border-1 bg-cyan-400 my-4">
+
     <!-- Googleアカウントログイン　-->
-    <div>
-      <%= link_to t('.google_login'), auth_at_provider_path(provider: :google), class: "inline-block bg-red-400 hover:bg-red-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-full transition duration-150 ease-in-out" %>
+    <div class="flex justify-center">
+      <%= link_to auth_at_provider_path(provider: :google), class: "flex items-center inline-block bg-red-600 hover:bg-red-400 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-full transition duration-150 ease-in-out" do %>
+        <%= image_tag 'google_icon.png', class: "h-7 w-7 object-cove rounded-full object-cover mr-2"%>
+        <%= t('.google_login') %>
+      <% end %>
     </div>
 
     <div>
