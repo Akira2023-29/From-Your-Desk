@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   resources :diagnoses, only: %i[index show new create destroy] do
-    get 'tagged', on: :collection
     get 'favorites', on: :collection
   end
 
