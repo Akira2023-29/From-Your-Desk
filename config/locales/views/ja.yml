@@ -1,6 +1,6 @@
 ja:
   flash_message:
-    diagnosed: "診断しました!!"
+    diagnosed: "診断完了"
     not_diagnosed: "診断出来ませんでした"
     created: "%{item}を作成しました"
     not_created: "%{item}を作成出来ませんでした"
@@ -48,11 +48,11 @@ ja:
   diagnoses:
     new:
       title: 診断する
-      desk_image: あなたのデスク環境の写真を選んで下さい。
+      desk_image: あなたのデスク写真を選んで下さい。
       desk_work: デスクでの主な作業内容を教えて下さい。
       desk_work_sample: 例：プログラミング学習、見積作成、等
-      category: 作業空間を教えてください。
-      desk_place: デスク環境を教えてください。
+      category: 作業区分を教えてください。
+      desk_place: 作業環境を教えてください。
     show:
       title: 診断詳細
       result: 【デスク診断結果】
