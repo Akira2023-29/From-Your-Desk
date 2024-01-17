@@ -1,47 +1,96 @@
 <div class="container mx-auto  text-center" >
   <div class="relative mt-10 p-10">
-    <div class="absolute inset-0 bg-no-repeat bg-white"></div>
+    <div class="absolute inset-0 bg-no-repeat "></div>
     <!-- 背景画像だけ半透明に設定 -->
     <div class="relative">
-      <div class="flex justify-around">
-        <div class="font-bold">
-          <h1 class="text-6xl mb-4 ">From Desk Color</h1>
+      <div class="flex justify-around flex-col md:flex-row items-center">
+        <div class="px-5 font-bold">
+          <h1 class="text-6xl mb-10">Desk Color Check</h1>
           <p class="text-1xl mb-2">あなたは普段のデスクワークでの作業に集中できていますか？</p>
-          <p class="text-1xl mb-2">デスク環境を支配する色を少し変えることで作業効率UPを図ります。</p>
-          <p class="text-1xl mb-2"></p>
-                  <p class="font-bold m-4 text-2xl">早速診断しましょう。</p>
-        <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold text-3xl py-2 px-4 rounded transition duration-300" %>
+          <p class="text-1xl mb-2">最後にデスク環境を見直したのはいつですか？</p>
+          <p class="text-1xl mb-2">このサービスは色彩の観点からあなたのデスク環境改善をサポートします。</p>
+          <p class="m-4 text-2xl">ログインして早速診断しましょう。</p>
+          <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-2xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
         </div>
-        <div>
-          <%= image_tag 'top_icon.png', class: "w-96 h-96" %>
+        <div class="px-5">
+          <%= image_tag 'top_icon.png', class: "w-96 h-96 max-wide-80" %>
         </div>
       </div>
     </div>
   </div>
-  <div class="bg-gray-200 px-2 py-2 text-2xl">
-    <h2 class="font-bold text-1xl py-2">このサービスについて</h2>
-    <div class="flex justify-around items-center m-4">
-      <div>
-        <h1 class="font-bold text-4xl">STEP1</h1>
-        <%= image_tag '1512970557.png', class: "max-wide-80"%>
-        <p class="m-4">デスク環境の写真を撮影しておいて下さい。</p>
+  <div class="bg-stone-100 px-2">
+    <h2 class="font-bold text-2xl py-2">このサービスについて</h2>
+
+    <hr class="border-2 border-stone-500 m-2">
+
+    <div class="items-center m-2">
+      <div class="flex justify-center items-center">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="px-20 m-4">
+            <%= image_tag 'camera.png', class: "w-64 h-64"%>
+          </div>
+          <div class="font-bold m-4">
+            <p class="m-4 text-2xl">STEP 1</p>
+            <p class="mb-3">あなたのデスク環境の写真を撮影しておいて下さい。</p>
+            <p class="mb-3">※ 部外秘の情報等が映らないよう注意してください。</p>
+          </div>
+        </div>
       </div>
-      <div class="font-bold text-6xl">→</div>
-      <div>
-        <h1 class="font-bold text-4xl">STEP2</h1>
-        <p class="m-4">写真をアップするだけで診断します。</p>
+
+      <hr class="border-2 border-stone-500 m-2">
+
+      <div class="flex justify-center items-center">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="font-bold m-4">
+            <p class="m-4 text-2xl">STEP 2</p>
+            <p class="m-3">撮った写真をアップします。</p>
+            <p class="m-3">デスク環境とこのデスクで行う主な作業内容を入力します。</p>
+            <p class="m-3">あとは診断ボタンを押すだけです。</p>
+          </div>
+          <div class="m-4">
+            <%= image_tag 'diagnosis_top.png', class: "w-128 h-64" %>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <hr class="border-4 border-yellow-800 my-2">
+      <hr class="border-2 border-stone-500 m-2">
+      
+      <div class="flex justify-center items-center">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="m-4">
+            <%= image_tag 'diagnosis_show.png', class: "w-128 h-64" %>
+          </div>
+          <div class="font-bold m-4">
+            <p class="m-4 text-2xl">STEP 3</p>
+            <p class="m-3">色彩の観点からあなたのデスク環境を診断し、</p>
+            <p class="m-3">デスクワークの効率を上げるためのアドバイスを提供します。</p>
+            <p class="m-3">診断結果を参考に、あなたのデスク環境を見直しましょう。</p>
+            <p class="m-3">デスク環境に置けそうなオブジェクトもいくつか提案します。</p></p>
+          </div>
+        </div>
+      </div>
 
-    <div class="flex justify-around items-center m-4">
 
-    </div>
+      <hr class="border-2 border-stone-500 m-2">
+      
+      <div class="flex justify-center items-center">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="font-bold m-4">
+            <p class="m-4 text-2xl">【他の診断結果も参考に】</p>
+            <p class="m-3">一覧ページから他の人の診断結果を見れます。</p>
+            <p class="m-3">デスク環境改善の参考にしてください。</p>
+            <p class="m-3">診断したデスク環境区分の集計結果も見れます。</p>
+          </div>
+                    <div class="m-4">
+            <%= image_tag 'diagnosis_index.png', class: "w-128 h-64" %>
+          </div>
+        </div>
+      </div>
 
-    <div>
-      <p class="font-bold m-4 text-2xl">早速診断しましょう。</p>
-      <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-600 hover:bg-amber-800 text-white font-bold text-3xl mb-4 py-2 px-4 rounded transition duration-300" %>
+      <div class="px-5 font-bold">
+        <p class="m-4 text-2xl">ログインして早速診断しましょう。</p>
+        <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-2xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
+      </div>
     </div>
   </div>
 </div>

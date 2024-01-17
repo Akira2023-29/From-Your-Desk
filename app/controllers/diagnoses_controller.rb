@@ -23,7 +23,7 @@ class DiagnosesController < ApplicationController
     @favorite_diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page])
   end
 
-  def create
+  def diagnosis
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
   
     #.tempfileメソッドはアップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。

@@ -3,14 +3,14 @@
     <h1 class="font-bold text-4xl"><%= t('.title') %></h1>
   </div>
 
-  <div class="p-4 m-2 bg-stone-400 rounded-md border-2 border-black">
+  <div class="p-4 m-2 bg-stone-300 rounded-md border-2 border-black">
     <div class="mb-3 flex justify-center ">
       <%= image_tag @diagnosis.desk_image.url , class: "rounded-md border-4 border-black" %>
     </div>
 
     <div class="mb-3 flex flex-col">
       <h2 class= "font-bold text-2xl mb-1"><%= t('.result') %></h2>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-cyan-100/90 bg-cyan-600 rounded-md border-4 border-lime-800">
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-cyan-500/90 bg-stone-200 rounded-md border-4 border-stone-500">
           <%= @diagnosis.result_jp %>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <% items = RakutenWebService::Ichiba::Item.search(keyword: "オブジェ #{@diagnosis.color_name}", hits: 9) %>
             <% items.each do |item| %>
-              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-cyan-500/80 bg-cyan-600 hover:bg-cyan-500 rounded-md transition duration-300 border-2 border-black">
+              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-stone-800/80 bg-stone-200 hover:bg-cyan-300 rounded-md transition duration-300 border-2 border-black">
                 <div class="flex justify-center mb-4">
                   <%= image_tag item['mediumImageUrls'].first %><br>
                 </div>
@@ -51,7 +51,7 @@
 
 
     <% if current_user&.own?(@diagnosis) %>
-      <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+      <div class="mb-3 inline-block bg-stone-400 hover:bg-red-500 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
         <%= link_to t('.delete'), diagnosis_path(@diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
       </div>
     <% end %>

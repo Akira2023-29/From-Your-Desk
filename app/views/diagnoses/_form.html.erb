@@ -1,6 +1,17 @@
 <div class="container mx-auto  text-center w-3/4">
-  <%= form_with model: diagnosis do |f| %>
+  <div class="mb-1 flex flex-col md:flex-row justify-around items-center bg-stone-100 rounded-md border-2 border-red-500">
+    <div class="px-1 m-1">
+      <%= image_tag 'danger.png', class: "w-32 h-32"%>
+    </div>
+    <div class="font-bold m-4">
+      <p class="mb-1 text-red-500">※部外秘の情報等が映ってないか確認して下さい。</p>
+      <p class="mb-1 text-red-500">（PC画面上・見積書・社外秘資料等・・・）</p>
+    </div>
+  </div>
+
+  <%= form_with model: diagnosis, url: diagnosis_diagnoses_path, method: :post do |f| %>
     <%= render "shared/error_messages", object: f.object %>
+
     <div class="mb-3">
       <%= f.label :desk_image, t('diagnoses.new.desk_image'), class: "block " %>
       <%= f.file_field :desk_image, id: 'desk_image', class: "mt-1" %>
