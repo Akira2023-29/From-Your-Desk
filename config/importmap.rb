@@ -17,4 +17,3 @@ pin "Chart.bundle", to: "Chart.bundle.js"
 
 pin "menu", to: "menu.js"
 pin "select_place", to: "select_place.js"
-pin "search_form", to: "search_form.js"
