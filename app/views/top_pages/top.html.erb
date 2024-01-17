@@ -5,7 +5,7 @@
     <div class="relative">
       <div class="flex justify-around flex-col md:flex-row items-center">
         <div class="px-5 font-bold">
-          <h1 class="text-6xl mb-10">From Desk Color</h1>
+          <h1 class="text-6xl mb-10">Desk Color Check</h1>
           <p class="text-1xl mb-2">あなたは普段のデスクワークでの作業に集中できていますか？</p>
           <p class="text-1xl mb-2">最後にデスク環境を見直したのはいつですか？</p>
           <p class="text-1xl mb-2">このサービスは色彩の観点からあなたのデスク環境改善をサポートします。</p>
@@ -87,6 +87,10 @@
         </div>
       </div>
 
+      <div class="px-5 font-bold">
+        <p class="m-4 text-2xl">ログインして早速診断しましょう。</p>
+        <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-2xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
+      </div>
     </div>
   </div>
 </div>
