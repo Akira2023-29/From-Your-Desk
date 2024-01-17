@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
 
-  resources :diagnoses, only: %i[index show new create destroy] do
+  resources :diagnoses, only: %i[index show new destroy] do
+    post 'diagnosis', on: :collection
     get 'favorites', on: :collection
   end
 
