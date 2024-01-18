@@ -6,16 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <%= display_meta_tags(default_meta_tags) %>
 
-    <!-- Material Icons読み取り -->
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%# = javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%# = javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <style>h1 {font-family: 'Zen Kurenaido', sans-serif;}</style>
   </head>
 
   <body>
