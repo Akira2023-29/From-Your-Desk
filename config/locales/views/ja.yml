@@ -9,6 +9,7 @@ ja:
     delete: "%{item}を削除しました"
   
   header:
+    title: デスク色彩診断
     login: ログイン
     logout: ログアウト
     diagnosis_index: 診断一覧
@@ -18,8 +19,10 @@ ja:
     profile: プロフィール
   
   footer:
+    title: デスク色彩診断
     terms_of_use: 利用規約
     privacy_policy: プライバシーポリシー
+    contact: お問い合わせ
   
   user_sessions:
     new:
