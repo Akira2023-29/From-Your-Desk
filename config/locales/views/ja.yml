@@ -51,8 +51,8 @@ ja:
       desk_image: あなたのデスク写真を選んで下さい。
       desk_work: デスクでの主な作業内容を教えて下さい。
       desk_work_sample: 例：プログラミング学習、見積作成、等
-      category: 作業区分を教えてください。
-      desk_place: 作業環境を教えてください。
+      category: 作業環境区分を教えてください。
+      desk_place: 診断するデスクの配置を教えてください。
     show:
       title: 診断詳細
       result: 【デスク診断結果】
