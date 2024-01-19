@@ -11,20 +11,17 @@ class OpenAiApi
                 },
                 {
                     role: "user", content: 
-                    "# Responses
-                    Please provide diagnostic results of your desk environment under the following conditions
+                    "Please provide diagnostic results of your desk environment under the following conditions
 
                     # Conditions
-                    Output must always be less than 200 tokens.
-                    The RGB value numbers are replaced by specific color names in the output and the RGB value numbers are not output.
-                    Color information of the desk environment to be diagnosed: #{color_info}.
-                    Primary tasks at this desk: #{desk_work}.
-                    Location of this desk environment: #{desk_place}.
+                    Output is always less than 250 tokens.
+                    No numerical RGB values are output(output with specific color names[red, blue, green, yellow, orange, purple, brown, white, black, gray, yellowish green, and light blue]is acceptable).
+                    Color dominance of the desk environment diagnosed: #{color_info}.
 
-                    # output
-                    Evaluate how well the desk environment is suited for working from a color balance perspective (within 100 tokens).
-                    Considering the desk location (#{desk_place}), suggest improvements to improve the work efficiency of #{desk_work} from a color perspective (within 100 tokens).
-                    (Consideration of desk location means that it is easier to change the environment at home than in the office, etc.)"
+                    # Output the following in one sentence in a gentle tone.
+                    ・What are the good and bad points of the current desk environment for human work?
+                    ・Please suggest improvements to further improve the work efficiency of #{desk_work} in terms of color.
+                    ・Please add a few words at the end to say that you hope the work efficiency will improve."
                 }
                 ]
             }
