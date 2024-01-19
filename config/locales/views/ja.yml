@@ -51,6 +51,7 @@ ja:
   diagnoses:
     new:
       title: 診断する
+      diagnosis: 診断する
       desk_image: あなたのデスク写真を選んで下さい。
       desk_work: デスクでの主な作業内容を教えて下さい。
       desk_work_sample: 例：プログラミング学習、見積作成、等
