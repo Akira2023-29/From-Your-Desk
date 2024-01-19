@@ -4,6 +4,7 @@ class Diagnosis < ApplicationRecord
     validate :desk_image_must_not_be_default
     validates :place_id, presence: true
     validates :desk_work, presence: true, length: { maximum: 255 }
+    validate :user_diagnosis_limit, on: :create
 
     belongs_to :user
     belongs_to :place
@@ -22,5 +23,15 @@ class Diagnosis < ApplicationRecord
 
     def self.ransackable_associations(auth_object = nil)
         %w[place] # placeを検索できるようにする
+    end
+
+    private
+
+    # 診断機能を1日2回までに制限
+    def user_diagnosis_limit
+        today_diagnoses = user.diagnoses.where('created_at >= ?', Time.zone.now.beginning_of_day)
+        if today_diagnoses.count >= 2
+            errors.add(:base, '1日の診断回数の上限に達しました。')
+        end
     end
 end
