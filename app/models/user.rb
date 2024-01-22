@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_diagnoses, through: :favorites, source: :diagnosis
 
+  has_many :items, dependent: :destroy
+
   def own?(object)
     id == object&.user_id
   end
