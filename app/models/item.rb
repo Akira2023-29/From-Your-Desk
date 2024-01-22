@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :item_category, dependent: :destroy
+  belongs_to :item_category
+  has_many :item_colors, dependent: :destroy
 end
