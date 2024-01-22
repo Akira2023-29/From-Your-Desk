@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
+  resources :favorites, only: %i[create destroy]
 
   resources :diagnoses, only: %i[index show new destroy] do
     post 'diagnosis', on: :collection
     get 'favorites', on: :collection
   end
 
-  resources :favorites, only: %i[create destroy]
+  resources :items, only: %i[index show new create destroy]
+
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

@@ -1,0 +1,61 @@
+<div class="container max-w-sm p-2 m-2 shadow-lg shadow-stone-800/80 bg-stone-400 hover:bg-slate-300 rounded-md transition duration-300 border-2 border-black">
+    <div class="my-1">
+        <div class="mb-3 flex justify-center border-2 border-black">
+            <%= image_tag item.item_image.url%>
+        </div>
+
+        <div class="mb-1">
+            <h1><%#= link_to "アイテムtitle", items_path(items), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
+            <div class="mt-2 font-bold">
+                <%#= t('diagnoses.diagnosis.desk_work') %><%#=" :『#{diagnosis.desk_work}』"%>
+            </div>
+        </div>
+
+        <!-- 作業区分・作業環境 -->
+        <%# if diagnosis.place_id.present? %>
+            <div class="mb-1 flex flex-wrap justify-center">
+                <%#= t('diagnoses.diagnosis.desk_category')+" :" %>
+                <div class="px-2">
+                    <%#= link_to Category.find_by(id: diagnosis.place.category_id).name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                </div>
+                <%#= t('diagnoses.diagnosis.desk_place')+" :" %>
+                <div class="px-2">
+                    <%#= link_to diagnosis.place.name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                </div>
+            </div>
+        <%# end %>
+
+        <hr class="border-1 bg-stone-400 my-4">
+
+        <div class="flex justify-center">
+            <div class="px-4">
+                <% if diagnosis.user.google_avatar_image.blank? %>
+                    <%= image_tag items.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
+                <% else %>
+                    <%= image_tag items.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
+                <% end %>
+            </div>
+            <div class="mb-1 flex flex-col">
+                <%= items.user.name %><br>
+                <%= l items.created_at, format: :long %>
+            </div>
+        </div>
+
+    <% if current_user&.own?(diagnosis) %>
+        <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+            <%= link_to diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} , class: "flex items-center" do %>
+                <span class="material-icons mr-2">restore_from_trash</span>
+                <%= t('diagnoses.diagnosis.delete') %>
+            <% end %>
+        </div>
+    <% elsif current_user %>
+        <div>
+            <% if current_user.favorite?(diagnosis) %>
+                <%#= render 'unfavorite', diagnosis: diagnosis %>
+            <% else %>
+                <%#= render 'favorite', diagnosis: diagnosis %>
+            <% end %>
+        </div>
+    <% end %>
+    </div>
+</div>

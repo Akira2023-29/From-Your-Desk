@@ -1,5 +1,5 @@
 class DiagnosesController < ApplicationController
-  skip_before_action :require_login, only: %i[index show destroy]
+  skip_before_action :require_login, only: %i[index show]
 
   def index
     @q = Diagnosis.ransack(params[:q])

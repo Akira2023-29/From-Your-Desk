@@ -1,4 +1,8 @@
-<div>
-  <h1 class="font-bold text-4xl">Items#new</h1>
-  <p>Find me in app/views/items/new.html.erb</p>
+<div class="container mx-auto  text-center">
+  <div>
+  <h1 class="font-bold text-4xl "><%= "アイテム登録" %></h1>
+    <div class="p-2 m-2 bg-stone-300 rounded-md border-2 border-black">
+      <%= render "form", item: @item%>
+    </div>
+  </div>
 </div>
