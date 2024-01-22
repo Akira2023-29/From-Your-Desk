@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root 'top_pages#top'
 
+  get '/privacy_policy', to: 'static_pages#privacy_policy'
+  
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
