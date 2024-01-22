@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root 'top_pages#top'
 
   get '/privacy_policy', to: 'static_pages#privacy_policy'
-  
+  get '/terms_and_use', to: 'static_pages#terms_and_use'
+
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
