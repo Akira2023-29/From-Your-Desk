@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       diagnosis: 診断
       profile: プロフィール
+      item: アイテム
     attributes:
       user:
         name: 名前
@@ -20,3 +21,8 @@ ja:
         desk_image: デスク写真
         desk_work: デスクでの主な作業内容
         tag_ids: デスク作業場
+      item:
+        title: タイトル
+        body: 説明
+        item_image: アイテム写真
+        item_url: アイテム購入先

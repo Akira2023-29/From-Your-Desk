@@ -29,12 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_22_094900) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "colors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "diagnoses", force: :cascade do |t|
     t.text "result_en"
     t.text "result_jp"
@@ -60,6 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_22_094900) do
   end
 
   create_table "item_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

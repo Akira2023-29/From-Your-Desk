@@ -7,6 +7,8 @@ ja:
     update: "%{item}を更新しました"
     not_update: "%{item}を更新出来ませんでした"
     delete: "%{item}を削除しました"
+    item_save: "%{item}を登録しました"
+    item_save: "%{item}を登録できませんでした"
   
   header:
     title: デスク色彩診断

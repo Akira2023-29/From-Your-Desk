@@ -15,5 +15,7 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
     @office_places = Place.where(category_id: 1)
     @home_places = Place.where(category_id: 2)
+    @item_categories = ItemCategory.all
+    @colors = Color.all
   end
 end
