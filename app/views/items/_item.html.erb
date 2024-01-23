@@ -52,10 +52,10 @@
         </div>
     <% elsif current_user %>
         <div>
-            <% if current_user.favorite?(item) %>
-                <%#= render 'unfavorite', diagnosis: diagnosis %>
+            <% if current_user.bookmark?(item) %>
+                <%= render 'unbookmark', item: item %>
             <% else %>
-                <%#= render 'favorite', diagnosis: diagnosis %>
+                <%= render 'bookmark', item: item %>
             <% end %>
         </div>
     <% end %>

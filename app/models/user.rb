@@ -39,4 +39,19 @@ class User < ApplicationRecord
   def favorite?(diagnosis)
     favorite_diagnoses.include?(diagnosis)
   end
+
+  # ブックマーク追加
+  def bookmark(item)
+    bookmark_items << item
+  end
+
+  # ブックマーク解除
+  def unbookmark(item)
+    bookmark_items.destroy(item)
+  end
+
+  # ブックマークしたか？
+  def bookmark?(item)
+    bookmark_items.include?(item)
+  end
 end
