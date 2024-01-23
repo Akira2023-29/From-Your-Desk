@@ -5,7 +5,7 @@
         </div>
 
         <div class="mb-1">
-            <h1><%= link_to item.title, items_path(item), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
+            <h1><%= link_to item.title, item_path(item), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
         </div>
 
         <div class="mt-2 font-bold">
@@ -14,11 +14,13 @@
 
         <div class="mt-2 font-bold">
             <%= t('items.item.color') %>
-            <% item.colors.each do |color| %>
-                <div class="px-2 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
-                    <%= color.name %>
-                </div>
-            <% end %>
+            <div class="flex justify-center">
+                <% item.colors.each do |color| %>
+                    <div class="px-2 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
+                        <%= color.name %>
+                    </div>
+                <% end %>
+            </div>
         </div>
 
         <div class="mt-2 font-bold">

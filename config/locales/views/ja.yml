@@ -100,6 +100,10 @@ ja:
       url_sample: 例 :https://www.amazon.co.jp/gp/product/B092CVMP7K/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
     show:
       title: アイテム詳細
+      item_title: アイテム名
+      body: アイテム説明
+      color: 色分類
+      url: 購入先URL
       sns_share: Xにシェアする
       index: 診断一覧に戻る
       delete: 削除する
