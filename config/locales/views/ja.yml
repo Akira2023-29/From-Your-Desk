@@ -15,10 +15,16 @@ ja:
     login: ログイン
     logout: ログアウト
     diagnosis_index: 診断一覧
-    diagnosis: 診断
+    diagnosis: デスク診断
+    item: デスクアイテム
+    item_index: デスクアイテム一覧
+    item_new: アイテム登録
+    bookmark_items: ブックマークアイテム
     diagnosis_before_login: 診断 (ログイン必要）
+    item_new_before_login: アイテム登録 (ログイン必要）
     favorite_diagnoses: お気に入り一覧
     profile: プロフィール
+    menu: メニュー
   
   footer:
     title: デスク色彩診断
