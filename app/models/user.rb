@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_diagnoses, through: :favorites, source: :diagnosis
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_items, through: :bookmarks, source: :item
+
   has_many :items, dependent: :destroy
 
   def own?(object)

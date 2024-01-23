@@ -25,7 +25,7 @@ document.addEventListener('turbo:load', (event) => {
                     if (!isHovering) {
                         menu.style.display = 'none';
                     }
-                }, 10);
+                }, 120);
             };
 
             button.addEventListener('mouseover', openMenu);
