@@ -1,5 +1,5 @@
 <div class="container mx-auto  text-center w-3/4">
-    <%= form_with model: item do |f| %>
+    <%= form_with model: item , url: items_path, method: :post do |f| %>
         <%= render "shared/error_messages", object: f.object %>
 
         <!-- 商品写真 -->
@@ -32,12 +32,10 @@
                 <%= f.label :color_ids, t('items.new.color') %>
             </div>
             <% @colors.each do |color| %>
-                <diV class="checkbox inline-flex items-center">
-                    <%= f.check_box :color_ids, { id: "color_#{color.id}"}, color.id, nil %>
-                    <%= f.label "color_ids_#{color.id}", class: "btn btn-primary px-2 py-1 mx-2 mb-2 cursor-pointer border border-black rounded-md #{button_color(color.name)}" do %>
-                        <%= color.name %>
-                    <% end %>
-                </diV>
+                <div class="checkbox inline-flex items-center">
+                    <%= f.check_box :color_ids, { multiple: true }, color.id, nil %>
+                    <%= f.label "color_ids_#{color.id}", color.name, class: "btn btn-primary px-2 py-1 mx-2 mb-2 cursor-pointer border border-black rounded-md #{button_color(color.name)}"%>
+                </div>
             <% end %>
         </div>
 

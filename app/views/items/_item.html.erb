@@ -5,52 +5,52 @@
         </div>
 
         <div class="mb-1">
-            <h1><%#= link_to "アイテムtitle", items_path(items), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
-            <div class="mt-2 font-bold">
-                <%#= t('diagnoses.diagnosis.desk_work') %><%#=" :『#{diagnosis.desk_work}』"%>
-            </div>
+            <h1><%= link_to item.title, items_path(item), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
         </div>
 
-        <!-- 作業区分・作業環境 -->
-        <%# if diagnosis.place_id.present? %>
-            <div class="mb-1 flex flex-wrap justify-center">
-                <%#= t('diagnoses.diagnosis.desk_category')+" :" %>
-                <div class="px-2">
-                    <%#= link_to Category.find_by(id: diagnosis.place.category_id).name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+        <div class="mt-2 font-bold">
+            <%= t('items.item.body') %><%=" :『#{item.body}』"%>
+        </div>
+
+        <div class="mt-2 font-bold">
+            <%= t('items.item.color') %>
+            <% item.colors.each do |color| %>
+                <div class="px-2 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
+                    <%= color.name %>
                 </div>
-                <%#= t('diagnoses.diagnosis.desk_place')+" :" %>
-                <div class="px-2">
-                    <%#= link_to diagnosis.place.name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
-                </div>
-            </div>
-        <%# end %>
+            <% end %>
+        </div>
+
+        <div class="mt-2 font-bold">
+            <%= link_to t('items.item.url'), "#{item.item_url}" %>
+        </div>
 
         <hr class="border-1 bg-stone-400 my-4">
 
         <div class="flex justify-center">
             <div class="px-4">
-                <% if diagnosis.user.google_avatar_image.blank? %>
-                    <%= image_tag items.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
+                <% if item.user.google_avatar_image.blank? %>
+                    <%= image_tag item.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
                 <% else %>
-                    <%= image_tag items.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
+                    <%= image_tag item.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
                 <% end %>
             </div>
             <div class="mb-1 flex flex-col">
-                <%= items.user.name %><br>
-                <%= l items.created_at, format: :long %>
+                <%= item.user.name %><br>
+                <%= l item.created_at, format: :long %>
             </div>
         </div>
 
-    <% if current_user&.own?(diagnosis) %>
+    <% if current_user&.own?(item) %>
         <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
-            <%= link_to diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} , class: "flex items-center" do %>
+            <%= link_to item_path(item), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} , class: "flex items-center" do %>
                 <span class="material-icons mr-2">restore_from_trash</span>
-                <%= t('diagnoses.diagnosis.delete') %>
+                <%= t('items.item.delete') %>
             <% end %>
         </div>
     <% elsif current_user %>
         <div>
-            <% if current_user.favorite?(diagnosis) %>
+            <% if current_user.favorite?(item) %>
                 <%#= render 'unfavorite', diagnosis: diagnosis %>
             <% else %>
                 <%#= render 'favorite', diagnosis: diagnosis %>

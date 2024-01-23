@@ -98,6 +98,18 @@ ja:
       title_sample: アイテム名を入力して下さい
       body_sample: 例 :1年前に購入した幅広で価格も抑えめの昇降デスクです! 暗めのデスク環境を明るくしたく白系天板にしました。眠くなりそうな昼食後は立ちながら作業してます。
       url_sample: 例 :https://www.amazon.co.jp/gp/product/B092CVMP7K/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
+    show:
+      title: アイテム詳細
+      sns_share: Xにシェアする
+      index: 診断一覧に戻る
+      delete: 削除する
+    item:
+      title: 題名
+      body: アイテム説明
+      color: 色分類
+      url: 購入先リンク
+
+
   
   profiles:
     show:

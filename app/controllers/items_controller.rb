@@ -10,9 +10,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = current_user.items.build(item_params)
-    if item.save
-      redirect_to items_path(item), success: t('flash_message.item_save')
+    @item = current_user.items.build(item_params)
+    if @item.save
+      redirect_to items_path(@item), success: t('flash_message.item_save')
     else
       flash.now[:danger] = t('flash_message.not_item_save')
       render :new, status: :unprocessable_entity
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = current_user.item.find_by(id params[:id])
+    item = current_user.items.find_by(id: params[:id])
     item.destroy!
     redirect_to items_path, success: t('flash_message.delete', item: Item.model_name.human)
   end
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_image, :item_image_cache, :title, :body, :item_url, :item_category_id, item_colors_ids: [])
+    params.require(:item).permit(:item_image, :item_image_cache, :title, :body, :item_url, :item_category_id, color_ids: [])
   end
 end
 
