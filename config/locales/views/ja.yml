@@ -7,6 +7,8 @@ ja:
     update: "%{item}を更新しました"
     not_update: "%{item}を更新出来ませんでした"
     delete: "%{item}を削除しました"
+    item_save: "%{item}を登録しました"
+    item_save: "%{item}を登録できませんでした"
   
   header:
     title: デスク色彩診断
@@ -82,6 +84,32 @@ ja:
       title: デスク診断結果一覧
       tag_search: 【作業環境別検索】
       not_result: お気に入りの診断結果はありません
+  
+  items:
+    new:
+      title: アイテム登録
+      item_title: アイテム名
+      body: アイテムについての説明を入力して下さい
+      color: 色分類
+      item_image: アイテム写真
+      category: カテゴリー
+      url: アイテム購入先URL
+      submit: アイテム登録
+      title_sample: アイテム名を入力して下さい
+      body_sample: 例 :1年前に購入した幅広で価格も抑えめの昇降デスクです! 暗めのデスク環境を明るくしたく白系天板にしました。眠くなりそうな昼食後は立ちながら作業してます。
+      url_sample: 例 :https://www.amazon.co.jp/gp/product/B092CVMP7K/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
+    show:
+      title: アイテム詳細
+      sns_share: Xにシェアする
+      index: 診断一覧に戻る
+      delete: 削除する
+    item:
+      title: 題名
+      body: アイテム説明
+      color: 色分類
+      url: 購入先リンク
+
+
   
   profiles:
     show:

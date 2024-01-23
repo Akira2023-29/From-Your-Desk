@@ -1,0 +1,56 @@
+<div class="container mx-auto  text-center w-3/4">
+    <%= form_with model: item , url: items_path, method: :post do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+
+        <!-- 商品写真 -->
+        <div class="mb-3">
+            <%= f.label :item_image, t('items.new.item_image'), class: "block " %>
+            <%= f.file_field :item_image, id: 'item_image', class: "mt-1" %>
+            <%= f.hidden_field :item_image_cache %>
+        </div>
+
+        <!-- プレビュー -->
+        <div class="mb-3 flex justify-center">
+            <%#= image_tag item.item_image.url, id: 'preview', width: 500, height: 300, class:"rounded-md border border-black" %>
+        </div>
+
+        <!-- 商品タイトル -->
+        <div class='mb-3'>
+            <%= f.label :title, t('items.new.item_title') ,class: "block" %>
+            <%= f.text_field :title, class: "mt-1 w-3/4", placeholder: t('items.new.title_sample') %>
+        </div>
+
+        <!-- カテゴリー -->
+        <div class="mb-3">
+            <%= f.label :item_category_id, t('items.new.category') %>
+            <%= f.collection_select :item_category_id, @item_categories, :id, :name,  {prompt: '※ 選択してください'}, class: "form-select block w-full mt-1" %>
+        </div>
+
+        <!-- 色 -->
+        <div class="mb-3">
+            <div class="mb-2">
+                <%= f.label :color_ids, t('items.new.color') %>
+            </div>
+            <% @colors.each do |color| %>
+                <div class="checkbox inline-flex items-center">
+                    <%= f.check_box :color_ids, { multiple: true }, color.id, nil %>
+                    <%= f.label "color_ids_#{color.id}", color.name, class: "btn btn-primary px-2 py-1 mx-2 mb-2 cursor-pointer border border-black rounded-md #{button_color(color.name)}"%>
+                </div>
+            <% end %>
+        </div>
+
+        <!-- 商品購入先URL -->
+        <div class="mb-3">
+            <%= f.label :item_url, t('items.new.url') ,class: "block" %>
+            <%= f.text_field :item_url, class: "mt-1 w-3/4", placeholder: t('items.new.url_sample') %>
+        </div>
+
+        <!-- 商品説明 -->
+        <div class='mb-3'>
+            <%= f.label :body, t('items.new.body') ,class: "block" %>
+            <%= f.text_area :body, class: "mt-1 w-3/4", rows: 4, placeholder: t('items.new.body_sample') %>
+        </div>
+
+        <%= f.submit t('items.new.submit'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
+    <% end %>
+</div>

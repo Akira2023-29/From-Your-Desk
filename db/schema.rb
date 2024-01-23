@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_15_035219) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_22_094900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,40 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_15_035219) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "item_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_colors", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "color_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_item_colors_on_color_id"
+    t.index ["item_id"], name: "index_item_colors_on_item_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.text "body"
+    t.string "item_image"
+    t.string "item_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_category_id"
+    t.index ["item_category_id"], name: "index_items_on_item_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,5 +116,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_15_035219) do
   add_foreign_key "diagnoses", "users"
   add_foreign_key "favorites", "diagnoses"
   add_foreign_key "favorites", "users"
+  add_foreign_key "item_colors", "colors"
+  add_foreign_key "item_colors", "items"
+  add_foreign_key "items", "item_categories"
+  add_foreign_key "items", "users"
   add_foreign_key "places", "categories"
 end

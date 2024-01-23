@@ -40,4 +40,47 @@ module ApplicationHelper
         'text-gray-500'
         end
     end
+
+    def button_color(color_name)
+        case color_name.to_s
+        when "赤 (Red)"
+        'bg-red-500'
+        when "青 (Blue)"
+        'bg-blue-500'
+        when "黄色 (Yellow)"
+        'bg-yellow-400'
+        when "緑 (Green)"
+        'bg-green-400'
+        when "オレンジ (Orange)"
+        'bg-orange-400'
+        when "紫 (Purple)"
+        'bg-purple-400'
+        when "ピンク (Pink)"
+        'bg-pink-400'
+        when "茶色 (Brown)"
+        'bg-amber-700'
+        when "灰色 (Gray)"
+        'bg-gray-400'
+        when  "黒 (Black)"
+        'bg-black text-white'
+        when "白 (White)"
+        'bg-white'
+        when "金色 (Gold)"
+        'bg-amber-300'
+        when "銀色 (Silver)"
+        'bg-gray-300'
+        when "水色 (Aqua)"
+        'bg-blue-300'
+        when  "マゼンダ (Magenta)"
+        'bg-pink-500'
+        when  "ネイビー (Navy)"
+        'bg-blue-800 text-white'
+        when  "ライム (Lime)"
+        'bg-lime-400'
+        when  "ベージュ (Beige)"
+        'bg-beige'
+        else
+        'bg-gray-500'
+        end
+    end
 end

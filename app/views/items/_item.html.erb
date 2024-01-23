@@ -1,0 +1,61 @@
+<div class="container max-w-sm p-2 m-2 shadow-lg shadow-stone-800/80 bg-stone-400 hover:bg-slate-300 rounded-md transition duration-300 border-2 border-black">
+    <div class="my-1">
+        <div class="mb-3 flex justify-center border-2 border-black">
+            <%= image_tag item.item_image.url%>
+        </div>
+
+        <div class="mb-1">
+            <h1><%= link_to item.title, items_path(item), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
+        </div>
+
+        <div class="mt-2 font-bold">
+            <%= t('items.item.body') %><%=" :『#{item.body}』"%>
+        </div>
+
+        <div class="mt-2 font-bold">
+            <%= t('items.item.color') %>
+            <% item.colors.each do |color| %>
+                <div class="px-2 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
+                    <%= color.name %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="mt-2 font-bold">
+            <%= link_to t('items.item.url'), "#{item.item_url}" %>
+        </div>
+
+        <hr class="border-1 bg-stone-400 my-4">
+
+        <div class="flex justify-center">
+            <div class="px-4">
+                <% if item.user.google_avatar_image.blank? %>
+                    <%= image_tag item.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
+                <% else %>
+                    <%= image_tag item.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
+                <% end %>
+            </div>
+            <div class="mb-1 flex flex-col">
+                <%= item.user.name %><br>
+                <%= l item.created_at, format: :long %>
+            </div>
+        </div>
+
+    <% if current_user&.own?(item) %>
+        <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+            <%= link_to item_path(item), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} , class: "flex items-center" do %>
+                <span class="material-icons mr-2">restore_from_trash</span>
+                <%= t('items.item.delete') %>
+            <% end %>
+        </div>
+    <% elsif current_user %>
+        <div>
+            <% if current_user.favorite?(item) %>
+                <%#= render 'unfavorite', diagnosis: diagnosis %>
+            <% else %>
+                <%#= render 'favorite', diagnosis: diagnosis %>
+            <% end %>
+        </div>
+    <% end %>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container mx-auto text-center justify-center">
+  <div>
+    <h1 class="font-bold text-4xl"><%= t('.title') %></h1>
+  </div>
+
+  <div class="p-4 m-2 bg-stone-300 rounded-md border-2 border-black">
+    <div class="mb-3 flex justify-center ">
+      <%= image_tag @item.item_image.url , class: "rounded-md border-4 border-black" %>
+    </div>
+
+    <div class="mb-3 flex flex-col">
+      <h1 class= "font-bold text-3xl mb-1"><%= t('.body') %></h1>
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-stone-100 rounded-md border-4 border-stone-500">
+          <%= @item.body %>
+        </div>
+    </div>
+
+    <!-- Xにシェア -->
+    <div class="flex items-center justify-center">
+      <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+        <%#= link_to "https://twitter.com/share?url=#{title_url(@item)}&text=【アイテム登録完了】%0a%0a#{truncate(@item.title, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+          <%= t('.sns_share') %>
+        <%# end %>
+      </div>
+      <div class="mb-3">
+        <%= link_to t('.index'), items_path, class: "inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
+      </div>
+    </div>
+
+    <% if current_user&.own?(@items) %>
+      <div class="mb-3 inline-block bg-stone-400 hover:bg-red-500 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+        <%= link_to t('.delete'), item_path(@item), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
+      </div>
+    <% end %>
+  </div>
+</div>
