@@ -1,4 +1,3 @@
-<div>
-  <h1 class="font-bold text-4xl">Bookmarks#destroy</h1>
-  <p>Find me in app/views/bookmarks/destroy.html.erb</p>
-</div>
+<%= turbo_stream.replace "unfavorite-button-for-diagnosis-#{@diagnosis.id}" do %>
+  <%= render 'diagnoses/favorite', diagnosis: @diagnosis %>
+<% end %>
