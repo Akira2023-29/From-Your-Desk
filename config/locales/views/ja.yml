@@ -11,20 +11,27 @@ ja:
     item_save: "%{item}を登録できませんでした"
   
   header:
+    require_login: ★ ログイン必須
     title: デスク色彩診断
+    new: 新規登録
     login: ログイン
     logout: ログアウト
-    diagnosis_index: 診断一覧
+    diagnosis_index: 診断結果一覧
     diagnosis: デスク診断
     item: デスクアイテム
     item_index: デスクアイテム一覧
     item_new: アイテム登録
     bookmark_items: ブックマーク一覧
-    diagnosis_before_login: 診断 (ログイン必要）
-    item_new_before_login: アイテム登録 (ログイン必要）
+    bookmark_items_before_login: ブックマーク一覧 ★
+    diagnosis_before_login: デスク診断 ★
+    favorite_diagnoses_before_login: お気に入り一覧 ★
+    item_new_before_login: アイテム登録 ★ 
     favorite_diagnoses: お気に入り一覧
     profile: プロフィール
     menu: メニュー
+    diagnosis-menu: 【デスク診断】
+    item-menu: 【デスクアイテム】
+    user-menu: 【ユーザー】
   
   footer:
     title: デスク色彩診断

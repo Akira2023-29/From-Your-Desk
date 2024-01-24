@@ -1,0 +1,91 @@
+<!-- diagnosis menu -->
+<div class="relative inline-block text-left mr-2">
+    <div class="flex items-center">
+        <button type="button" 
+                class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-gray-200 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-teal-300" 
+                id="small_menu-button" 
+                aria-expanded="true" 
+                aria-haspopup="true">
+            <div class="flex items-center">
+                <span class="material-icons">list</span>
+                <%#= t('header.menu') %>
+            </div>
+            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
+    <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" 
+                role="menu" 
+                aria-orientation="vertical" 
+                aria-labelledby="small_menu-button" 
+                tabindex="-1">
+    <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-red-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.require_login') %>
+        </div>
+    </div>
+    <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-blue-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.diagnosis-menu') %>
+        </div>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to new_diagnosis_path, class: "flex items-center text-gray-700 px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">visibility</span>
+            <%= t('header.diagnosis_before_login') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to diagnoses_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">leaderboard</span>
+            <%= t('header.diagnosis_index') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to favorites_diagnoses_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">thumb_up_off_alt</span>
+            <%= t('header.favorite_diagnoses_before_login') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-blue-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.item-menu') %>
+        </div>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to items_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">savings</span>
+            <%= t('header.item_index') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to items_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">bookmarks</span>
+            <%= t('header.bookmark_items_before_login') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to new_item_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">create</span>
+            <%= t('header.item_new_before_login') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-blue-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.user-menu') %>
+        </div>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to new_user_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">person_add</span>
+            <%= t('header.new') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to login_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">login</span>
+            <%= t('header.login') %>
+        <% end %>
+    </div>
+</div>
