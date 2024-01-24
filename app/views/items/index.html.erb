@@ -1,12 +1,14 @@
 <div class="container mx-auto text-center">
   <div class="mb-2">
     <div class="mb-1 font-bold text-4xl ">
-      <h1><%= "アイテム一覧" %></h1>
+      <h1><%= t('.title') %></h1>
     </div>
   </div>
 
   <!-- 検索フォーム -->
-
+  <div class="container font-boldmb-3 my-3 px-10">
+    <%= render "search_form", q: @q, url: items_path %>
+  </div>
 
   <!-- 診断一覧 -->
   <div class="p-4 mb-2 bg-stone-300 rounded-md border-2 border-black">

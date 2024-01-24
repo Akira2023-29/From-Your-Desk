@@ -27,35 +27,37 @@
 
         <hr class="border-1 bg-stone-400 my-4">
 
-        <div class="flex justify-center">
+        <div class="flex justify-center items-center">
             <div class="px-4">
                 <% if diagnosis.user.google_avatar_image.blank? %>
                     <%= image_tag diagnosis.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
                 <% else %>
                     <%= image_tag diagnosis.user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full" %>
                 <% end %>
-            </div>
-            <div class="mb-1 flex flex-col">
+            </div> 
+            <div class="pr-2 flex flex-col">
                 <%= diagnosis.user.name %><br>
                 <%= l diagnosis.created_at, format: :long %>
             </div>
+            
+            <div class="pl-4">
+                <% if current_user&.own?(diagnosis) %>
+                    <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-2 rounded transition duration-150 ease-in-out border-2 border-black">
+                        <%= link_to diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} , class: "flex items-center" do %>
+                            <span class="material-icons mr-2">restore_from_trash</span>
+                            <%= t('diagnoses.diagnosis.delete') %>
+                        <% end %>
+                    </div>
+                <% elsif current_user %>
+                    <div>
+                        <% if current_user.favorite?(diagnosis) %>
+                            <%= render 'unfavorite', diagnosis: diagnosis %>
+                        <% else %>
+                            <%= render 'favorite', diagnosis: diagnosis %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
         </div>
-
-    <% if current_user&.own?(diagnosis) %>
-        <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
-            <%= link_to diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} , class: "flex items-center" do %>
-                <span class="material-icons mr-2">restore_from_trash</span>
-                <%= t('diagnoses.diagnosis.delete') %>
-            <% end %>
-        </div>
-    <% elsif current_user %>
-        <div>
-            <% if current_user.favorite?(diagnosis) %>
-                <%= render 'unfavorite', diagnosis: diagnosis %>
-            <% else %>
-                <%= render 'favorite', diagnosis: diagnosis %>
-            <% end %>
-        </div>
-    <% end %>
     </div>
 </div>

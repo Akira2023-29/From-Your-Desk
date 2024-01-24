@@ -99,6 +99,8 @@ ja:
       not_result: お気に入りの診断結果はありません
   
   items:
+    index:
+      title: デスクアイテム一覧
     new:
       title: アイテム登録
       item_title: アイテム名

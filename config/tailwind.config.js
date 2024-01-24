@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        zenkure: ['Zen Kurenaido', 'sans-serif']
       },
       colors: {
         beige: '#f5f5dc'

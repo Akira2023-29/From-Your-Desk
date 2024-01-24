@@ -16,4 +16,14 @@ class Item < ApplicationRecord
         errors.add(:item_image, "を選択してください。")
     end
   end
+
+  # 検索条件で使えるカラムを指定
+  def self.ransackable_attributes(auth_object = nil)
+      %w[id title body]
+  end
+
+  # 検索で使える関連付けを指定。placeモデルの検索を許可。
+  def self.ransackable_associations(auth_object = nil)
+      %w[colors item_category] 
+  end
 end

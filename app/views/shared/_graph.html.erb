@@ -1,4 +1,4 @@
-<div class="w-full mb-3 mx-2  bg-stone-300 rounded-md border-2 border-black">
+<div class="font-zenkure w-full mb-3 mx-2  bg-stone-300 rounded-md border-2 border-black">
     <div class="font-bold m-4 shadow-lg bg-white rounded-md border-2 border-black">
         <%= pie_chart Diagnosis.joins(place: :category).group('categories.name').count, 
             title: "「環境区分」集計結果", 
@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="w-full mb-3 mx-2  bg-stone-300 rounded-md border-2 border-black">
+<div class="font-zenkure w-full mb-3 mx-2  bg-stone-300 rounded-md border-2 border-black">
     <div class="font-bold m-4 shadow-lg bg-white rounded-md border-2 border-black">
         <%= bar_chart Diagnosis.joins(:place).group(:name).count.sort_by { |_, v| -v }, 
             title: "「作業環境」集計結果", 
@@ -17,3 +17,4 @@
             colors: ["#2a83a2", "#339999", "#33cccc", "#3cb37a", "#288c66"] %>
     </div>
 </div>
+
