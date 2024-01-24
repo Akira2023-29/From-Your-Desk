@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @items = Item.all.includes(:user).order(created_at: :desc)
+    # @items = Item.all.includes(:user).order(created_at: :desc)
+    @q = Item.ransack(params[:q])
+    @items = @q.result(destinct: :true).includes(:use, :item_category, :color).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -12,7 +14,7 @@ class ItemsController < ApplicationController
   def bookmarks
     @bookmark_items = current_user.bookmark_items
     # @q = current_user.bookmark_items.ransack(params[:q])
-    # @bookmark_items = @q.result(distinct: true).include(:use, :item_category, :color).order(created_at: :desc).page(params[:page])
+    # @bookmark_items = @q.result(distinct: true).includes(:use, :item_category, :color).order(created_at: :desc).page(params[:page])
   end
 
   def create

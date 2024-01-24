@@ -17,12 +17,14 @@ class Diagnosis < ApplicationRecord
         end
     end
 
+    # 検索条件で使えるカラムを指定
     def self.ransackable_attributes(auth_object = nil)
-        %w[desk_work id place_id] # place_category_idはここでは不要
+        %w[desk_work id place_id]
     end
 
+    # 検索で使える関連付けを指定。placeモデルの検索を許可。
     def self.ransackable_associations(auth_object = nil)
-        %w[place] # placeを検索できるようにする
+        %w[place] 
     end
 
     private
