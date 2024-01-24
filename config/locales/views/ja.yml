@@ -81,26 +81,24 @@ ja:
       delete: 削除する
     index:
       title: デスク診断結果一覧
-      tag_search: 【作業環境別検索】
       not_result: 診断結果はありません
     diagnosis:
       title: 【診断結果】
       desk_work: デスク作業内容
       desk_category: 区分
-      desk_place: 環境
+      desk_place: 作業環境
       delete: 削除
     favorites:
       title: お気に入り診断一覧
-      tag_search: 【作業環境別検索】
       not_result: お気に入りの診断結果はありません
     tagged:
       title: デスク診断結果一覧
-      tag_search: 【作業環境別検索】
       not_result: お気に入りの診断結果はありません
   
   items:
     index:
       title: デスクアイテム一覧
+      not_result: 診断結果はありません
     new:
       title: アイテム登録
       item_title: アイテム名
@@ -127,8 +125,10 @@ ja:
       body: アイテム説明
       color: 色分類
       url: 購入先リンク
-
-
+      delete: 削除
+    bookmarks:
+      title: ブックマーク一覧
+      not_result: 診断結果はありません
   
   profiles:
     show:
