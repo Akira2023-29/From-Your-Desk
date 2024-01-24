@@ -33,6 +33,7 @@
 
         <hr class="border-1 bg-stone-400 my-2">
 
+        <!-- アバター・ユーザー名・診断日時 -->
         <div class="flex justify-center items-center">
             <div class="px-4">
                 <% if diagnosis.user.google_avatar_image.blank? %>
@@ -46,6 +47,7 @@
                 <%= l diagnosis.created_at, format: :long %>
             </div>
             
+            <!-- 削除・お気に入りボタン -->
             <div class="pl-4">
                 <% if current_user&.own?(diagnosis) %>
                     <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-2 rounded transition duration-150 ease-in-out border-2 border-black">
