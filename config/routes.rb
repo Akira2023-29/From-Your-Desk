@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     get 'favorites', on: :collection
   end
 
-  resources :items, only: %i[index show new create destroy]
+  resources :items, only: %i[index show new create destroy] do
+    get 'bookmarks', on: :collection
+  end
 
 
   get 'login', to: 'user_sessions#new'
