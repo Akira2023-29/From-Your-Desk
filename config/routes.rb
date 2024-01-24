@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
   resources :favorites, only: %i[create destroy]
+  resources :bookmarks, only: %i[create destroy]
 
   resources :diagnoses, only: %i[index show new destroy] do
     post 'diagnosis', on: :collection
