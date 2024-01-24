@@ -11,27 +11,32 @@ document.addEventListener('turbo:load', (event) => {
 
     const toggleMenu = (button, menu) => {
         if (button && menu) {
-            menu.style.display = 'none';
-            let isHovering = false;
+            let isOpen = false;
+            menu.style.display = 'none'; // これを追加
 
             const openMenu = () => {
-                isHovering = true;
+                isOpen = true;
                 menu.style.display = 'block';
             };
 
             const closeMenu = () => {
-                isHovering = false;
-                setTimeout(() => {
-                    if (!isHovering) {
-                        menu.style.display = 'none';
-                    }
-                }, 120);
+                isOpen = false;
+                menu.style.display = 'none';
             };
 
-            button.addEventListener('mouseover', openMenu);
-            button.addEventListener('mouseout', closeMenu);
-            menu.addEventListener('mouseover', openMenu);
-            menu.addEventListener('mouseout', closeMenu);
+            button.addEventListener('click', () => {
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!button.contains(event.target) && !menu.contains(event.target)) {
+                    closeMenu();
+                }
+            });
         }
     };
 
@@ -39,11 +44,4 @@ document.addEventListener('turbo:load', (event) => {
     toggleMenu(diagnosisMenuButton, diagnosisMenu);
     toggleMenu(itemMenuButton, itemMenu);
     toggleMenu(smallMenuButton, smallMenu);
-
-    document.addEventListener('click', () => {
-        if (menu) menu.style.display = 'none';
-        if (diagnosisMenu) diagnosisMenu.style.display = 'none';
-        if (itemMenu) itemMenu.style.display = 'none';
-        if (smallMenu) smallMenu.style.display = 'none';
-    });
 });
