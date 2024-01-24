@@ -11,9 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_items = current_user.bookmark_items
-    # @q = current_user.bookmark_items.ransack(params[:q])
-    # @bookmark_items = @q.result(distinct: true).includes(:use, :item_category, :color).order(created_at: :desc).page(params[:page])
+    @q = current_user.bookmark_items.ransack(params[:q])
+    @bookmark_items = @q.result(distinct: true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page])
   end
 
   def create
