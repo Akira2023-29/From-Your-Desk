@@ -2,9 +2,8 @@ class ItemsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    # @items = Item.all.includes(:user).order(created_at: :desc)
     @q = Item.ransack(params[:q])
-    @items = @q.result(destinct: :true).includes(:use, :item_category, :color).order(created_at: :desc).page(params[:page])
+    @items = @q.result(destinct: :true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page])
   end
 
   def new
