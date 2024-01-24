@@ -21,6 +21,11 @@
                 aria-labelledby="small_menu-button" 
                 tabindex="-1">
     <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-blue-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.diagnosis-menu') %>
+        </div>
+    </div>
+    <div class="py-1" role="none">
         <%= link_to new_diagnosis_path, class: "flex items-center text-gray-700 px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
             <span class="material-icons mr-2">visibility</span>
             <%= t('header.diagnosis') %>
@@ -38,42 +43,51 @@
             <%= t('header.favorite_diagnoses') %>
         <% end %>
     </div>
-        <div class="py-1" role="none">
-            <%= link_to items_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
-                <span class="material-icons mr-2">savings</span>
-                <%= t('header.item_index') %>
-            <% end %>
+    <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-blue-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.item-menu') %>
         </div>
-        <div class="py-1" role="none">
-            <%= link_to items_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
-                <span class="material-icons mr-2">bookmarks</span>
-                <%= t('header.bookmark_items') %>
-            <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to items_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">savings</span>
+            <%= t('header.item_index') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to items_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">bookmarks</span>
+            <%= t('header.bookmark_items') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to new_item_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">create</span>
+            <%= t('header.item_new') %>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <div class= "flex items-center text-gray-700 block px-4 py- text-sm bg-blue-200", role= "menuitem", tabindex= "-1", id="menu-item-0">
+            <%= t('header.user-menu') %>
         </div>
-        <div class="py-1" role="none">
-            <%= link_to new_item_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
-                <span class="material-icons mr-2">create</span>
-                <%= t('header.item_new') %>
-            <% end %>
-        </div>
-        <div class="py-1" role="none">
-            <%= link_to profile_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
-                <span class="material-icons mr-2">manage_accounts</span>
-                <%= t('header.profile') %>
-                <div class="ml-5">
-                    <% if current_user.google_avatar_image.blank? %>
-                        <%= image_tag current_user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full object-cover" %>
-                    <% else %>
-                        <%= image_tag current_user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full object-cover" %>
-                    <% end %>
-                </div>
-            <% end %>
-        </div>
-        <div class="py-1" role="none">
-            <%= link_to logout_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0", data: { turbo_method: :delete } do %>
-                <span class="material-icons mr-2">logout</span>
-                <%= t('header.logout') %>
-            <% end %>
-        </div>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to profile_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0" do %>
+            <span class="material-icons mr-2">manage_accounts</span>
+            <%= t('header.profile') %>
+            <div class="ml-5">
+                <% if current_user.google_avatar_image.blank? %>
+                    <%= image_tag current_user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full object-cover" %>
+                <% else %>
+                    <%= image_tag current_user.google_avatar_image, class: "h-10 w-10 object-cove rounded-full object-cover" %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <div class="py-1" role="none">
+        <%= link_to logout_path, class: "flex items-center text-gray-700 block px-4 py-2 text-sm hover:bg-teal-200 transition duration-150 ease-in-out", role: "menuitem", tabindex: "-1", id: "menu-item-0", data: { turbo_method: :delete } do %>
+            <span class="material-icons mr-2">logout</span>
+            <%= t('header.logout') %>
+        <% end %>
     </div>
 </div>
