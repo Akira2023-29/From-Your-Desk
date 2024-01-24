@@ -1,0 +1,24 @@
+<div class="container mx-auto text-center">
+    <div class="mb-2">
+        <div class="mb-1 font-bold text-4xl ">
+        <h1><%= "ブックマーク一覧" %></h1>
+        </div>
+    </div>
+
+<!-- 検索フォーム -->
+
+
+<!-- 診断一覧 -->
+<div class="p-4 mb-2 bg-stone-300 rounded-md border-2 border-black">
+    <div class="mb-3 flex flex-wrap flex-col sm:flex-row justify-center">
+        <% if @bookmark_items.present? %>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <%= render partial: "item", collection: @bookmark_items %>
+            </div>
+        <% else %>
+            <div><%= t('.not_result') %></div>
+        <% end %>
+    </div>
+    <%#= paginate @diagnoses, theme: 'diagnoses' %>
+</div>
+</div>

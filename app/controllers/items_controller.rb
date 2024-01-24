@@ -9,6 +9,12 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def bookmarks
+    @bookmark_items = current_user.bookmark_items
+    # @q = current_user.bookmark_items.ransack(params[:q])
+    # @bookmark_items = @q.result(distinct: true).include(:use, :item_category, :color).order(created_at: :desc).page(params[:page])
+  end
+
   def create
     @item = current_user.items.build(item_params)
     if @item.save
