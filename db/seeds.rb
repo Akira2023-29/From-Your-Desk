@@ -52,17 +52,17 @@
 #     { name: 'その他' }
 # ])
 
-# db/seeds.rb
-Color.group(:name).count.each do |name, count|
-    if count > 1
-        # 最初のレコードを除いて削除
-        Color.where(name: name).last(count - 1).each(&:destroy)
-    end
-end
+# # db/seeds.rb
+# Color.group(:name).count.each do |name, count|
+#     if count > 1
+#         # 最初のレコードを除いて削除
+#         Color.where(name: name).last(count - 1).each(&:destroy)
+#     end
+# end
 
-ItemCategory.group(:name).count.each do |name, count|
-    if count > 1
-        # 最初のレコードを除いて削除
-        ItemCategory.where(name: name).last(count - 1).each(&:destroy)
-    end
-end
+# ItemCategory.group(:name).count.each do |name, count|
+#     if count > 1
+#         # 最初のレコードを除いて削除
+#         ItemCategory.where(name: name).last(count - 1).each(&:destroy)
+#     end
+# end
