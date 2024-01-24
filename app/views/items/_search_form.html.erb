@@ -1,27 +1,31 @@
 <%= search_form_for q, url: url do |f| %>
-    <div class="flex flex-wrap mx-2">
-        <div class="flex w-full items-center">
-            <div class="px-2 w-full lg:w-auto flex-grow">
-                <%= f.label :title_cont, "アイテム名", class: "font-bold block" %>
+    <div class="flex flex-col lg:flex-row justify-center">
+        <div class="flex items-center">
+            <div class="mr-2 flex-1">
+                <%= f.label :title_cont, "アイテム名", class: "block" %>
                 <%= f.search_field :title_cont, placeholder: "例：キーボード", class: "w-full my-1" %>
             </div>
-            <div class="px-2 w-full lg:w-auto flex-grow">
-                <%= f.label :body_cont, "アイテム説明", class: "font-bold block" %>
+
+            <div class="mr-2 flex-1">
+                <%= f.label :body_cont, "アイテム説明", class: "block" %>
                 <%= f.search_field :body_cont, placeholder: "例：癒し・効率", class: "w-full my-1" %>
             </div>
         </div>
-        <div class="flex w-full items-center">
-            <div class="px-2 w-full lg:w-auto flex-grow">
-                        <%= f.label :colors_id_eq, "色区分", class: "font-bold block ml-1"%>
-                        <%= f.collection_select :colors_id_eq, Color.all, :id, :name, include_blank: "未指定", class: "w-full mx-1 my-1" %>
+
+        <div class="flex items-center">
+            <div class="mr-2 flex-1">
+                <%= f.label :colors_id_eq, "色区分", class: "block ml-1"%>
+                <%= f.collection_select :colors_id_eq, Color.all, :id, :name, include_blank: "未指定", class: "w-full" %>
             </div>
-            <div class="px-2 w-full lg:w-auto flex-grow">
-                <%= f.label :item_category_id_eq, "カテゴリー", class: "font-bold block ml-1" %>
-                <%= f.collection_select :item_category_id_eq, ItemCategory.all, :id, :name, include_blank: "未指定", class: "w-full mx-1 my-1" %>
+
+            <div class="mr-2 flex-1">
+                <%= f.label :item_category_id_eq, "カテゴリー", class: "block ml-1" %>
+                <%= f.collection_select :item_category_id_eq, ItemCategory.all, :id, :name, include_blank: "未指定", class: "w-full" %>
             </div>
-        </div>
-        <div class="flex w-full item-center">
-            <%= f.submit class: "w-full inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mt-5 ml-2 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
+                
+            <div>
+                <%= f.submit class: "w-full inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mt-5 ml-2 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
+            </div>
         </div>
     </div>
 <% end %>

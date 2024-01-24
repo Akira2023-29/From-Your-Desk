@@ -1,12 +1,21 @@
 <%= search_form_for q, url: url do |f| %>
-    <%= f.label :desk_work_cont, "作業内容", class: "font-bold" %>
-    <%= f.search_field :desk_work_cont, placeholder: "例：プログラミング学習", class: "w-full my-1" %>
-
-    <%= f.label :place_category_id_eq, "作業区分", class: "font-bold ml-1"%>
-    <%= f.collection_select :place_category_id_eq, Category.all, :id, :name, include_blank: "未指定", class: "mx-1 my-1" %>
-
-    <%= f.label :place_id_eq, "作業場所", class: "font-bold ml-1" %>
-    <%= f.collection_select :place_id_eq, Place.all, :id, :name, include_blank: "未指定", class: "mx-1 my-1", data: {categories: Place.all.map { |p| [p.id, p.category_id] }.to_h.to_json} %>
-
-    <%= f.submit class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl ml-2 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
+    <div class="flex flex-col md:flex-row justify-center">
+        <div class="flex-1 px-2">
+            <%= f.label :desk_work_cont, "デスクでの主な作業内容", class: "block" %>
+            <%= f.search_field :desk_work_cont, placeholder: "例：プログラミング学習", class: "w-full" %>
+        </div>
+        <div class="flex items-center">
+            <div class="px-2 flex-1">
+                <%= f.label :place_category_id_eq, "作業区分", class: "block"%>
+                <%= f.collection_select :place_category_id_eq, Category.all, :id, :name, include_blank: "未指定", class: "w-full" %>
+            </div>
+            <div class="px-2 flex-1">
+                <%= f.label :place_id_eq, "作業場所", class: "block" %>
+                <%= f.collection_select :place_id_eq, Place.all, :id, :name, include_blank: "未指定", class: "w-full", data: {categories: Place.all.map { |p| [p.id, p.category_id] }.to_h.to_json} %>
+            </div>
+            <div>
+                <%= f.submit "検索", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mt-6 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
+            </div>
+        </div>
+    </div>
 <% end %>

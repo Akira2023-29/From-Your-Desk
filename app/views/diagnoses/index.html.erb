@@ -5,15 +5,17 @@
     </div>
   </div>
 
+  <!-- 検索フォーム -->
+  <div class="container font-boldmb-3 my-3 px-10">
+    <%= render "search_form", q: @q, url: diagnoses_path %>
+  </div>
+
   <!-- グラフ -->
   <div class="container mb-2 w-full flex flex-col xl:flex-row justify-cente">
     <%= render "shared/graph" %>
   </div>
 
-  <!-- 検索フォーム -->
-  <div class="container font-boldmb-3 mb-3 py-1 px-2 flex flex-col sm:flex-row justify-around  bg-stone-300 rounded-md  border-2 border-black">
-    <%= render "search_form", q: @q, url: diagnoses_path %>
-  </div>
+
 
   <!-- 診断一覧 -->
   <div class="p-4 mb-2 bg-stone-300 rounded-md border-2 border-black">

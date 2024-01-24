@@ -21,15 +21,17 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render "shared/header" %>
-    <% else %>
-      <%= render "shared/before_login_header" %>
-    <% end %>
-    <div class="pb-2 pt-12 bg-stone-200">
-      <%= render "shared/flash_message" %>
-      <%= yield %>
+    <div class="font-zenkure">
+      <% if logged_in? %>
+        <%= render "shared/header" %>
+      <% else %>
+        <%= render "shared/before_login_header" %>
+      <% end %>
+      <div class="pb-2 pt-12 bg-stone-200">
+        <%= render "shared/flash_message" %>
+        <%= yield %>
+      </div>
+        <%= render "shared/footer" %>
     </div>
-      <%= render "shared/footer" %>
   </body>
 </html>
