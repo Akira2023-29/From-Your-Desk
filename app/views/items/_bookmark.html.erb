@@ -1,0 +1,4 @@
+<!-- ブックマーク登録前 ⇨ ブックマーク追加 -->
+<%= link_to bookmarks_path(item_id: item.id), id: "bookmark-button-for-item-#{item.id}", data: { turbo_method: :post} do %>
+    <span class="material-icons ">bookmark_border</span>
+<% end %>

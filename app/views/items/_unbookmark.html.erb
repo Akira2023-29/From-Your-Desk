@@ -1,0 +1,4 @@
+<!-- ブックマーク登録済 ⇨ ブックマーク解除 -->
+<%= link_to bookmark_path(current_user.bookmarks.find_by(item_id: item.id)), id: "unbookmark-button-for-item-#{item.id}", data: { turbo_method: :delete } do %>
+    <span class="material-icons ">bookmark</span>
+<% end %>

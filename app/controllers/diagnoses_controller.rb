@@ -14,10 +14,6 @@ class DiagnosesController < ApplicationController
     @diagnosis = Diagnosis.find_by(id: params[:id])
   end
 
-  def tagged
-    @tagged_diagnoses = Diagnosis.includes(:user).joins(:tags).where(tags: { tag_name: params[:tag_name] }).order(created_at: :desc).page(params[:page])
-  end
-
   def favorites
     @q = current_user.favorite_diagnoses.ransack(params[:q])
     @favorite_diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page])

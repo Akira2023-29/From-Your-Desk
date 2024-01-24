@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_diagnoses, through: :favorites, source: :diagnosis
 
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_items, through: :bookmarks, source: :item
+
   has_many :items, dependent: :destroy
 
   def own?(object)
@@ -35,5 +38,20 @@ class User < ApplicationRecord
   # お気に入りしたか？
   def favorite?(diagnosis)
     favorite_diagnoses.include?(diagnosis)
+  end
+
+  # ブックマーク追加
+  def bookmark(item)
+    bookmark_items << item
+  end
+
+  # ブックマーク解除
+  def unbookmark(item)
+    bookmark_items.destroy(item)
+  end
+
+  # ブックマークしたか？
+  def bookmark?(item)
+    bookmark_items.include?(item)
   end
 end

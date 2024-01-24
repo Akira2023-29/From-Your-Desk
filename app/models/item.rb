@@ -7,8 +7,9 @@ class Item < ApplicationRecord
 
   belongs_to :user
   belongs_to :item_category
-  has_many :item_colors
+  has_many :item_colors, dependent: :destroy
   has_many :colors, through: :item_colors
+  has_many :bookmarks, dependent: :destroy
 
   def item_image_must_not_be_default
     if item_image.default_image?
