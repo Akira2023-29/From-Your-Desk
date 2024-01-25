@@ -40,20 +40,21 @@
     <!-- 購入先URL -->
     <div class="mb-3 flex flex-col">
       <h1 class= "font-bold mb-1 text-2xl sm:text-3xl"><%= t('.url') %></h1>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-stone-100 rounded-md border-4 border-stone-500">
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border-4 border-stone-500">
           <%= @item.item_url %>
         </div>
     </div>
 
     <!-- Xにシェア -->
     <div class="flex items-center justify-center">
-      <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
-        <%#= link_to "https://twitter.com/share?url=#{title_url(@item)}&text=【アイテム登録完了】%0a%0a#{truncate(@item.title, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+      <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+        <%= link_to "#", target: '_blank', class: "flex justify-center items-center", data: { toggle: "tooltip", placement: "bottom" } do %>
+          <%= image_tag 'X-logo-black.png', class: "h-6 w-6 object-cove rounded-md mr-2 p-1 bg-slate-300 border border-black"%>
           <%= t('.sns_share') %>
-        <%# end %>
+        <% end %>
       </div>
       <div class="mb-3">
-        <%= link_to t('.index'), items_path, class: "inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
+        <%= link_to t('.index'), items_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
       </div>
     </div>
 
