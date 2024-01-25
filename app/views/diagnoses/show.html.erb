@@ -17,14 +17,14 @@
 
     <!-- Xにシェア -->
     <div class="flex items-center justify-center">
-      <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+      <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black">
         <%= link_to "https://twitter.com/share?url=#{diagnosis_url(@diagnosis)}&text=【デスク環境診断結果】%0a%0a#{truncate(@diagnosis.result_jp, length: 80)}", target: '_blank', class: "flex justify-center items-center", data: { toggle: "tooltip", placement: "bottom" } do %>
           <%= image_tag 'X-logo-black.png', class: "h-6 w-6 object-cove rounded-md mr-2 p-1 bg-slate-300 border border-black"%>
           <%= t('.sns_share') %>
         <% end %>
       </div>
       <div class="mb-3">
-        <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
+        <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black"%>
       </div>
     </div>
 

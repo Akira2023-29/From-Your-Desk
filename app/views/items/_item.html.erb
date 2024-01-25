@@ -8,7 +8,8 @@
             <%= link_to item.title, item_path(item), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
         </div>
 
-        <div class="container mt-2 font-bold bg-white rounded-md">
+        <!-- 色分類 -->
+        <div class="m-2 font-bold bg-white rounded-md">
             <%= t('items.item.color') %>
             <div class="mt-1 flex flex-wrap justify-around">
                 <% item.colors.each do |color| %>
@@ -19,6 +20,7 @@
             </div>
         </div>
 
+        <!-- 商品購入先URL -->
         <% if item.item_url.present? %>
             <div class="mt-2 font-bold">
                 <%= link_to t('items.item.url'), "#{item.item_url}" %>
