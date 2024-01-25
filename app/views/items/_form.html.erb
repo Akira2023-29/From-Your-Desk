@@ -31,7 +31,7 @@
             <div class="mb-2">
                 <%= f.label :color_ids, t('items.new.color') %>
             </div>
-            <div class="bg-white rounded-md p-4 border-2 border-black">
+            <div class="bg-white rounded-md p-4 border border-black">
                 <% @colors.each do |color| %>
                     <div class="checkbox inline-flex items-center">
                         <%= f.check_box :color_ids, { multiple: true }, color.id, nil %>

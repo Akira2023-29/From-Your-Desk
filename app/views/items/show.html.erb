@@ -1,33 +1,33 @@
 <div class="container mx-auto text-center justify-center">
   <div>
-    <h1 class="font-bold text-4xl"><%= t('.title') %></h1>
+    <h1 class="font-bold text-2xl sm:text-3xl md:text-4xl"><%= t('.title') %></h1>
   </div>
 
-  <div class="p-4 m-2 bg-stone-300 rounded-md border-2 border-black">
+  <div class="p-4 m-2 bg-slate-100 rounded-md border-2 border-black">
     <!-- アイテム画像 -->
     <div class="mb-3 flex justify-center ">
-      <%= image_tag @item.item_image.url , class: "rounded-md border-4 border-black" %>
+      <%= image_tag @item.item_image.url , class: "rounded-md border-2 border-black" %>
     </div>
 
     <!-- アイテム題名 -->
     <div class="mb-3 flex flex-col">
-      <h1 class= "font-bold text-3xl mb-1"><%= t('.item_title') %></h1>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-stone-100 rounded-md border-4 border-stone-500">
-          <%= @item.title %>
-        </div>
+      <div class= "font-bold mb-1 text-2xl sm:text-3xl">
+        <%= t('.item_title') %>
+        <%= @item.title %>
+      </div>
     </div>
 
     <!-- アイテム説明 -->
     <div class="mb-3 flex flex-col">
       <h1 class= "font-bold text-2xl sm:text-3xl md:text-4xl"><%= t('.body') %></h1>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-stone-100 rounded-md border-4 border-stone-500">
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border-2 border-stone-500">
           <%= @item.body %>
         </div>
     </div>
 
     <!-- 色 -->
     <div class="mt-2 font-bold">
-      <h1 class= "font-bold text-3xl mb-1"><%= t('.color') %></h1>
+      <h1 class= "font-bold mb-1 text-2xl sm:text-3xl"><%= t('.color') %></h1>
       <div class="flex justify-center">
         <% @item.colors.each do |color| %>
           <div class="px-1 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
@@ -39,7 +39,7 @@
 
     <!-- 購入先URL -->
     <div class="mb-3 flex flex-col">
-      <h1 class= "font-bold text-3xl mb-1"><%= t('.url') %></h1>
+      <h1 class= "font-bold mb-1 text-2xl sm:text-3xl"><%= t('.url') %></h1>
         <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-stone-100 rounded-md border-4 border-stone-500">
           <%= @item.item_url %>
         </div>
