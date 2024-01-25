@@ -1,7 +1,8 @@
 <%= search_form_for q, url: url do |f| %>
     <div class="mx-auto flex flex-col lg:flex-row justify-center">
+        <!-- フリーワード　-->
         <div class="flex items-center">
-            <div class="mr-2 flex-1">
+            <div class="mr-1 flex-1">
                 <%= f.label :title_cont, "アイテム名", class: "block" %>
                 <%= f.search_field :title_cont, placeholder: "例：キーボード", class: "w-full my-1" %>
             </div>
@@ -12,19 +13,20 @@
             </div>
         </div>
 
+        <!-- セレクトボックス　-->
         <div class="mx-1 flex items-center">
-            <div class="mr-2 flex-1">
+            <div class="mr-1 flex-1">
                 <%= f.label :colors_id_eq, "色区分", class: "block ml-1"%>
                 <%= f.collection_select :colors_id_eq, Color.all, :id, :name, include_blank: "未指定", class: "w-full" %>
             </div>
 
-            <div class="mx-1 flex-1">
+            <div class="flex-1">
                 <%= f.label :item_category_id_eq, "カテゴリー", class: "block ml-1" %>
                 <%= f.collection_select :item_category_id_eq, ItemCategory.all, :id, :name, include_blank: "未指定", class: "w-full" %>
             </div>
         </div>
         
-        <div class="px-1 flex justify-center items-center">
+        <div class="mx-1 flex justify-center items-center">
             <div class="flex-auto">
                 <%= f.submit class: "w-full bg-slate-200 hover:bg-emerald-300 text-black font-bold text-1xl mt-5 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
             </div>

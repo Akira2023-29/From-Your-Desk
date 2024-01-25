@@ -5,15 +5,15 @@
     <%= form_with url: login_path do |f| %>
       <div class='mb-3'>
         <%= f.label :email, t('.email'), class: "block" %>
-        <%= f.email_field :email, class: "mt-1" %>
+        <%= f.email_field :email, class: "w-full mt-1" %>
       </div>
 
       <div class='mb-3'>
         <%= f.label :password, t('.password'), class: "block" %>
-        <%= f.password_field :password, class: "mt-1" %>
+        <%= f.password_field :password, class: "w-full mt-1" %>
       </div>
 
-      <%= f.submit t('.login'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out border border-black" %>
+      <%= f.submit t('.login'), class: "inline-block bg-emerald-100 hover:bg-emerald-300 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out border border-black" %>
     <% end %>
 
     <hr class="border-1 bg-cyan-400 my-4">
@@ -27,8 +27,8 @@
     </div>
 
     <div>
-      <%= link_to t('.to_user_new'), new_user_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out border border-black" %>
-      <%= link_to t('.password_forget'), new_password_reset_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out border border-black" %>
+      <%= link_to t('.to_user_new'), new_user_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out border border-black" %>
+      <%= link_to t('.password_forget'), new_password_reset_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 text-black font-bold text-1xl mb-3 py-2 px-4 rounded transition duration-150 ease-in-out border border-black" %>
     </div>
   </div>
 </div>
