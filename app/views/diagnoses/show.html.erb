@@ -3,7 +3,7 @@
     <h1><%= t('.title') %></h1>
   </div>
 
-  <div class="p-4 m-2 bg-stone-300 rounded-md border-2 border-black">
+  <div class="p-4 m-2 bg-slate-100 rounded-md border-2 border-black">
     <div class="mb-3 flex justify-center ">
       <%= image_tag @diagnosis.desk_image.url , class: "rounded-md border-4 border-black" %>
     </div>
@@ -17,13 +17,13 @@
 
     <!-- Xにシェア -->
     <div class="flex items-center justify-center">
-      <div class="mb-3 inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+      <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
         <%= link_to "https://twitter.com/share?url=#{diagnosis_url(@diagnosis)}&text=【デスク環境診断結果】%0a%0a#{truncate(@diagnosis.result_jp, length: 80)}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
           <%= t('.sns_share') %>
         <% end %>
       </div>
       <div class="mb-3">
-        <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-teal-500 hover:bg-teal-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
+        <%= link_to t('.index'), diagnoses_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <% items = RakutenWebService::Ichiba::Item.search(keyword: "オブジェ #{@diagnosis.color_name}", hits: 9) %>
             <% items.each do |item| %>
-              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-stone-800/80 bg-stone-200 hover:bg-cyan-300 rounded-md transition duration-300 border-2 border-black">
+              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-stone-800/80 bg-stone-100 hover:bg-emerald-200 rounded-md transition duration-300 border-2 border-black">
                 <div class="flex justify-center mb-4">
                   <%= image_tag item['mediumImageUrls'].first %><br>
                 </div>

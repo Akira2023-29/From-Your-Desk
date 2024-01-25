@@ -27,16 +27,18 @@
         </div>
 
         <!-- 色 -->
-        <div class="mb-3">
+        <div class="mb-3 ">
             <div class="mb-2">
                 <%= f.label :color_ids, t('items.new.color') %>
             </div>
-            <% @colors.each do |color| %>
-                <div class="checkbox inline-flex items-center">
-                    <%= f.check_box :color_ids, { multiple: true }, color.id, nil %>
-                    <%= f.label "color_ids_#{color.id}", color.name, class: "btn btn-primary px-2 py-1 mx-2 mb-2 cursor-pointer border border-black rounded-md #{button_color(color.name)}"%>
-                </div>
-            <% end %>
+            <div class="bg-white rounded-md p-4 border-2 border-black">
+                <% @colors.each do |color| %>
+                    <div class="checkbox inline-flex items-center">
+                        <%= f.check_box :color_ids, { multiple: true }, color.id, nil %>
+                        <%= f.label "color_ids_#{color.id}", color.name, class: "btn btn-primary px-2 py-1 mx-2 mb-2 cursor-pointer border border-black rounded-md #{button_color(color.name)}"%>
+                    </div>
+                <% end %>
+            </div>
         </div>
 
         <!-- 商品購入先URL -->
@@ -51,6 +53,6 @@
             <%= f.text_area :body, class: "mt-1 w-3/4", rows: 4, placeholder: t('items.new.body_sample') %>
         </div>
 
-        <%= f.submit t('items.new.submit'), class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
+        <%= f.submit t('items.new.submit'), class: "inline-block bg-slate-100 hover:bg-emerald-200 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
     <% end %>
 </div>
