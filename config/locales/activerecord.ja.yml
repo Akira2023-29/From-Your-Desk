@@ -5,6 +5,8 @@ ja:
       diagnosis: 診断
       profile: プロフィール
       item: 商品
+      item_category: 商品カテゴリー
+      color: 色分類
     attributes:
       user:
         name: 名前
@@ -23,6 +25,7 @@ ja:
         tag_ids: デスク作業場
       item:
         title: タイトル
-        body: 説明
+        body: 商品説明
         item_image: 商品写真
         item_url: 商品購入先
+        item_category:

@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   mount_uploader :item_image, ItemImageUploader
 
-  #validates :item_image_must_not_be_default
+  validate :item_image_must_not_be_default
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true, length: { maximum: 255 }
   validates :item_category_id, presence: true
