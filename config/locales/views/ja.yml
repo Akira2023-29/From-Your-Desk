@@ -20,7 +20,7 @@ ja:
     diagnosis: デスク診断
     item: デスクアイテム
     item_index: デスクアイテム一覧
-    item_new: アイテム登録
+    item_new: 商品登録
     bookmark_items: ブックマーク一覧
     bookmark_items_before_login: ブックマーク一覧 ★
     diagnosis_before_login: デスク診断 ★
@@ -75,7 +75,7 @@ ja:
     show:
       title: 診断詳細
       result: 【デスク診断結果】
-      sns_share: Xにシェアする
+      sns_share: シェア
       recommend: 【こちらをデスクに置いてみませんか？】
       index: 診断一覧に戻る
       delete: 削除する
@@ -100,29 +100,29 @@ ja:
       title: デスクアイテム一覧
       not_result: 診断結果はありません
     new:
-      title: アイテム登録
-      item_title: アイテム名
-      body: アイテムについての説明を入力して下さい
-      color: 色分類
-      item_image: アイテム写真
-      category: カテゴリー
-      url: アイテム購入先URL
-      submit: アイテム登録
-      title_sample: アイテム名を入力して下さい
-      body_sample: 例 :1年前に購入した幅広で価格も抑えめの昇降デスクです! 暗めのデスク環境を明るくしたく白系天板にしました。眠くなりそうな昼食後は立ちながら作業してます。
-      url_sample: 例 :https://www.amazon.co.jp/gp/product/B092CVMP7K/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
+      title: 商品登録
+      item_title: 商品名
+      body: 商品についての説明を入力して下さい
+      color: 色分類（複数選択可）
+      item_image: 商品写真
+      category: 商品カテゴリー
+      url: 商品購入先URL（空欄でもOK）
+      submit: 商品登録
+      title_sample: 商品名を入力して下さい
+      body_sample: 例 :デスク環境を明るくする白系天板の昇降デスク！
+      url_sample: 例 :https://www.example.co.jp/・・・
     show:
-      title: アイテム詳細
+      title: 商品詳細
       item_title: アイテム名
-      body: アイテム説明
+      body: 商品説明
       color: 色分類
-      url: 購入先URL
+      url: 商品購入先URL
       sns_share: Xにシェアする
       index: 診断一覧に戻る
       delete: 削除する
     item:
       title: 題名
-      body: アイテム説明
+      body: 商品説明
       color: 色分類
       url: 購入先リンク
       delete: 削除

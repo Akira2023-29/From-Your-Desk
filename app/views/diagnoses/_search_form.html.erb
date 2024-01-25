@@ -1,20 +1,20 @@
 <%= search_form_for q, url: url do |f| %>
     <div class="flex flex-col md:flex-row justify-center">
-        <div class="flex-1 px-1">
+        <div class="flex-1 pr-1">
             <%= f.label :desk_work_cont, "デスクでの主な作業内容", class: "block" %>
             <%= f.search_field :desk_work_cont, placeholder: "例：プログラミング学習", class: "w-full" %>
         </div>
         <div class="flex items-center">
-            <div class="px-1 flex-1">
+            <div class="pr-1 flex-1">
                 <%= f.label :place_category_id_eq, "作業区分", class: "block"%>
                 <%= f.collection_select :place_category_id_eq, Category.all, :id, :name, include_blank: "未指定", class: "w-full" %>
             </div>
-            <div class="px-1 flex-1">
+            <div class="pr-1 flex-1">
                 <%= f.label :place_id_eq, "作業場所", class: "block" %>
                 <%= f.collection_select :place_id_eq, Place.all, :id, :name, include_blank: "未指定", class: "w-full", data: {categories: Place.all.map { |p| [p.id, p.category_id] }.to_h.to_json} %>
             </div>
             <div>
-                <%= f.submit "検索", class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-1xl mt-6 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
+                <%= f.submit "検索", class: "inline-block bg-slate-200 hover:bg-emerald-300 text-black font-bold text-1xl mt-6 py-1 px-3 rounded-md transition duration-150 ease-in-out border border-black"%>
             </div>
         </div>
     </div>
