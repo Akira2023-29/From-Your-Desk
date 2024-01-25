@@ -11,7 +11,7 @@
 
     <!-- アイテム題名 -->
     <div class="mb-3 flex flex-col">
-      <div class= "font-bold mb-1 text-2xl sm:text-3xl">
+      <div class= "font-bold mb-1 text-1xl sm:text-2xl">
         <%= t('.item_title') %>
         <%= @item.title %>
       </div>
@@ -19,15 +19,15 @@
 
     <!-- アイテム説明 -->
     <div class="mb-3 flex flex-col">
-      <h1 class= "font-bold text-2xl sm:text-3xl md:text-4xl"><%= t('.body') %></h1>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border-2 border-stone-500">
+      <h1 class= "font-bold text-1xl sm:text-2xl"><%= t('.body') %></h1>
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border border-stone-500">
           <%= @item.body %>
         </div>
     </div>
 
     <!-- 色 -->
     <div class="mt-2 font-bold">
-      <h1 class= "font-bold mb-1 text-2xl sm:text-3xl"><%= t('.color') %></h1>
+      <h1 class= "font-bold mb-1 text-1xl sm:text-2xl"><%= t('.color') %></h1>
       <div class="flex justify-center">
         <% @item.colors.each do |color| %>
           <div class="px-1 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
@@ -39,27 +39,27 @@
 
     <!-- 購入先URL -->
     <div class="mb-3 flex flex-col">
-      <h1 class= "font-bold mb-1 text-2xl sm:text-3xl"><%= t('.url') %></h1>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border-4 border-stone-500">
-          <%= @item.item_url %>
+      <h1 class= "font-bold mb-1 text-1xl sm:text-2xl"><%= t('.url') %></h1>
+        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border border-stone-500">
+          <%= link_to t('items.item.url'), "#{@item.item_url}" %>
         </div>
     </div>
 
     <!-- Xにシェア -->
     <div class="flex items-center justify-center">
-      <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+      <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black">
         <%= link_to "#", target: '_blank', class: "flex justify-center items-center", data: { toggle: "tooltip", placement: "bottom" } do %>
           <%= image_tag 'X-logo-black.png', class: "h-6 w-6 object-cove rounded-md mr-2 p-1 bg-slate-300 border border-black"%>
           <%= t('.sns_share') %>
         <% end %>
       </div>
       <div class="mb-3">
-        <%= link_to t('.index'), items_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black"%>
+        <%= link_to t('.index'), items_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black"%>
       </div>
     </div>
 
-    <% if current_user&.own?(@items) %>
-      <div class="mb-3 inline-block bg-stone-400 hover:bg-red-500 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border-2 border-black">
+    <% if current_user&.own?(@item) %>
+      <div class="mb-3 inline-block bg-stone-400 hover:bg-red-500 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black">
         <%= link_to t('.delete'), item_path(@item), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}%>
       </div>
     <% end %>
