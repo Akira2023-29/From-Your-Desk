@@ -3,9 +3,8 @@ class Item < ApplicationRecord
 
   validate :item_image_must_not_be_default
   validates :title, presence: true, length: { maximum: 255 }
-  validates :body, presence: true, length: { maximum: 255 }
-  validates :item_category_id, presence: true
   validates :color_ids, presence: true
+  validates :body, presence: true, length: { maximum: 255 }
 
   belongs_to :user
   belongs_to :item_category
