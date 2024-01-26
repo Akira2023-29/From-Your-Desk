@@ -35,7 +35,7 @@
       <h1 class= "font-bold mb-4 text-1xl sm:text-2xl md:text-3xl"><%= t('.recommend') %></h1> 
 
       <!-- 登録された商品提案 -->
-      <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-stone-600"><%= "ユーザー登録商品からピックアップ" %></h1> 
+      <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-stone-600"><%= t('.recommend_user_items') %></h1> 
       <% if @recommend_items.present? %>
         <div class="grid grid-cols-1 mb-6 p-5 md:grid-cols-3 gap-4 bg-white rounded-md">
           <% @recommend_items.each do |item| %>
@@ -45,7 +45,7 @@
                   <%= image_tag item.item_image.url %>
                 </div>
                 <div class="mb-1">
-                  <%= link_to item.title, item_path(item), class: "underline underline-offset-2 mb-1 text-1xl sm:text-2xl" %></h1>
+                  <%= link_to item.title, item_path(item), class: "underline underline-offset-2 mb-1 text-1xl" %></h1>
                 </div>
                 <div class="mb-1">
                   <%= link_to item.body, class: "underline underline-offset-2 text-2xl mb-1" %></h1>
@@ -73,10 +73,10 @@
         </div>
       <% end %>
 
-      <hr class="border border-stone-500 my-4">
+      <hr class="border border-stone-300 my-4">
 
       <!-- 楽天商品提案 -->
-      <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-red-900"><%= "楽天市場商品からピックアップ" %></h1> 
+      <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-red-900"><%= t('.recommend_rakuten_items') %></h1> 
       <% if @diagnosis.color_name.present? %>
         <div class="grid grid-cols-1 p-5 md:grid-cols-3 gap-3 bg-white rounded-md">
           <% items = RakutenWebService::Ichiba::Item.search(keyword: "北欧 インテリア #{@diagnosis.color_name}", 

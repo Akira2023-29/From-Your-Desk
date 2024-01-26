@@ -79,6 +79,8 @@ ja:
       recommend: 【こちらをデスク環境に加えてみませんか？】
       index: 診断一覧に戻る
       delete: 削除する
+      recommend_user_items: ユーザー登録商品 Pick Up
+      recommend_rakuten_items: 楽天市場商品 Pick Up
       not_items: ヒットする商品が見つかりませんでした。
     index:
       title: デスク診断結果一覧
