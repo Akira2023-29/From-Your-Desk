@@ -118,7 +118,8 @@ ja:
       color: 色分類
       url: 商品購入先URL
       sns_share: Xにシェアする
-      index: 診断一覧に戻る
+      diagnosis_index: デスク診断一覧に戻る
+      item_index: 登録商品一覧に戻る
       delete: 削除する
     item:
       title: 題名
