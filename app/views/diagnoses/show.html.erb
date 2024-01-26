@@ -30,7 +30,7 @@
 
     <hr class="border border-stone-500 my-4">
 
-    <!-- 商品提案 -->
+    <!-- レコメンド -->
     <div class="mt-5 mb-3 text-center">
       <h1 class= "font-bold mb-4 text-1xl sm:text-2xl md:text-3xl"><%= t('.recommend') %></h1> 
 
@@ -69,7 +69,7 @@
         </div>
       <% else%>
         <div class="mb-5 p-5 bg-white rounded-md">
-          <%= "ヒットする商品が見つかりませんでした。" %>
+          <%= t('.not_items') %>
         </div>
       <% end %>
 
