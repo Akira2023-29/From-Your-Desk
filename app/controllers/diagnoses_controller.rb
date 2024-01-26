@@ -13,7 +13,7 @@ class DiagnosesController < ApplicationController
   def show
     @diagnosis = Diagnosis.find_by(id: params[:id])
     # 診断結果にあった登録商品をランダムに３つ取得
-    @recommend_items = Item.joins(:colors).where("colors.name LIKE ?", "%#{@diagnosis.color_name}%").order(Arel.sql("RANDOM()")).limit(3)
+    @recommend_items = Item.joins(:colors).where("colors.name LIKE ?", "%#{@diagnosis.color_name.gsub(/（.*?）/, '')}%").order(Arel.sql("RANDOM()")).limit(3)
   end
 
   def favorites
@@ -33,7 +33,6 @@ class DiagnosesController < ApplicationController
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result
-      # @diagnosis.color_name = RakutenApi.color_name(analysis_result)
     end
 
     if @diagnosis.color_info.present? && @diagnosis.place_id.present?
@@ -44,8 +43,8 @@ class DiagnosesController < ApplicationController
     if @diagnosis.result_en.present?
       # 診断結果翻訳
       translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA')
-      # 診断結果からデスク環境に取り入れるべき色名を抽出
-      @diagnosis.color_name = translated_response.slice(/【(.*?)】/, 1)
+      # 診断結果から色名を抽出（「色名（カタカナ）」の場合は（）部分を除去）
+      @diagnosis.color_name = translated_response.slice(/【(.*?)】/, 1).gsub(/（.*?）/, '')
       # 診断結果全文
       @diagnosis.result_jp = translated_response
     end
