@@ -31,8 +31,7 @@ class DiagnosesController < ApplicationController
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result
-      # この部分も修正して楽天APIに送る
-      @diagnosis.color_name = RakutenApi.color_name(analysis_result)
+      # @diagnosis.color_name = RakutenApi.color_name(analysis_result)
     end
 
     if @diagnosis.color_info.present? && @diagnosis.place_id.present?
@@ -43,8 +42,8 @@ class DiagnosesController < ApplicationController
     if @diagnosis.result_en.present?
       # 診断結果翻訳
       translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA')
-      # 診断結果から色名を抽出
-      color_name = translated_response.slice(/「(.*?)」/, 1)
+      # 診断結果からデスク環境に取り入れるべき色名を抽出
+      @diagnosis.color_name = translated_response.slice(/【(.*?)】/, 1)
       # 診断結果全文
       @diagnosis.result_jp = translated_response
     end
