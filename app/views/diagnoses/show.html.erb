@@ -35,12 +35,12 @@
     <!-- レコメンド -->
     <div class="mt-5 mb-3 text-center">
       <h1 class= "font-bold mb-1 text-1xl sm:text-2xl"><%= t('.recommend') %></h1>
-      <p class="mb-4 text-1xl"><%= ""%></p> 
+      <p class="mb-4 text-1xl"><%= "診断結果を元に以下を提案します。"%></p> 
 
       <!-- 登録された商品提案 -->
       <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-stone-600"><%= t('.recommend_user_items') %></h1>
       <% if @recommend_items.present? %>
-        <div class="grid grid-cols-1 mb-6 p-5 md:grid-cols-3 gap-4 bg-white rounded-md">
+        <div class="grid grid-cols-1 mb-3 p-5 md:grid-cols-3 gap-4 bg-white rounded-md">
           <% @recommend_items.each do |item| %>
             <div class="container max-w-sm p-1 shadow-lg shadow-stone-800/80 bg-stone-200 hover:bg-emerald-200 rounded-md transition duration-300">
               <div class="my-1">
@@ -75,6 +75,10 @@
           <%= t('.not_items') %>
         </div>
       <% end %>
+
+      <div class="mb-2">
+        <%= link_to t('.items_index'), items_path, class: "inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black"%>
+      </div>
 
       <hr class="border border-stone-300 my-4">
 
