@@ -9,7 +9,7 @@
     </div>
 
     <div class="mb-3 flex flex-col">
-      <h1 class= "font-bold mb-1 text-2xl sm:text-3xl md:text-4xl"><%= t('.result') %></h1>
+      <h1 class= "font-bold mb-1 text-2xl sm:text-2xl md:text-3xl"><%= t('.result') %></h1>
         <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-stone-100 rounded-md border-2 border-stone-500">
           <%= @diagnosis.result_jp %>
         </div>
@@ -30,14 +30,17 @@
 
     <hr class="border-2 bg-black my-4">
 
-    <!-- 楽天商品提案 -->
+    <!-- 商品提案 -->
     <div class="mt-5 mb-3 text-center">
-      <h1 class= "font-bold mb-1 text-2xl sm:text-3xl md:text-4xl"><%= t('.recommend') %></h1> 
+      <h1 class= "font-bold mb-1 text-1xl sm:text-2xl md:text-3xl"><%= t('.recommend') %></h1> 
+      <!-- 楽天商品提案 -->
       <% if @diagnosis.color_name.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <% items = RakutenWebService::Ichiba::Item.search(keyword: "オブジェ #{@diagnosis.color_name}", hits: 9) %>
+          <% items = RakutenWebService::Ichiba::Item.search(keyword: "北欧 インテリア #{@diagnosis.color_name}", 
+                                                            NGKeyword: "風水 鏡 車 内装 生地 エアコン ピクニック キッチン シフト ペット 玄関 ソファー カーペット ラグ クッション", 
+                                                            hits: 9) %>
             <% items.each do |item| %>
-              <div class="container max-w-sm p-4 m-2 shadow-lg shadow-stone-800/80 bg-stone-100 hover:bg-emerald-200 rounded-md transition duration-300">
+              <div class="container max-w-sm p-2 m-2 shadow-lg shadow-stone-800/80 bg-stone-100 hover:bg-emerald-200 rounded-md transition duration-300">
                 <div class="flex justify-center mb-4">
                   <%= image_tag item['mediumImageUrls'].first %><br>
                 </div>
