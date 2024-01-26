@@ -12,6 +12,8 @@ class DiagnosesController < ApplicationController
 
   def show
     @diagnosis = Diagnosis.find_by(id: params[:id])
+    # 診断結果にあった登録商品をランダムに３つ取得
+    @recommend_items = Item.joins(:colors).where("colors.name LIKE ?", "%#{@diagnosis.color_name}%").order(Arel.sql("RANDOM()")).limit(3)
   end
 
   def favorites
@@ -22,8 +24,8 @@ class DiagnosesController < ApplicationController
   def diagnosis
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
   
-    #.tempfileメソッドはアップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
-    # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
+    #.tempfileメソッド：アップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
+    # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。(後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     if params[:diagnosis][:desk_image].present?
       uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
     end
