@@ -80,6 +80,21 @@
       <% if @diagnosis.color_name.present? %>
         <div class="grid grid-cols-1 p-5 md:grid-cols-3 gap-3 bg-white rounded-md">
           <% items = RakutenWebService::Ichiba::Item.search(keyword: "北欧 インテリア #{@diagnosis.color_name}", 
+                                                            NGKeyword: "風水 鏡 車 内装 生地 エアコン ピクニック キッチン シフト ペット カーテン 玄関 ソファー カーペット ラグ クッション", 
+                                                            hits: 9) %>
+            <% items.each do |item| %>
+              <div class="container max-w-sm p-2 m-2 shadow-lg shadow-stone-800/80 bg-stone-200 hover:bg-emerald-200 rounded-md transition duration-300">
+                <div class="flex justify-center mb-4">
+                  <%= image_tag item['mediumImageUrls'].first %><br>
+                </div>
+                <%= link_to item['itemName'], item.url, target: '_blank' %><br>
+                <%= "#{item['itemPrice']}円 " %><br>
+              </div>
+            <% end %>
+        </div>
+      <% else %>
+        <div class="grid grid-cols-1 p-5 md:grid-cols-3 gap-3 bg-white rounded-md">
+          <% items = RakutenWebService::Ichiba::Item.search(keyword: "インテリア 絵画", 
                                                             NGKeyword: "風水 鏡 車 内装 生地 エアコン ピクニック キッチン シフト ペット 玄関 ソファー カーペット ラグ クッション", 
                                                             hits: 9) %>
             <% items.each do |item| %>

@@ -33,7 +33,6 @@ class DiagnosesController < ApplicationController
     if uploaded_image_path.present?
       analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
       @diagnosis.color_info = analysis_result
-      # @diagnosis.color_name = RakutenApi.color_name(analysis_result)
     end
 
     if @diagnosis.color_info.present? && @diagnosis.place_id.present?
