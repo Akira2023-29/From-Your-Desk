@@ -15,6 +15,8 @@
         </div>
     </div>
 
+    <p class="mb-3 text-1xl"><%= "診断結果を元にデスク環境を見直しましょう。"%></p> 
+
     <!-- Xにシェア -->
     <div class="flex items-center justify-center">
       <div class="mb-3 inline-block bg-emerald-100 hover:bg-emerald-300 font-bold mx-1 py-2 px-4 rounded transition duration-150 ease-in-out border border-black">
@@ -32,10 +34,11 @@
 
     <!-- レコメンド -->
     <div class="mt-5 mb-3 text-center">
-      <h1 class= "font-bold mb-4 text-1xl sm:text-2xl md:text-3xl"><%= t('.recommend') %></h1> 
+      <h1 class= "font-bold mb-1 text-1xl sm:text-2xl"><%= t('.recommend') %></h1>
+      <p class="mb-4 text-1xl"><%= ""%></p> 
 
       <!-- 登録された商品提案 -->
-      <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-stone-600"><%= t('.recommend_user_items') %></h1> 
+      <h1 class= "font-bold mb-2 text-1xl sm:text-2xl text-stone-600"><%= t('.recommend_user_items') %></h1>
       <% if @recommend_items.present? %>
         <div class="grid grid-cols-1 mb-6 p-5 md:grid-cols-3 gap-4 bg-white rounded-md">
           <% @recommend_items.each do |item| %>
