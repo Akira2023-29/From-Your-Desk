@@ -11,17 +11,15 @@ if [ "$RAILS_ENV" = "production" ]; then
   bundle exec rails db:migrate
   # bundle exec rails db:seed
 
-  bundle exec rails runner -e production "<<EOF
-    Item.find_each do |item|
-      item.item_image.recreate_versions! if item.item_image?
-    end
-  EOF"
+  # Itemの処理
+  bundle exec rails runner -e production "Item.find_each do |item|
+    item.item_image.recreate_versions! if item.item_image?
+  end"
 
-  bundle exec rails runner -e production "<<EOF
-    Diagnosis.find_each do |diagnosis|
-      diagnosis.desk_image.recreate_versions! if diagnosis.desk_image?
-    end
-  EOF"
+  # Diagnosisの処理
+  bundle exec rails runner -e production "Diagnosis.find_each do |diagnosis|
+    diagnosis.desk_image.recreate_versions! if diagnosis.desk_image?
+  end"
 fi
 
 # コンテナーのプロセスを実行する。（Dockerfile 内の CMD に設定されているもの。）
