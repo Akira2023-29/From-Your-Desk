@@ -36,7 +36,7 @@ class DeskImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-    process resize_to_fill: [500, 300]
+    
   # end
 
   #アップロード可能なファイルの拡張子を指定
