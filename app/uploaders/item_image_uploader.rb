@@ -35,9 +35,15 @@ class  ItemImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
+  # 詳細画面用の画像バージョン
+  version :show do
+    process resize_to_fit: [500, 300]
+  end
+
+  # 一覧画面用の画像バージョン
+  version :index do
     process resize_to_fill: [500, 300]
-  # end
+  end
 
   #アップロード可能なファイルの拡張子を指定
   def extension_allowlist
