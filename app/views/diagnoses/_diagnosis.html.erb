@@ -7,31 +7,28 @@
         <!-- 作業内容 -->
         <div class="mb-1">
             <h1><%= link_to t('diagnoses.diagnosis.title'), diagnosis_path(diagnosis), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
-            <div class="mt-2 font-bold">
+            <div class="mt-2">
                 <%= t('diagnoses.diagnosis.desk_work') %>
             </div>
-            <div><%="『#{diagnosis.desk_work}』"%></div>
+            <div class="font-bold"><%="『#{diagnosis.desk_work}』"%></div>
         </div>
+
+        <hr class="border border-stone-400 mb-2 mx-5">
 
         <!-- 作業区分・作業環境 -->
         <% if diagnosis.place_id.present? %>
-            <div class="mb-1 flex flex-wrap justify-center">
-                <div>
-                    <div class="mb-1">
-                        <%= t('diagnoses.diagnosis.desk_category')+" :" %>
-                        <%= link_to Category.find_by(id: diagnosis.place.category_id).name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
-                    </div>
-                <div>
-                    </div>
-                    <div class="mb-1">
-                        <%= t('diagnoses.diagnosis.desk_place')+" :" %>
-                        <%= link_to diagnosis.place.name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
-                    </div>
+            <div class="mb-1 flex justify-center">
+                <div class="mb-1">
+                    <%= link_to Category.find_by(id: diagnosis.place.category_id).name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                </div>
+                <div class="mx-2"><%= "|" %></div>
+                <div class="mb-1">
+                    <%= link_to diagnosis.place.name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
                 </div>
             </div>
         <% end %>
 
-        <hr class="border-1 bg-stone-400 my-2">
+        <hr class="border border-stone-400 mb-2 mx-5">
 
         <!-- アバター・ユーザー名・診断日時 -->
         <div class="flex justify-center items-center">

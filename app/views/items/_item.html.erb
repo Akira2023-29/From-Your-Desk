@@ -4,30 +4,24 @@
             <%= image_tag item.item_image.url%>
         </div>
 
-        <div class="mb-1">
-            <%= link_to item.title, item_path(item), class: "font-bold underline underline-offset-2 text-2xl mb-1" %></h1>
+        <div class="mb-2">
+            <%= link_to item.title, item_path(item), class: "font-bold underline underline-offset-2 text-1xl mb-1" %></h1>
         </div>
 
+        <hr class="border border-stone-400 mb-1 mx-5">
+
         <!-- 色分類 -->
-        <div class="m-2 font-bold bg-white rounded-md">
-            <%= t('items.item.color') %>
-            <div class="mt-1 flex flex-wrap justify-around">
+        <div class="mb-1">
+            <div class="m-1 p-1">
                 <% item.colors.each do |color| %>
-                    <div class="px-2 py-1 mx-2 mb-2 rounded-md <%= button_color(color.name) %>" >
+                    <div class="px-1 py-1 mx-12 mb-1 rounded-md  <%= button_color(color.name) %>" >
                         <%= color.name %>
                     </div>
                 <% end %>
             </div>
         </div>
 
-        <!-- 商品購入先URL -->
-        <% if item.item_url.present? %>
-            <div class="mt-2 font-bold">
-                <%= link_to t('items.item.url'), "#{item.item_url}" %>
-            </div>
-        <% end %>
-
-        <hr class="border-1 bg-stone-400 my-4">
+        <hr class="border border-stone-400 mb-2 mx-5">
 
         <!-- アバター・ユーザー名・診断日時 -->
         <div class="flex justify-center items-center">
