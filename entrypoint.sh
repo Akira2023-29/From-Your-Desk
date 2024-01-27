@@ -10,6 +10,12 @@ if [ "$RAILS_ENV" = "production" ]; then
   bundle exec rails assets:precompile
   bundle exec rails db:migrate
   # bundle exec rails db:seed
+
+  bundle exec rails runner -e production "<<EOF
+    Item.find_each do |item|
+      item.item_image.recreate_versions! if item.item_image?
+    end
+  EOF"
 fi
 
 # コンテナーのプロセスを実行する。（Dockerfile 内の CMD に設定されているもの。）
