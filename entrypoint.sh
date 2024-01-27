@@ -16,6 +16,12 @@ if [ "$RAILS_ENV" = "production" ]; then
       item.item_image.recreate_versions! if item.item_image?
     end
   EOF"
+
+  bundle exec rails runner -e production "<<EOF
+    Diagnosis.find_each do |diagnosis|
+      diagnosis.desk_image.recreate_versions! if diagnosis.desk_image?
+    end
+  EOF"
 fi
 
 # コンテナーのプロセスを実行する。（Dockerfile 内の CMD に設定されているもの。）
