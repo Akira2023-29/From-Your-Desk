@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   mount_uploader :item_image, ItemImageUploader
 
-  validate :item_image_must_not_be_default
+  # validate :item_image_must_not_be_default
   validate :validate_color_selection
   validates :title, presence: true, length: { maximum: 255 }
   validates :color_ids, presence: true

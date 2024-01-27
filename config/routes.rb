@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'favorites', on: :collection
   end
 
-  resources :items, only: %i[index show new create destroy] do
+  resources :items, only: %i[index show new edit update create destroy] do
     get 'bookmarks', on: :collection
   end
 
