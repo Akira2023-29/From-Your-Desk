@@ -1,4 +1,10 @@
 ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+  
   flash_message:
     diagnosed: "診断完了"
     not_diagnosed: "診断出来ませんでした"
@@ -9,6 +15,8 @@ ja:
     delete: "%{item}を削除しました"
     item_save: "商品を登録しました"
     not_item_save: "商品を登録できませんでした"
+    item_update: "商品を更新しました"
+    not_item_update: "商品を更新できませんでした"
   
   header:
     require_login: ★ ログイン必須
@@ -79,7 +87,7 @@ ja:
       recommend: 【こちらをデスク環境に加えてみませんか？】
       index: 診断一覧に戻る
       items_index: デスクアイテム一覧を見る
-      delete: 削除する
+      delete: 削除
       recommend_user_items: ユーザー登録デスクアイテム Pick Up
       recommend_rakuten_items: 楽天市場商品 Pick Up
       not_items: ヒットする商品が見つかりませんでした。
@@ -90,7 +98,7 @@ ja:
       title: 【診断結果】
       desk_work: デスク作業内容
       desk_category: 区分
-      desk_place: 作業環境
+      desk_place: 環境
       delete: 削除
     favorites:
       title: お気に入り診断一覧
@@ -111,7 +119,6 @@ ja:
       item_image: 商品写真
       category: 商品カテゴリー
       url: 商品購入先URL（空欄でもOK）
-      submit: 商品登録
       title_sample: 商品名を入力して下さい
       body_sample: 例 :デスク環境を明るくする白系天板の昇降デスク！
       url_sample: 例 :https://www.example.co.jp/・・・
@@ -121,10 +128,13 @@ ja:
       body: 商品説明
       color: 色分類
       url: 商品購入先URL
-      sns_share: Xにシェアする
-      diagnosis_index: デスク診断一覧に戻る
-      item_index: 登録商品一覧に戻る
-      delete: 削除する
+      sns_share: シェア
+      diagnosis_index: デスク診断一覧
+      item_index: 登録商品一覧
+      edit: 編集
+      delete: 削除
+    edit:
+      title: 商品編集
     item:
       title: 題名
       body: 商品説明

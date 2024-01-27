@@ -44,7 +44,7 @@
           <% @recommend_items.each do |item| %>
             <div class="container max-w-sm p-1 shadow-lg shadow-stone-800/80 bg-stone-200 hover:bg-emerald-200 rounded-md transition duration-300">
               <div class="my-1">
-                <div class="mb-1 px-10 flex justify-center">
+                <div class="mb-1 mx-12 flex justify-center">
                   <%= image_tag item.item_image.url %>
                 </div>
                 <div class="mb-1">
@@ -54,7 +54,9 @@
                   <%= link_to item.body, class: "underline underline-offset-2 text-2xl mb-1" %></h1>
                 </div>
               </div>
-              <hr class="border border-stone-300 my-2">
+
+              <hr class="border border-stone-400 my-2">
+
               <div class="flex justify-center items-center">
                 <div class="px-4">
                   <% if item.user.google_avatar_image.blank? %>

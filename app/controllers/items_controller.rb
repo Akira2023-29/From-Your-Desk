@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.items.build(item_params)
     if @item.save
-      redirect_to items_path(@item), success: t('flash_message.item_save')
+      redirect_to item_path(@item), success: t('flash_message.item_save')
     else
       flash.now[:danger] = t('flash_message.not_item_save')
       render :new, status: :unprocessable_entity
@@ -27,6 +27,21 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find_by(id: params[:id])
+  end
+
+  def edit
+    @item = current_user.items.find(params[:id])
+  end
+
+  def update
+    @item = current_user.items.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item), success: t('flash_message.item_update')
+    else
+      flash.now[:danger] = t('flash_message.not_item_update')
+      render :edit, status: :unprocessable_entity
+    end
+
   end
 
   def destroy

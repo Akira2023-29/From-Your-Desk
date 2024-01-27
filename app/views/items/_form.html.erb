@@ -1,5 +1,5 @@
 <div class="container mx-auto  text-center w-3/4">
-    <%= form_with model: item , url: items_path, method: :post do |f| %>
+    <%= form_with model: @item do |f| %>
         <%= render "shared/error_messages", object: f.object %>
 
         <!-- 商品写真 -->
@@ -53,6 +53,6 @@
             <%= f.text_area :body, class: "mt-1 w-3/4", rows: 4, placeholder: t('items.new.body_sample') %>
         </div>
 
-        <%= f.submit t('items.new.submit'), class: "inline-block bg-slate-100 hover:bg-emerald-200 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
+        <%= f.submit nil, class: "inline-block bg-slate-100 hover:bg-emerald-200 text-black font-bold text-1xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
     <% end %>
 </div>
