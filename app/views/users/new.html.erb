@@ -1,5 +1,6 @@
+<% content_for(:title, t('.title')) %>
 <div class="container mx-auto  text-center">
-  <h1 class="font-bold text-4xl">ユーザー新規登録</h1>
+  <h1 class="font-bold text-4xl"><%= t('.title') %></h1></h1>
   
   <div class="p-4 m-2 max-w-sm mx-auto bg-stone-300 rounded-md border-2 border-black">
     <%= form_with model: @user do |f| %>
