@@ -128,6 +128,7 @@ ja:
       body: 商品説明
       color: 色分類
       url: 商品購入先URL
+      no_url: ※ 未設定です
       sns_share: シェア
       diagnosis_index: デスク診断一覧
       item_index: 登録商品一覧

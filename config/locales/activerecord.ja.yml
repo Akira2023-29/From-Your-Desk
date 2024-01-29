@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       diagnosis: 診断
+      place: デスク環境
       profile: プロフィール
       item: 商品
       item_category: 商品カテゴリー
@@ -23,6 +24,8 @@ ja:
         desk_image: デスク写真
         desk_work: デスクでの主な作業内容
         tag_ids: デスク作業場
+        place_id: 作業区分
+        place: デスク配置
       item:
         title: タイトル
         body: 商品説明

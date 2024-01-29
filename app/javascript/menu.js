@@ -1,4 +1,8 @@
-document.addEventListener('turbo:load', (event) => {
+document.addEventListener('turbo:load', setupMenus);
+document.addEventListener('turbo:render', setupMenus);
+
+// setupMenus関数を作成
+function setupMenus() {
     const menuButton = document.getElementById('menu-button');
     const diagnosisMenuButton = document.getElementById('diagnosis_menu-button');
     const itemMenuButton = document.getElementById('item_menu-button');
@@ -12,7 +16,7 @@ document.addEventListener('turbo:load', (event) => {
     const toggleMenu = (button, menu) => {
         if (button && menu) {
             let isOpen = false;
-            menu.style.display = 'none'; // これを追加
+            menu.style.display = 'none';
 
             const openMenu = () => {
                 isOpen = true;
@@ -44,4 +48,4 @@ document.addEventListener('turbo:load', (event) => {
     toggleMenu(diagnosisMenuButton, diagnosisMenu);
     toggleMenu(itemMenuButton, itemMenu);
     toggleMenu(smallMenuButton, smallMenu);
-});
+}

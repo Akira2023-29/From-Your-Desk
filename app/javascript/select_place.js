@@ -1,20 +1,25 @@
-document.addEventListener('turbo:load', (event) => {
-    document.querySelector('#category_select').addEventListener('change', (event) => {
-        let value = event.target.value;
-        if (value == '1') { // オフィス
-            document.querySelector('#office').style.display = 'block';
-            document.querySelector('#office select').disabled = false;
-            document.querySelector('#home').style.display = 'none';
-            document.querySelector('#home select').disabled = true;
-        } else if (value == '2') { // 在宅
-            document.querySelector('#office').style.display = 'none';
-            document.querySelector('#office select').disabled = true;
-            document.querySelector('#home').style.display = 'block';
-            document.querySelector('#home select').disabled = false;
-        }
-    });
-});
+document.addEventListener('turbo:load', setupCategorySelect);
+document.addEventListener('turbo:render', setupCategorySelect);
 
-// category_selectの選択が変更されたときに、
-// 選択されていないフォームのselect要素を無効にし（disabled = true）
-// 選択されたフォームのselect要素を有効にする（disabled = false）
+// setupCategorySelect関数を作成
+function setupCategorySelect() {
+    const categorySelect = document.querySelector('#category_select');
+    if (categorySelect) {
+    categorySelect.addEventListener('change', (event) => {
+        let value = event.target.value;
+        const office = document.querySelector('#office');
+        const home = document.querySelector('#home');
+      if (value == '1') { // オフィス
+        office.style.display = 'block';
+        office.querySelector('select').disabled = false;
+        home.style.display = 'none';
+        home.querySelector('select').disabled = true;
+      } else if (value == '2') { // 在宅
+        office.style.display = 'none';
+        office.querySelector('select').disabled = true;
+        home.style.display = 'block';
+        home.querySelector('select').disabled = false;
+        }
+        });
+    }
+}
