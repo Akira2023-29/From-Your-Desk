@@ -4,7 +4,7 @@ class Diagnosis < ApplicationRecord
     validate :desk_image_must_not_be_default
     validates :place_id, presence: true
     validates :desk_work, presence: true, length: { maximum: 255 }
-    # validate :user_diagnosis_limit, on: :create
+    validate :user_diagnosis_limit, on: :create
 
     belongs_to :user
     belongs_to :place
