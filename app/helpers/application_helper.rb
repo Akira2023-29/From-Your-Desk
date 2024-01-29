@@ -2,6 +2,11 @@
 
 module ApplicationHelper
 
+    def page_title(title = '')
+        base_title = 'デスク色彩診断'
+        title.present? ? "#{title} | #{base_title}" : base_title
+    end
+
     def default_meta_tags
         {
             site: 'Desk From Cokor',
