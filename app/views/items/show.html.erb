@@ -38,16 +38,16 @@
     </div>
 
     <!-- 購入先URL -->
-    <div class="mb-3 flex flex-col">
-      <h1 class= "font-bold mb-1 text-1xl sm:text-2xl"><%= t('.url') %></h1>
+    <div class="mb-3">
+      <h1 class="font-bold mb-1 text-1xl sm:text-2xl"><%= t('.url') %></h1>
         <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border border-stone-500">
           <% if @item.item_url.present? %>
-            <div class="underline underline-offset-2">
-              <%= link_to "#{@item.item_url}", "#{@item.item_url}" %>
+            <div class="truncate">
+              <%= link_to @item.item_url, @item.item_url %>
             </div>
           <% else %>
             <%= t('.no_url') %>
-          <% end%>
+          <% end %>
         </div>
     </div>
 
