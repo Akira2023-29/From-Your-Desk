@@ -5,6 +5,7 @@ document.addEventListener('turbo:render', setupImagePreview);
 function setupImagePreview() {
   const deskInput = document.querySelector('#desk_image');
   const avatarInput = document.querySelector('#avatar_image');
+  const googleAvatarInput = document.querySelector('#google_avatar_image');
   const itemInput = document.querySelector('#item_image');
 
   if (deskInput) {
@@ -15,6 +16,11 @@ function setupImagePreview() {
   if (avatarInput) {
     avatarInput.removeEventListener('change', previewImage);
     avatarInput.addEventListener('change', previewImage);
+  }
+
+  if (googleAvatarInput) {
+    googleAvatarInput.removeEventListener('change', previewImage);
+    googleAvatarInput.addEventListener('change', previewImage);
   }
 
   if (itemInput) {
