@@ -18,13 +18,13 @@
 
       <div class="mb-3">
         <%= f.label :avatar_image, class: "block"  %>
-        <% if @user.google_avatar_image.blank? %>
-          <%= f.file_field :avatar_image, id: 'avatar_image', class: "mt-1" %>
-          <%= f.hidden_field :avatar_image_cache %>
-        <% else %>
+        <%# if @user.google_avatar_image.blank? %>
+          <%#= f.file_field :avatar_image, id: 'avatar_image', class: "mt-1" %>
+          <%#= f.hidden_field :avatar_image_cache %>
+        <%# else %>
           <%= f.file_field :google_avatar_image, id: 'google_avatar_image', class: "mt-1" %>
           <%= f.hidden_field :google_avatar_image_cache %>
-        <% end %>
+        <%# end %>
       </div>
 
       <!-- アバタープレビュー　-->
