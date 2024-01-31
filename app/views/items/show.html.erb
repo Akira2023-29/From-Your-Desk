@@ -18,17 +18,21 @@
       </div>
     </div>
 
+    <hr class="border border-stone-300 my-4">
+
     <!-- アイテム説明 -->
     <div class="mb-3 flex flex-col">
       <h1 class= "font-bold text-1xl sm:text-2xl"><%= t('.body') %></h1>
-        <div class="font-bold container p-4 m-2 shadow-lg shadow-stone-800/90 bg-white rounded-md border border-stone-500">
+        <div class="font-bold container p-4 m-2">
           <%= @item.body %>
         </div>
     </div>
 
+    <hr class="border border-stone-300 my-4">
+
     <!-- 色 -->
     <div class="mb-3 font-bold">
-      <h1 class= "font-bold mb-1 text-1xl sm:text-2xl"><%= t('.color') %></h1>
+      <h1 class= "mb-3 font-bold mb-1 text-1xl sm:text-2xl"><%= t('.color') %></h1>
       <div class="flex justify-center">
         <% @item.colors.each do |color| %>
           <div class="px-1 py-1 mx-2 mb-2 border border-black rounded-md <%= button_color(color.name) %>" >
@@ -37,6 +41,8 @@
         <% end %>
       </div>
     </div>
+
+    <hr class="border border-stone-300 my-4">
 
     <!-- 購入先URL -->
     <div class="mb-3">

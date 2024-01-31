@@ -113,7 +113,7 @@ ja:
       not_result: 商品検索結果はありません。
     new:
       title: 商品登録
-      item_title: 商品名
+      item_title: 題名(商品名)
       body: 商品についての説明を入力して下さい
       color: 色分類（複数選択可）
       item_image: 商品写真
@@ -124,7 +124,7 @@ ja:
       url_sample: 例 :https://www.example.co.jp/・・・
     show:
       title: 商品詳細
-      item_title: アイテム名：
+      item_title: 題名：
       body: 商品説明
       color: 色分類
       url: 商品購入先URL
