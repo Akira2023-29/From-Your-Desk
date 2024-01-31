@@ -1,4 +1,4 @@
 <!-- お気に入り登録済 ⇨ お気に入り解除 -->
 <%= link_to favorite_path(current_user.favorites.find_by(diagnosis_id: diagnosis.id)), id: "unfavorite-button-for-diagnosis-#{diagnosis.id}", data: { turbo_method: :delete } do %>
-    <span class="material-icons ">thumb_up</span>
+    <span class="material-icons text-sky-600">thumb_up</span>
 <% end %>
