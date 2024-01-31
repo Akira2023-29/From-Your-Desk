@@ -65,6 +65,24 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "app_production"
 
   config.action_mailer.perform_caching = false
+  
+  # 本番環境での定数設定
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
+  # メール送信時のエラーが発生した際に例外を投げる。
+  config.action_mailer.raise_delivery_errors = true
+
+  #メールの送信方法としてSMTPを指定
+  config.action_mailer.delivery_method = :smtp
+  # SMTPを使ってメールを送信する際の設定値
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'from-your-desk.onrender.com/',
+    user_name:            ENV['GMAIL_USERNAME'],
+    password:             ENV['GMAIL_PASSWORD'],
+    authentication:       'plain',
+    enable_starttls_auto: true 
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -95,7 +113,4 @@ Rails.application.configure do
 
   # 「from-your-desk.onrender.com」を許可するホストに追加（デプロイ時にエラーが出るため）
   # config.hosts << "from-your-desk.onrender.com"
-
-  # 本番環境での定数設定
-  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 end
