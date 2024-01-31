@@ -3,7 +3,7 @@ class DiagnosesController < ApplicationController
 
   def index
     @q = Diagnosis.ransack(params[:q])
-    @diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page])
+    @diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def new
@@ -18,7 +18,7 @@ class DiagnosesController < ApplicationController
 
   def favorites
     @q = current_user.favorite_diagnoses.ransack(params[:q])
-    @favorite_diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page])
+    @favorite_diagnoses = @q.result(distinct: true).includes(:user, { place: :category }).order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def diagnosis

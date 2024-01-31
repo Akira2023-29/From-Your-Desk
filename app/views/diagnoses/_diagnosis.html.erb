@@ -1,4 +1,4 @@
-<div class="max-w-sm shadow-lg p-1 shadow-stone-800/80 bg-slate-300 hover:bg-emerald-100 rounded-md transition duration-300">
+<div class="max-w-sm shadow-lg p-1 shadow-stone-800/80 bg-slate-300 hover:bg-emerald-100 rounded-md transition duration-300 border border-black">
     <div class="mb-1">
         <div class="mb-3 flex justify-center rounded-md">
             <%= image_tag diagnosis.desk_image.index.url%>
@@ -47,14 +47,13 @@
             <!-- 削除・お気に入りボタン -->
             <div class="pl-4">
                 <% if current_user&.own?(diagnosis) %>
-                    <div class="inline-block bg-stone-300 hover:bg-red-500 font-bold py-1 px-2 rounded transition duration-150 ease-in-out border-2 border-black">
+                    <div class="inline-block bg-stone-300 hover:bg-red-400 font-bold py-1 px-2 rounded transition duration-150 ease-in-out border-2 border-black">
                         <%= link_to diagnosis_path(diagnosis), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"}  do %>
                             <div><span class="material-icons">restore_from_trash</span></div>
-                            <%= t('diagnoses.diagnosis.delete') %>
                         <% end %>
                     </div>
                 <% elsif current_user %>
-                    <div>
+                    <div class="inline-block bg-stone-100 hover:bg-sky-200 font-bold py-1 px-2 rounded transition duration-150 ease-in-out border-2 border-black">
                         <% if current_user.favorite?(diagnosis) %>
                             <%= render 'unfavorite', diagnosis: diagnosis %>
                         <% else %>

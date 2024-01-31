@@ -39,6 +39,8 @@
 
 # 環境変数の管理。
 /.env
+
+# gem config 設定。
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml

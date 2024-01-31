@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @q = Item.ransack(params[:q])
-    @items = @q.result(destinct: :true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page])
+    @items = @q.result(destinct: :true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 
   def bookmarks
     @q = current_user.bookmark_items.ransack(params[:q])
-    @bookmark_items = @q.result(distinct: true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page])
+    @bookmark_items = @q.result(distinct: true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def create
