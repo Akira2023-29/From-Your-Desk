@@ -1,2 +1,6 @@
 sorcery:
   google_callback_url: "https://from-your-desk.onrender.com/oauth/callback?provider=google"
+
+default_url_options:
+  protcol: 'https'
+  host: 'example.com'

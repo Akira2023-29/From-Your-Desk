@@ -95,4 +95,7 @@ Rails.application.configure do
 
   # 「from-your-desk.onrender.com」を許可するホストに追加（デプロイ時にエラーが出るため）
   # config.hosts << "from-your-desk.onrender.com"
+
+  # 本番環境での定数設定
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 end
