@@ -51,10 +51,22 @@
   <% end %>
 </div>
 
+<!-- モーダルウィンド設定 -->
 <div id="loadingModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden" data-controller="loading">
   <div class="relative top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-    <div class="bg-white p-4 rounded-lg shadow-lg">
-      <h3 class="text-center">処理中です...</h3>
+    <div class="max-w-md mx-auto bg-white p-4 rounded-lg shadow-lg">
+      <h3 class="text-center mb-3">診断してます・・・・</h3>
+      <div class="flex justify-center mb-2 space-x-2">
+        <div class="animate-ping h-3 w-1 bg-blue-600 rounded-full"></div>
+        <div class="animate-ping-delay-200 h-3 w-1 bg-blue-600 rounded-full"></div>
+        <div class="animate-ping-delay-400 h-3 w-1 bg-blue-600 rounded-full"></div>
+        <div class="animate-ping-delay-600 h-3 w-1 bg-blue-600 rounded-full"></div>
+        <div class="animate-ping-delay-800 h-3 w-1 bg-blue-600 rounded-full"></div>
+        <div class="animate-ping-delay-1000 h-3 w-1 bg-blue-600 rounded-full"></div>
+      </div>
+      <div class="px-10">
+        <%= image_tag 'thinking.png' %>
+      </div>
     </div>
   </div>
 </div>

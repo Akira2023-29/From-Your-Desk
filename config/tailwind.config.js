@@ -16,6 +16,14 @@ module.exports = {
       },
       colors: {
         beige: '#f5f5dc'
+      },
+      animation: {
+        ping: 'ping 1s infinite',
+        'ping-delay-200': 'ping 1s infinite 200ms',
+        'ping-delay-400': 'ping 1s infinite 400ms',
+        'ping-delay-600': 'ping 1s infinite 600ms',
+        'ping-delay-800': 'ping 1s infinite 800ms',
+        'ping-delay-1000': 'ping 1s infinite 1000ms',
       }
     },
   },
