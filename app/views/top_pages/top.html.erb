@@ -1,13 +1,12 @@
-<div class="container mx-auto  text-center", data-title="<%= yield(:title) %>" >
+<div class="max-w-screen-lg mx-auto text-center justify-center", data-title="<%= yield(:title) %>" >
   <div class="relative mt-10 p-10">
     <div class="absolute inset-0 bg-no-repeat "></div>
-    <!-- 背景画像だけ半透明に設定 -->
     <div class="relative">
       <div class="flex justify-around flex-col md:flex-row items-center">
         <div class="px-5 font-bold">
           <p class="text-4xl sm:text-6xl mb-10">デスク色彩診断</p>
-          <p class="text-1xl mb-1">あなたは普段のデスクワークでの作業に集中できていますか？</p>
-          <p class="text-1xl mb-1">最後にデスク環境を見直したのは？</p>
+          <p class="text-1xl mb-1">普段のデスクワークでの作業に集中できていますか？</p>
+          <p class="text-1xl mb-1">最後にデスク環境を見直したのはいつですか？</p>
           <p class="text-1xl mb-4">このサービスは色彩の観点からあなたのデスク環境改善をサポートします。</p>
           <p class="mb-4 text-2xl sm:text-1xl">早速診断しましょう。</p>
           <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-2xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
@@ -22,22 +21,19 @@
       </div>
     </div>
   </div>
-
-  <div class="bg-stone-100 p-2">
+  <!-- サービス説明欄 -->
+  <div class="bg-stone-100 p-3 border-2 border-stone-500 rounded-md">
     <p class="font-bold text-2xl py-2">このサービスについて</p>
-    <p class="border-2 border-stone-500 mx-4 mb-2">
-
+    <p class="border-2 border-stone-500 mx-4">
     <div class="flex justify-center items-center">
       <div class="font-bold mb-4">
-        <%= image_tag 'camera.png', class: "mb-4 px-5"%> 
+        <%= image_tag 'camera.png', class: ""%> 
           <p class="mb-3 text-2xl">診断 STEP 1</p>
           <p class="mb-1">あなたのデスク環境の写真を撮影して下さい。</p>
           <p class="mb-1 text-red-500">※ 部外秘情報が映らないよう注意して下さい。</p>
       </div>
     </div>
-
     <hr class="border-2 border-stone-500 mx-4 mb-8">
-
     <div class="flex justify-center items-center">
       <div class="font-bold mb-4">
         <%= image_tag 'diagnosis_top.png', class: "w-128 h-64 mb-4 px-5"%>
@@ -47,9 +43,7 @@
           <p class="mb-1 text-red-500">※ 診断はログイン後、1日2回までです。</p>
       </div>
     </div>
-
     <hr class="border-2 border-stone-500 mx-4 mb-8">
-    
     <div class="flex justify-center items-center">
       <div class="font-bold mb-4">
         <div class="mb-2">
@@ -61,13 +55,11 @@
         <p class="mb-1">自分のデスク環境に合った物が見つかるかもしれません。</p>
       </div>
     </div>
-
     <hr class="border-2 border-stone-500 m-4">
-    
     <div class="flex justify-center items-center">
       <div class="flex flex-col md:flex-row items-center">
         <div class="font-bold m-4">
-          <%= image_tag 'item_index.png', class: "w-128 h-64 mb-4 px-5" %>
+          <%= image_tag 'item_index.png', class: "w-128 h-64 mb-4" %>
           <p class="mb-2 text-2xl">デスク周辺アイテムを登録</p>
           <p class="mb-1">使用中のデスク周辺アイテムを登録できます。</p>
           <p class="mb-1">登録するとデスク診断結果に対するレコメンドアイテムとして表示されます。</p>
@@ -75,7 +67,7 @@
         </div>
       </div>
     </div>
-
+    <hr class="border-2 border-stone-500 mx-4 mb-8">
     <div class="font-bold">
       <p class="m-4 text-2xl">早速診断しましょう。</p>
       <%= link_to '診断する', new_diagnosis_path, class: "inline-block bg-amber-100 hover:bg-amber-500 text-black font-bold text-2xl mb-3 py-2 px-4 rounded-md transition duration-150 ease-in-out border border-black" %>
