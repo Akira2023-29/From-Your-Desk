@@ -1,5 +1,5 @@
 <% content_for(:title, t('.title')) %>
-<div class="container mx-auto text-center">
+<div class="max-w-screen-lg mx-auto text-center justify-center">
   <div class="mb-2">
     <div class="mb-1 font-bold text-2xl sm:text-3xl md:text-4xl">
       <h1><%= t('.title') %></h1>
@@ -13,17 +13,19 @@
 
   <hr class="border border-stone-300 my-4">
 
-  <!-- 診断一覧 -->
+  <!-- 登録アイテム一覧 -->
   <div class="mb-2">
-    <div class="mb-3 flex flex-wrap flex-col sm:flex-row justify-center">
+    <div class="mb-5 flex flex-wrap flex-col sm:flex-row justify-center">
       <% if @items.present? %>
-        <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <%= render @items %>
         </div>
       <% else %>
         <div><%= t('.not_result') %></div>
       <% end %>
     </div>
+    <div>
     <%= paginate @items, theme: 'diagnoses' %>
+    </div>
   </div>
 </div>

@@ -124,10 +124,12 @@ ja:
       url_sample: 例 :https://www.example.co.jp/・・・
     show:
       title: 商品詳細
-      item_title: 題名：
-      body: 商品説明
-      color: 色分類
-      url: 商品購入先URL
+      item_title: 【題名(商品名)】
+      body: 【商品説明】
+      color: 【以下の配色を増やしたい場合にオススメ】
+      url: 商品購入先
+      item_url: 〜 購入先はこちら 〜
+      no_url: ※ こちらは購入先が未設定です
       sns_share: シェア
       diagnosis_index: デスク診断一覧
       item_index: 登録商品一覧
