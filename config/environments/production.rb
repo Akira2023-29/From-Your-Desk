@@ -104,5 +104,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # 独自ドメインをホスト許可
+  config.hosts << 'from-your-desk.onrender.com'
   config.hosts << 'www.desk-shikisai-shindan.com'
 end

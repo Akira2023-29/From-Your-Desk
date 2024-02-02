@@ -8,6 +8,7 @@ ja:
   flash_message:
     diagnosed: "診断完了"
     not_diagnosed: "診断出来ませんでした"
+    not_label: "写真から十分なデスク領域を検出できませんでした"
     created: "%{item}を作成しました"
     not_created: "%{item}を作成出来ませんでした"
     update: "%{item}を更新しました"

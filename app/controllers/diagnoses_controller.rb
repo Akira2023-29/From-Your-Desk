@@ -23,16 +23,15 @@ class DiagnosesController < ApplicationController
 
   def diagnosis
     @diagnosis = current_user.diagnoses.build(diagnosis_params)
-  
     #.tempfileメソッド：アップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
     # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。(後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     if params[:diagnosis][:desk_image].present?
       uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
     end
-  
+
     if uploaded_image_path.present?
-      analysis_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
-      @diagnosis.color_info = analysis_result
+      analyze_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path)
+      @diagnosis.color_info = analyze_result if analyze_result
     end
 
     if @diagnosis.color_info.present? && @diagnosis.place_id.present?
@@ -41,12 +40,9 @@ class DiagnosesController < ApplicationController
     end
 
     if @diagnosis.result_en.present?
-      # 診断結果翻訳
-      translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA')
-      # 診断結果から色名を抽出（「色名（カタカナ）」の場合は（）部分を除去）
-      @diagnosis.color_name = translated_response.slice(/【(.*?)】/, 1).gsub(/（.*?）/, '')
-      # 診断結果全文
-      @diagnosis.result_jp = translated_response
+      translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA') # 診断結果翻訳
+      @diagnosis.color_name = translated_response.slice(/【(.*?)】/, 1).gsub(/（.*?）/, '') # 診断結果から色名を抽出（「色名（カタカナ）」の場合は（）部分を除去）
+      @diagnosis.result_jp = translated_response # 診断結果全文
     end
 
     if @diagnosis.save
