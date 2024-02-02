@@ -106,4 +106,5 @@ Rails.application.configure do
   # 独自ドメインをホスト許可
   config.hosts << 'from-your-desk.onrender.com'
   config.hosts << 'www.desk-shikisai-shindan.com'
+  config.hosts << 'desk-shikisai-shindan.com'
 end
