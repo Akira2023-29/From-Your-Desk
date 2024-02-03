@@ -89,4 +89,4 @@
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
 
 ### ER図 
-[![Image from Gyazo](https://i.gyazo.com/75f36072a4a3f07b1d455d3f6b7c0259.png)](https://gyazo.com/75f36072a4a3f07b1d455d3f6b7c0259)
+[![Image from Gyazo](https://i.gyazo.com/859d89956c3c007237284a3b0ff34c52.png)](https://gyazo.com/859d89956c3c007237284a3b0ff34c52)
