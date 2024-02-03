@@ -103,8 +103,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # 独自ドメインをホスト許可
-  config.hosts << 'from-your-desk.onrender.com'
+  # 独自ドメイン設定
   config.hosts << 'www.desk-shikisai-shindan.com'
-  config.hosts << 'desk-shikisai-shindan.com'
 end
