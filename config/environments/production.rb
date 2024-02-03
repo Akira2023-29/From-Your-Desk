@@ -104,5 +104,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # 独自ドメイン設定
-  config.hosts << 'www.desk-shikisai-shindan.com'
+  config.hosts << 'desk-shikisai-shindan.com'
 end
