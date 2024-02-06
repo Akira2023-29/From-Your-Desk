@@ -18,12 +18,12 @@
         <!-- 作業区分・作業環境 -->
         <% if diagnosis.place_id.present? %>
             <div class="mb-1 flex justify-center">
-                <div class="mb-1">
-                    <%= link_to Category.find_by(id: diagnosis.place.category_id).name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                <div class="mb-1 font-bold rounded px-2 bg-teal-500 border border-black">
+                    <%= Category.find_by(id: diagnosis.place.category_id).name %>
                 </div>
                 <div class="mx-2"><%= "|" %></div>
-                <div class="mb-1">
-                    <%= link_to diagnosis.place.name, "#", class: "font-bold rounded px-2 bg-teal-500 hover:bg-teal-300 transition duration-150 ease-in-out border border-black" %>
+                <div class="mb-1 font-bold rounded px-2 bg-teal-500 border border-black">
+                    <%= diagnosis.place.name %>
                 </div>
             </div>
         <% end %>
