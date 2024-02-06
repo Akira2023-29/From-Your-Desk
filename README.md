@@ -57,7 +57,7 @@
 ### 外部API
 - Google Cloud Vision API
 - DeepLe API
-- OpenAI(ChatGPT API)
+- OpenAI(ChatGPT)
 - 楽天API
 
 ### インフラ
