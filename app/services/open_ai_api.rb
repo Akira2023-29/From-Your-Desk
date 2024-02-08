@@ -1,5 +1,5 @@
 class OpenAiApi
-    def self.chat(color_info, desk_work, desk_place)
+    def self.chat(color_info, desk_work)
         @client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
         @client.chat(
             parameters: {
