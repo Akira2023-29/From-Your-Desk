@@ -56,7 +56,7 @@
 
 ### 外部API
 - Google Cloud Vision API
-- DeepLe API
+- DeepL API
 - OpenAI(ChatGPT)
 - 楽天API
 
