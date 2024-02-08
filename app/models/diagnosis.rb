@@ -41,7 +41,7 @@ class Diagnosis < ApplicationRecord
     # 診断機能を1日2回までに制限
     def user_diagnosis_limit
         today_diagnoses = user.diagnoses.where('created_at >= ?', Time.zone.now.beginning_of_day)
-        if today_diagnoses.count >= 1
+        if today_diagnoses.count >= 2
             errors.add(:base, '1日の診断回数の上限に達しました。')
         end
     end
