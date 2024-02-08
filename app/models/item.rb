@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   mount_uploader :item_image, ItemImageUploader
 
-  # validate :item_image_must_not_be_default
+  validate :item_image_must_not_be_default
   validate :validate_color_selection
   validates :title, presence: true, length: { maximum: 255 }
   validates :color_ids, presence: true
@@ -13,12 +13,14 @@ class Item < ApplicationRecord
   has_many :colors, through: :item_colors
   has_many :bookmarks, dependent: :destroy
 
+  # 登録するアイテム画像を添付したか？
   def item_image_must_not_be_default
     if item_image.default_image?
         errors.add(:item_image, "を選択してください。")
     end
   end
 
+  # アイテム登録時に選択できる色分類数を制限
   def validate_color_selection
     if color_ids.count > 3
       errors.add(:color_ids, "は3つまでしか選択できません。")
