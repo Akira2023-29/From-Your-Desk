@@ -62,7 +62,7 @@ https://www.desk-shikisai-shindan.com
 
 | 診断結果一覧 | 登録アイテム一覧 |
 |:-:|:-:|
-|[![Image from Gyazo](https://i.gyazo.com/6e3be626ebe89096f0e028533e2ddd17.gif)](https://gyazo.com/6e3be626ebe89096f0e028533e2ddd17)|[![Image from Gyazo](https://i.gyazo.com/86423163859b3533174f262d7fe27f7e.png)](https://gyazo.com/86423163859b3533174f262d7fe27f7e)|
+|[![Image from Gyazo](https://i.gyazo.com/458a63cf4dd991c42d544b5ab5774dcd.png)](https://gyazo.com/458a63cf4dd991c42d544b5ab5774dcd)|[![Image from Gyazo](https://i.gyazo.com/86423163859b3533174f262d7fe27f7e.png)](https://gyazo.com/86423163859b3533174f262d7fe27f7e)|
 |他の人のデスク環境診断結果を確認できます。取り入れたい診断結果があればお気に入りリストに追加しましょう。|他の人が登録したデスクアイテムを確認できます。気になるアイテムがあればブックマークしておきましょう。|
 
 ## 使用技術
