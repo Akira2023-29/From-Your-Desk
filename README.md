@@ -45,6 +45,15 @@
 　デスク環境の作業効率を改善するための情報を載せたサイトはいくつかありますが、実際にのデスク環境の写真から診断して改善案を出すようなサービスはありませんでした。
 今回は画像解析APIを使用しデスク環境写真の **「色バランス」** を調べて、その色のバランスと色が人間の作業に与える影響を見比べ、現在のデスク環境の評価+改善するためのアドバイスを診断・提供します。
 
+## 機能一覧
+### 🔍デスク環境の色彩診断機能
+- 当アプリのメイン機能です。普段デスクワークをしているデスク環境の写真を投稿することで、普段の作業効率をより上げるための環境になるよう色彩の観点から診断します。
+|診断画面| 診断結果 |
+|:-:|:-:|
+|[![Image from Gyazo](https://i.gyazo.com/a88ba459bca15011db3d0e96af3f37bf.gif)](https://gyazo.com/a88ba459bca15011db3d0e96af3f37bf)|[![Image from Gyazo](https://i.gyazo.com/e599a5ff1fc359a0735d5133e994c655.png)](https://gyazo.com/e599a5ff1fc359a0735d5133e994c655)|
+|デスク写真を添付→作業場選択→主なデスクでの作業内容を入力→後は診断開始を押すだけです。|色彩の観点からあなたのデスク環境を評価し、より良い作業環境になるためのアドバイスを提案します。|
+
+
 ## 使用技術
 | カテゴリ | 技術 |
 | --- | ------------- |
@@ -52,9 +61,9 @@
 | バックエンド | Ruby 3.2.2, Rails 7.0.8 |
 | 使用API | Google Cloud Vision API, DeepL API, ChatGPT API, 楽天API |
 | データベース | PostgreSQL |
+| ストレージ | AWS(S3) |
 | 環境構築 | Docker |
 | インフラ | Render |
-| ストレージ | AWS(S3) |
 
 ### 画面遷移図
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
