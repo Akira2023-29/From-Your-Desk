@@ -62,6 +62,22 @@
 |[![Image from Gyazo](https://i.gyazo.com/2496e8c45e6b54fdf7a7259944e2d89d.png)](https://gyazo.com/2496e8c45e6b54fdf7a7259944e2d89d)|[![Image from Gyazo](https://i.gyazo.com/3baadcd0b97ee47fb3b6fb8a7c4bb84e.gif)](https://gyazo.com/3baadcd0b97ee47fb3b6fb8a7c4bb84e)|
 |ユーザーが登録したデスクアイテムからオススメを提案します。|楽天市場商品からおすすめのアイテムを提案します。|
 
+### 💻ユーザーが使っているデスクアイテム登録機能
+- ユーザー自身が使っているおすすめのデスクアイテムを登録できます。登録時に色分類を指定することで、誰かのデスク環境診断結果におすすめのアイテムとして紹介されます。
+
+| アイテム登録画面 | 登録完了 |
+|:-:|:-:|
+|[![Image from Gyazo](https://i.gyazo.com/ea67613038ec7362090ef057b3ba86d7.gif)](https://gyazo.com/ea67613038ec7362090ef057b3ba86d7)|[![Image from Gyazo](https://i.gyazo.com/f3c2e740ae3348a6bf9f922a9061dda6.png)](https://gyazo.com/f3c2e740ae3348a6bf9f922a9061dda6)|
+|自身の使っているデスクアイテムを登録できます。|登録したデスクアイテムは誰かのデスク環境を改善するおすすめアイテムとして提案されます。|
+
+### 🔍ユーザーが使っているデスクアイテム登録機能
+- 一覧
+
+| 診断一覧画面 | お気に入り診断画面一覧 |
+|:-:|:-:|
+|[![Image from Gyazo](https://i.gyazo.com/ea67613038ec7362090ef057b3ba86d7.gif)](https://gyazo.com/ea67613038ec7362090ef057b3ba86d7)|[![Image from Gyazo](https://i.gyazo.com/f3c2e740ae3348a6bf9f922a9061dda6.png)](https://gyazo.com/f3c2e740ae3348a6bf9f922a9061dda6)|
+|自身の使っているデスクアイテムを登録できます。|登録したデスクアイテムは誰かのデスク環境を改善するおすすめアイテムとして提案されます。|
+
 ## 使用技術
 | カテゴリ | 技術 |
 | --- | ------------- |
