@@ -45,26 +45,16 @@
 　デスク環境の作業効率を改善するための情報を載せたサイトはいくつかありますが、実際にのデスク環境の写真から診断して改善案を出すようなサービスはありませんでした。
 今回は画像解析APIを使用しデスク環境写真の **「色バランス」** を調べて、その色のバランスと色が人間の作業に与える影響を見比べ、現在のデスク環境の評価+改善するためのアドバイスを診断・提供します。
 
-## 技術選定
-### バックエンド
-- Ruby 3.2.2
-- Rails 7.0.8
-
-### フロントエンド
-- TailwindCSS
-- JavaScript
-
-### 外部API
-- Google Cloud Vision API
-- DeepL API
-- OpenAI(ChatGPT)
-- 楽天API
-
-### インフラ
-- Docker
-- PostgreSQL
-- Render
-- AWS(S3)
+## 使用技術
+| カテゴリ | 技術 |
+| --- | ------------- |
+| フロントエンド | TailwindCSS, JavaScript |
+| バックエンド | Ruby 3.2.2, Rails 7.0.8 |
+| 使用API | Google Cloud Vision API, DeepL API, ChatGPT API, 楽天API |
+| データベース | PostgreSQL |
+| 環境構築 | Docker |
+| インフラ | Render |
+| ストレージ | AWS(S3) |
 
 ### 画面遷移図
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
