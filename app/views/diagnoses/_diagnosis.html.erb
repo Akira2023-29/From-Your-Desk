@@ -32,7 +32,7 @@
 
         <!-- アバター・ユーザー名・診断日時 -->
         <div class="flex justify-center items-center">
-            <div class="px-4">
+            <div class="px-2">
                 <% if diagnosis.user.google_avatar_image.blank? %>
                     <%= image_tag diagnosis.user.avatar_image_url, class: "h-10 w-10 object-cove rounded-full" %>
                 <% else %>
