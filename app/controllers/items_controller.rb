@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @q = Item.ransack(params[:q])
-    @items = @q.result(destinct: :true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page]).per(12)
+    @items = @q.result(destinct: true).includes(:user, :item_category, :colors).order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def new
@@ -41,7 +41,6 @@ class ItemsController < ApplicationController
       flash.now[:danger] = t('flash_message.not_item_update')
       render :edit, status: :unprocessable_entity
     end
-
   end
 
   def destroy
@@ -56,5 +55,3 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:item_image, :item_image_cache, :title, :body, :item_url, :item_category_id, color_ids: [])
   end
 end
-
-

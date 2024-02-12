@@ -12,19 +12,19 @@ class DeskImageUploader < CarrierWave::Uploader::Base
     storage :fog
   end
 
-  #アップロードファイルを保存するディレクトリを指定
+  # アップロードファイルを保存するディレクトリを指定
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  #画像が存在しない時にデフォルトで表示する画像のURLを設定する
+  # 画像が存在しない時にデフォルトで表示する画像のURLを設定する
   def default_url
     '/sample.jpg'
   end
 
   # デフォルト画像のままか判定
   def default_image?
-    self.url === self.default_url
+    url == default_url
   end
 
   # Process files as they are uploaded:
@@ -45,9 +45,9 @@ class DeskImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [500, 300]
   end
 
-  #アップロード可能なファイルの拡張子を指定
+  # アップロード可能なファイルの拡張子を指定
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

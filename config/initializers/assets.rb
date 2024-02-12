@@ -13,6 +13,6 @@ Rails.application.config.assets.version = '1.0'
 # folder are already added.
 
 # プリコンパイル対象を設定
-Rails.application.config.assets.precompile += %w( 
-    custom/tailwind.css
-)
+Rails.application.config.assets.precompile += %w[
+  custom/tailwind.css
+]

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   root 'top_pages#top'
 
   get '/privacy_policy', to: 'static_pages#privacy_policy'
@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   resources :items, only: %i[index show new edit update create destroy] do
     get 'bookmarks', on: :collection
   end
-
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
