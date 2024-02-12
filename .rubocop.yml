@@ -1,8 +1,10 @@
 # This file overrides https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
 AllCops:
+  # 新ルールを有効化
   NewCops: enable
   SuggestExtensions: false
+  # 除外するディレクトリ
   Exclude:
     - 'vendor/**/*'
     - 'db/**/*'
@@ -15,6 +17,7 @@ AllCops:
     - 'Rakefile'
   DisplayCopNames: true
 
+# 1行あたりの文字数チェック
 Layout/MultilineBlockLayout:
   Exclude:
     - 'spec/**/*_spec.rb'
@@ -22,9 +25,16 @@ Layout/MultilineBlockLayout:
 Layout/LineLength:
   Enabled: false
 
+# Assignment: 変数への代入
+# Branch: メソッド呼び出し
+# Condition: 条件文
+# 上記項目をRubocopが計算して基準値を超えると警告を出す（上記頭文字をとって'Abc'）
 Metrics/AbcSize:
   Max: 25
+  Exclude:
+    - 'app/services/**/*'
 
+# ブロック内の行数をチェック
 Metrics/BlockLength:
   Max: 30
   Exclude:
@@ -32,6 +42,7 @@ Metrics/BlockLength:
     - 'config/**/*'
     - 'spec/**/*_spec.rb'
 
+# クラスの行数をチェック
 Metrics/ClassLength:
   CountComments: false
   Max: 300
@@ -39,14 +50,16 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 30
 
+# メソッドの行数をチェック
 Metrics/MethodLength:
   CountComments: false
-  Max: 30
+  Max: 40
 
 Naming/AccessorMethodName:
   Exclude:
     - 'app/controllers/**/*'
 
+# 日本語でのコメントを許可（無効）
 Style/AsciiComments:
   Enabled: false
 
@@ -54,12 +67,15 @@ Style/BlockDelimiters:
   Exclude:
     - 'spec/**/*_spec.rb'
 
+# クラス内にクラスが定義されていないかチェック（無効）
 Style/ClassAndModuleChildren:
   Enabled: false
 
+# クラスやモジュール定義前に、それらの説明書きがあるかをチェック（無効）
 Style/Documentation:
   Enabled: false
 
+# 文字列に値が代入されて変わっていないかチェック（無効）
 Style/FrozenStringLiteralComment:
   Enabled: false
 

@@ -47,9 +47,9 @@ class GoogleCloudVisionApi
         # 文字数削減のため、必要な数値部分のみ抽出。
         sorted_by_pixel_fraction.map do |color_info|
           color = color_info['color'].values.join(', ').split(', ').map(&:to_i).join(', ') # RGB値の値を抽出。
-          score = (color_info['score'] * 100).round(3)                                       # 各色の支配率スコアを抽出。
-          pixelFraction = (color_info['pixelFraction'] * 100).round(3)                       # 各色の画像内のどれくらいの割合のピクセルを占めているかを抽出。
-          "#{color}: #{score} :#{pixelFraction}"
+          score = (color_info['score'] * 100).round(3) # 各色の支配率スコアを抽出。
+          pixel_fraction = (color_info['pixelFraction'] * 100).round(3) # 各色の画像内のどれくらいの割合のピクセルを占めているかを抽出。
+          "#{color}: #{score} :#{pixel_fraction}"
         end
       end
     else

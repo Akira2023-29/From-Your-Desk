@@ -24,7 +24,7 @@ class DeskImageUploader < CarrierWave::Uploader::Base
 
   # デフォルト画像のままか判定
   def default_image?
-    url === default_url
+    url == default_url
   end
 
   # Process files as they are uploaded:

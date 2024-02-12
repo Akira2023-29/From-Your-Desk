@@ -13,7 +13,7 @@ class DiagnosesController < ApplicationController
   def show
     @diagnosis = Diagnosis.find_by(id: params[:id])
     # 診断結果に応じたオススメ登録商品をDBからランダムに３つ表示
-    @recommend_items = Item.joins(:colors).where('colors.name LIKE ?',"%#{@diagnosis.color_name.gsub(/（.*?）/,'')}%").order(Arel.sql('RANDOM()')).limit(3)
+    @recommend_items = Item.joins(:colors).where('colors.name LIKE ?', "%#{@diagnosis.color_name.gsub(/（.*?）/, '')}%").order(Arel.sql('RANDOM()')).limit(3)
   end
 
   def favorites

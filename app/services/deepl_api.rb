@@ -10,10 +10,6 @@ class DeeplApi
     request.set_form_data(text:, target_lang:)
     response = http.request(request)
 
-    if response.is_a?(Net::HTTPSuccess)
-      JSON.parse(response.body)['translations'].first['text']
-    else
-      nil # もしくはエラーハンドリング
-    end
+    JSON.parse(response.body)['translations'].first['text'] if response.is_a?(Net::HTTPSuccess)
   end
 end
