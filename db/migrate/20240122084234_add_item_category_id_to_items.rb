@@ -3,4 +3,3 @@ class AddItemCategoryIdToItems < ActiveRecord::Migration[7.0]
     add_reference :items, :item_category, foreign_key: true
   end
 end
-

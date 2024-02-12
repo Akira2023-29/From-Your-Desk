@@ -13,7 +13,7 @@ class DiagnosesController < ApplicationController
   def show
     @diagnosis = Diagnosis.find_by(id: params[:id])
     # 診断結果に応じたオススメ登録商品をDBからランダムに３つ表示
-    @recommend_items = Item.joins(:colors).where("colors.name LIKE ?", "%#{@diagnosis.color_name.gsub(/（.*?）/, '')}%").order(Arel.sql("RANDOM()")).limit(3)
+    @recommend_items = Item.joins(:colors).where('colors.name LIKE ?',"%#{@diagnosis.color_name.gsub(/（.*?）/,'')}%").order(Arel.sql('RANDOM()')).limit(3)
   end
 
   def favorites
@@ -50,7 +50,7 @@ class DiagnosesController < ApplicationController
 
   # 画像診断・色情報抽出
   def process_image
-    uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path      #.tempfileメソッド：アップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
+    uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path      # .tempfileメソッド：アップロードされたファイルが一時的に保存されているTempfileオブジェクトにアクセスするためのメソッド。
     analyze_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path) # .pathメソッドでそのTempfileオブジェクトのファイルシステム上のパスを取得。(後続の処理で画像ファイルを読み込んだり、外部のAPIに送信したりするために使用されるパス)
     @diagnosis.color_info = analyze_result if analyze_result
   end
@@ -58,12 +58,12 @@ class DiagnosesController < ApplicationController
   # 診断文章生成
   def analyze_color_info
     response = OpenAiApi.chat(@diagnosis.color_info, @diagnosis.desk_work)
-    @diagnosis.result_en = response.dig("choices", 0, "message", "content")
+    @diagnosis.result_en = response.dig('choices', 0, 'message', 'content')
   end
 
   # 診断結果翻訳
   def translate_result
-    translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA')                 # 診断結果翻訳
+    translated_response = DeeplApi.translate(@diagnosis.result_en, 'JA') # 診断結果翻訳
     @diagnosis.color_name = translated_response.slice(/【(.*?)】/, 1).gsub(/（.*?）/, '') # 診断結果から色名を抽出（「色名（カタカナ）」の場合は（）部分を除去）
     @diagnosis.result_jp = translated_response
   end

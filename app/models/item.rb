@@ -15,25 +15,25 @@ class Item < ApplicationRecord
 
   # 登録するアイテム画像を添付したか？
   def item_image_must_not_be_default
-    if item_image.default_image?
-        errors.add(:item_image, "を選択してください。")
-    end
+    return unless item_image.default_image?
+
+    errors.add(:item_image, 'を選択してください。')
   end
 
   # アイテム登録時に選択できる色分類数を制限
   def validate_color_selection
-    if color_ids.count > 3
-      errors.add(:color_ids, "は3つまでしか選択できません。")
-    end
+    return unless color_ids.count > 3
+
+    errors.add(:color_ids, 'は3つまでしか選択できません。')
   end
 
   # 検索条件で使えるカラムを指定
-  def self.ransackable_attributes(auth_object = nil)
-      %w[id title body]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id title body]
   end
 
   # 検索で使える関連付けを指定。placeモデルの検索を許可。
-  def self.ransackable_associations(auth_object = nil)
-      %w[colors item_category] 
+  def self.ransackable_associations(_auth_object = nil)
+    %w[colors item_category]
   end
 end

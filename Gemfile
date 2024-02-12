@@ -59,12 +59,12 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'letter_opener_web'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
-  gem 'pry-rails'
-  gem 'letter_opener_web'
 end
 
 group :development do
@@ -89,17 +89,17 @@ group :test do
 end
 
 # gem 'jsbundling-rails'
-gem 'sorcery'
-gem 'rails-i18n', '~> 7.0.0'
 gem 'carrierwave', '~> 3.0'
-gem 'mini_magick'
-gem 'dotenv-rails'
-gem 'google-cloud-vision'
-gem "ruby-openai"
-gem 'rakuten_web_service'
-gem "chartkick"
+gem 'chartkick'
 gem 'config'
-gem 'kaminari'
-gem "meta-tags"
+gem 'dotenv-rails'
 gem 'fog-aws'
+gem 'google-cloud-vision'
+gem 'kaminari'
+gem 'meta-tags'
+gem 'mini_magick'
+gem 'rails-i18n', '~> 7.0.0'
+gem 'rakuten_web_service'
 gem 'ransack'
+gem 'ruby-openai'
+gem 'sorcery'

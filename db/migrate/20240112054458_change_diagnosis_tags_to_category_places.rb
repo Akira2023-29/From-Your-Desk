@@ -10,7 +10,7 @@ class ChangeDiagnosisTagsToCategoryPlaces < ActiveRecord::Migration[7.0]
     # remove_index :category_places, name: "index_diagnosis_tags_on_diagnosis_id"
     # remove_index :category_places, name: "index_diagnosis_tags_on_tag_id"
 
-    add_index :category_places, [:category_id, :place_id], unique: true
+    add_index :category_places, %i[category_id place_id], unique: true
     add_index :category_places, :category_id
     add_index :category_places, :place_id
   end

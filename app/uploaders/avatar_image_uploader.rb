@@ -18,7 +18,7 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  #画像が存在しない時にデフォルトで表示する画像のURLを設定する
+  # 画像が存在しない時にデフォルトで表示する画像のURLを設定する
   def default_url
     '/avatar/ruby.icon.jpeg'
   end
@@ -32,12 +32,12 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-    process resize_to_fit: [150, 150]
+  process resize_to_fit: [150, 150]
   # end
 
-  #アップロード可能なファイルの拡張子を指定
+  # アップロード可能なファイルの拡張子を指定
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # googleアカウントのリモートURLからプロフィール画像をダウンロード・保存
