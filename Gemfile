@@ -62,6 +62,7 @@ group :development, :test do
   gem 'letter_opener_web'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem "factory_bot_rails"
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
