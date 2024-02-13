@@ -23,6 +23,7 @@ module App
       g.skip_routes true
       g.helper false
       g.test_framework nil
+      g.factory_bot dir: 'spec/factories'
     end
 
     config.i18n.default_locale = :ja
