@@ -18,9 +18,6 @@ RSpec.describe Diagnosis, type: :model do
         it 'デスク環境場所が未選択の場合、無効であること' do
         end
 
-        it 'デスク環境場所を選択した場合、有効であること' do
-        end
-
         it 'デスク写真が未設定の場合、無効であること' do
         end
 
