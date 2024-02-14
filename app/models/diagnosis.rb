@@ -15,14 +15,12 @@ class Diagnosis < ApplicationRecord
   # 診断する写真を添付したか？
   def desk_image_must_not_be_default
     return unless desk_image.default_image?
-
     errors.add(:desk_image, 'を選択してください。')
   end
 
   # Google Cloud Vision APIの解析結果検証
   def validate_image_analysis
     return unless color_info.blank?
-
     errors.add(:base, :image_analysis_failed, message: '写真から十分なデスク領域が見つかりませんでした。')
   end
 
@@ -42,7 +40,6 @@ class Diagnosis < ApplicationRecord
   def user_diagnosis_limit
     today_diagnoses = user.diagnoses.where('created_at >= ?', Time.zone.now.beginning_of_day)
     return unless today_diagnoses.count >= 2
-
     errors.add(:base, '1日の診断回数の上限に達しました。')
   end
 end
