@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 
   validate :item_image_must_not_be_default
   validate :validate_color_selection
-  validates :title, presence: true, length: { maximum: 255 }
+  validates :title, presence: true, length: { maximum: 50 }
   validates :color_ids, presence: true
   validates :body, presence: true, length: { maximum: 255 }
 
@@ -16,14 +16,12 @@ class Item < ApplicationRecord
   # 登録するアイテム画像を添付したか？
   def item_image_must_not_be_default
     return unless item_image.default_image?
-
     errors.add(:item_image, 'を選択してください。')
   end
 
   # アイテム登録時に選択できる色分類数を制限
   def validate_color_selection
     return unless color_ids.count > 3
-
     errors.add(:color_ids, 'は3つまでしか選択できません。')
   end
 

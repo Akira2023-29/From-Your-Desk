@@ -1,2 +1,5 @@
+sorcery:
+  google_callback_url: "http://localhost:3003/oauth/callback?provider=google"
+
 default_url_options:
   host: 'localhost:3003'

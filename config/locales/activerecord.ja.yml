@@ -31,6 +31,6 @@ ja:
         body: 商品説明
         item_image: 商品写真
         item_url: 商品購入先
-        item_category: 商品カテゴリー
+        item_category_id: 商品カテゴリー
         color_ids: 色分類
         

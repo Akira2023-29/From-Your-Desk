@@ -80,4 +80,4 @@ https://www.desk-shikisai-shindan.com
 https://www.figma.com/file/RtXfFzgb5Kv5jDAYeDkDv3/Diagnosis-at-Desk?type=design&node-id=0%3A1&mode=design&t=w3z7OguGZTSmxozd-1
 
 ### ER図 
-[![Image from Gyazo](https://i.gyazo.com/859d89956c3c007237284a3b0ff34c52.png)](https://gyazo.com/859d89956c3c007237284a3b0ff34c52)
+[![Image from Gyazo](https://i.gyazo.com/dfcf3bc01b363ce72259e5ed0d273714.png)](https://gyazo.com/dfcf3bc01b363ce72259e5ed0d273714)
