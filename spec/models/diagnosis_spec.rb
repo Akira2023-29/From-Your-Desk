@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Diagnosis, type: :model do
     context '正常系' do
-        it 'デスク画像、デスク環境選択、デスクワークが正常に選択・入力された場合、有効であること' do
+        it 'すべてのフィールドが正常の場合、有効であること' do
             diagnosis = build(:diagnosis)
             expect(diagnosis).to be_valid
         end

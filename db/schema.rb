@@ -45,12 +45,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_120751) do
   end
 
   create_table "diagnoses", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.text "result_en"
     t.text "result_jp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "color_name"
     t.string "desk_work"
+    t.string "desk_image"
     t.integer "place_id"
   end
 
