@@ -116,7 +116,7 @@ ja:
       title: 商品登録
       item_title: 題名(商品名)
       body: 商品についての説明を入力して下さい
-      color: 色分類（複数選択可）
+      color: 色分類（最大3色まで）
       item_image: 商品写真
       category: 商品カテゴリー
       url: 商品購入先URL（空欄でもOK）

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
     context '正常系' do
         it 'アイテム画像、題名、カテゴリー、色分類、本文が選択・入力された場合、有効であること' do
-        #     item = build(:item)
-        #     expect(item).to be_valid
+            item = build(:item)
+            expect(item).to be_valid
         end
     end
 
