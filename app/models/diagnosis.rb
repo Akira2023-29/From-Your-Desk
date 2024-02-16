@@ -20,7 +20,7 @@ class Diagnosis < ApplicationRecord
 
   # Google Cloud Vision APIの解析結果検証
   def validate_image_analysis
-    return unless color_info.blank?
+    return unless result_en.blank?
     errors.add(:base, :image_analysis_failed, message: '写真から十分なデスク領域が見つかりませんでした。')
   end
 

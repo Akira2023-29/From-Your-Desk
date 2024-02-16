@@ -39,7 +39,6 @@ class GoogleCloudVisionApi
       end
       return false unless desk_or_table_with_high_score
 
-      # もしラベルが確認できた場合、色情報の抽出。
       if desk_or_table_with_high_score
         color_full_data = JSON.parse(response.body)['responses'][0]['imagePropertiesAnnotation']['dominantColors']['colors']
         # 色の画面支配率（pixelFraction）で降順にソート
