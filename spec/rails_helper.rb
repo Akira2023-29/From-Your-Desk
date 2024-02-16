@@ -33,6 +33,7 @@ end
 RSpec.configure do |config|
   # FactoryBot記述省略
   config.include FactoryBot::Syntax::Methods
+  config.include LoginMacros
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures')
 
