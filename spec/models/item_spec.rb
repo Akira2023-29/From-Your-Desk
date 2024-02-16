@@ -34,12 +34,6 @@ RSpec.describe Item, type: :model do
             expect(item.errors[:body]).to include('は255文字以内で入力してください')
         end
 
-        # it 'カテゴリーが未選択の場合、無効であること' do
-        #     item = build(:item, item_category_id: nil)
-        #     expect(item).to be_invalid
-        #     expect(item.errors[:item_category_id]).to include('を入力してください')
-        # end
-
         it '色分類が未選択の場合、無効であること' do
             item.colors = []
             expect(item).to be_invalid
