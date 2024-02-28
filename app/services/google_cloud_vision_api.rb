@@ -13,7 +13,7 @@ class GoogleCloudVisionApi
         },
         features: [
           { type: 'IMAGE_PROPERTIES', maxResults: 10 },
-          { type: 'LABEL_DETECTION', maxResults: 10 }
+          { type: 'LABEL_DETECTION', maxResults: 8 }
         ]
       }]
     }.to_json
