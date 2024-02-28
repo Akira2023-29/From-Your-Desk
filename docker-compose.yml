@@ -9,6 +9,7 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: postgres
+      SELENIUM_DRIVER_URL: http://chrome:4444/wd/hub
     # ホストの5432ポート番号をコンテナの5432ポート番号にマッピング
     ports:
       - 5432:5432
