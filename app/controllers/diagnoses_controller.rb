@@ -51,12 +51,8 @@ class DiagnosesController < ApplicationController
   # 画像診断・色情報抽出
   def process_image
     # アップロードされたファイルが一時的に保存されているtmpファイルにアクセスするパス。(外部のAPIに送信に使用されるパス)
-    uploaded_image = params[:diagnosis][:desk_image]
-    uploader = DeskImageUploader.new
-    uploader.cache!(uploaded_image)
-    resized_image_path = uploader.google_cloud.file.path
-
-    analyze_result = GoogleCloudVisionApi.analyze_image(resized_image_path) 
+    uploaded_image_path = params[:diagnosis][:desk_image].tempfile.path
+    analyze_result = GoogleCloudVisionApi.analyze_image(uploaded_image_path) 
     @diagnosis.color_info = analyze_result if analyze_result
   end
 
