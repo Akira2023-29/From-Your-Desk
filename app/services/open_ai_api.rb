@@ -4,7 +4,7 @@ class OpenAiApi
     @client.chat(
       parameters: {
         model: 'gpt-4',
-        max_tokens: 250,
+        max_tokens: 200,
         messages: [
           {
             role: 'system', content: 'You are a professional who diagnoses desk environments in terms of how color affects human desk work.'
@@ -14,7 +14,7 @@ class OpenAiApi
               "Please provide diagnostic results of your desk environment under the following conditions
 
                     # Conditions
-                    Output is always less than 250 tokens.
+                    Output is always less than 200 tokens.
                     No numerical RGB values are output(output with specific color names[red, blue, green, yellow, orange, purple, brown, white, black, gray, yellowish green, and light blue, etc]is acceptable).
                     Color dominance of the desk environment diagnosed: #{color_info}.
                     Select only one color to be incorporated from the #{Color.pluck(:name)} and surround it with 【 】 to output.
