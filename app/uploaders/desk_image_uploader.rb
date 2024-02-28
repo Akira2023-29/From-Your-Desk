@@ -33,9 +33,9 @@ class DeskImageUploader < CarrierWave::Uploader::Base
   end
 
   # 一覧画面用の画像バージョン
-  version :index do
-    process resize_to_fill: [500, 300]
-  end
+  # version :index do
+  #   process resize_to_fill: [500, 300]
+  # end
 
   # Google Cloud Vision API用の画像リサイズ
   version :google_cloud do
